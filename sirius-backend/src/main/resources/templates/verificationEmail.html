@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verification</title>
+    <style>
+        @font-face {
+            font-family: 'HattonMedium';
+            src: url('fonts/PPHatton-Medium.otf');
+        }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        @font-face {
+            font-family: "NeueMontreal-Bold";
+            src: url("fonts/PPNeueMontreal-Bold.otf");
+        }
+
+        h2 {
+            padding-bottom: 24px;
+            border-bottom: 3px solid #009b55;
+            margin-bottom: 24px;
+            color: #00342b;
+            font-size: 37px;
+            line-height: 39px;
+            font-family: "HattonMedium", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 500;
+        }
+
+        @media (min-width: 450px) {
+            h2 {
+                font-size: calc(1.4285714286vw + 30.5714285714px);
+                line-height: calc(1.6326530612vw + 31.6530612245px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            h2 {
+                font-size: 58px;
+                line-height: 63px;
+            }
+        }
+
+        .PrimaryButton_button {
+            max-width: fit-content;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            padding: 1.0625rem 1.5rem;
+            border: 0;
+            background: #00ad62;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color .3s linear;
+            color: #ffffff;
+        }
+
+        .PrimaryButton_button {
+            font-family: "NeueMontreal-Bold", sans-serif;
+            font-size: .875rem;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 700;
+            letter-spacing: .06125rem;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+        .PrimaryButton_text {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Please verify your email</h2>
+    <p>To complete your registration, please click the button below to verify your email address:</p>
+    <a th:href="${verificationUrl}" class="PrimaryButton_button">
+        <span class="PrimaryButton_text">Verify</span>
+        <span class="PrimaryButton_icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <g clip-path="url(#clip0_840_451)">
+                <path d="M20 10L15 15L15 5L20 10Z" fill="currentColor"></path>
+                <path d="M0 10L17 10" stroke="currentColor" stroke-width="2"></path>
+            </g>
+            <defs>
+                <clipPath id="clip0_840_451">
+                    <rect width="20" height="20" fill="white"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+    </span>
+    </a>
+</div>
+</body>
+</html>

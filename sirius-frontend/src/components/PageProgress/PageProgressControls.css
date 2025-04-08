@@ -1,0 +1,32 @@
+.PageProgressControls__wrapper {
+    display: flex;
+    height: calc(100% - 3px);
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+    .PageProgressControls__wrapper {
+        margin: 0;
+    }
+}
+
+.PageProgressControls__left {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.PageProgressControls__right {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+@media (min-width: 450px) {
+    .PageProgressControls__right {
+        width: unset;
+    }
+}

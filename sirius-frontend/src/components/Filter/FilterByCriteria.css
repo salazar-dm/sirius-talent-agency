@@ -1,0 +1,91 @@
+.FilterCriteria__filter-criteria {
+    background: #00342b;
+    max-width: 420px;
+}
+
+.FilterByCriteria__container {
+    display: flex;
+    width: 420px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: 1px solid #004035;
+}
+
+.FilterByCriteria__open-button-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #00342b;
+}
+
+.FilterByCriteria__open-button-container:hover {
+    background-color: #004035;
+}
+
+.FilterByCriteria__open-button {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+.FilterByCriteria__open-button-text {
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(1.3125rem, 1.2168367346938775rem + 0.3401360544217687vw, 1.625rem);
+    line-height: clamp(1.6875rem, 1.572704081632653rem + 0.4081632653061224vw, 2.0625rem);
+    font-weight: 500;
+}
+
+.FilterByCriteria__dropdown {
+    display: flex;
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.FilterByCriteria__dropdown--open {
+    max-height: 420px;
+    opacity: 1;
+}
+
+.FilterByCriteria__dropdown-item {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: flex-start;
+    color: white;
+}
+
+.FilterByCriteria__label {
+    min-width: 60px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: 140%;
+    font-weight: 500;
+}
+
+.FilterByCriteria__input {
+    max-width: 100px;
+    background: none;
+    color: white;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: 140%;
+    font-weight: 500;
+}

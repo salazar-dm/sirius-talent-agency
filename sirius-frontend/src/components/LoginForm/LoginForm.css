@@ -1,0 +1,36 @@
+.LoginForm__content-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginForm__input-tel, .LoginForm__input-password {
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.LoginForm__container {
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+    font-size: 28px;
+    color: #00342b;
+}
+
+@media (min-width: 1920px) {
+    .LoginForm__container {
+        font-size: 28px;
+    }
+}
+
+.LoginForm__container a {
+    color: #009b55;
+    text-decoration: underline;
+}
+
+.LoginForm__sign-up {
+    margin-bottom: 24px;
+}

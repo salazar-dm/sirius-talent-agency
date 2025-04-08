@@ -1,0 +1,55 @@
+.SignpostPromoText__container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SignpostPromoText__eyebrow {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+    .SignpostPromoText__eyebrow {
+        margin-bottom: 2rem;
+    }
+}
+
+
+.SignpostPromoText__title {
+    width: 60%;
+    margin-bottom: 2rem;
+    font-size: clamp(2.3125rem, 1.9107142857142858rem + 1.4285714285714286vw, 3.625rem);
+    line-height: clamp(2.4375rem, 1.9783163265306123rem + 1.6326530612244896vw, 3.9375rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+    .SignpostPromoText__title {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+}
+
+.SignpostPromoText__text {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.1875rem, 1.149234693877551rem + 0.13605442176870747vw, 1.3125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.SignpostPromoText__button-container {
+    display: flex;
+}

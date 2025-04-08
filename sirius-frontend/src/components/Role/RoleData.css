@@ -1,0 +1,54 @@
+.RoleData__container {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .RoleData__container {
+        margin-top: 5rem;
+    }
+}
+
+.RoleData__title {
+    margin-bottom: 1.5rem;
+    color: #00342b;
+    font-family: HattonMedium;
+    font-size: clamp(1.875rem, 1.6454081632653061rem + 0.8163265306122448vw, 2.625rem);
+    line-height: clamp(2.125rem, 1.8762755102040816rem + 0.8843537414965985vw, 2.9375rem);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+    .RoleData__title {
+        margin-bottom: 2.5rem;
+    }
+}
+
+.RoleData__list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.RoleData__label {
+    color: #00342b;
+    font-family: HattonMedium;
+    font-size: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+    width: 200px;
+}
+
+.RoleData__value {
+    color: #00884d;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}

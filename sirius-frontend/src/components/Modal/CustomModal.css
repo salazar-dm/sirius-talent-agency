@@ -1,0 +1,30 @@
+.CustomModal__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+    background: #ffffff;
+}
+
+.CustomModal__container--open {
+    transform: translateX(0);
+}
+
+.CustomModal__scrollable {
+    position: relative;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.CustomModal__button-container {
+    position: fixed;
+    height: 100vh;
+}
+
+.CustomModal__button-container button {
+    height: 100%;
+}

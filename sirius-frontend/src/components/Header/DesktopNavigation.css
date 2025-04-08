@@ -1,0 +1,201 @@
+.DesktopNavigation__content-wrapper {
+    display: grid;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 140px;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.DesktopNavigation__link-wrapper {
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+}
+
+.DesktopNavigation__list {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.DesktopNavigation__list-item {
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    color: inherit;
+    outline: none;
+    text-transform: none !important;
+    white-space: nowrap;
+}
+
+.DesktopNavigation__list-item--active {
+    color: #00ad62 !important;
+    text-decoration: none !important;
+}
+
+.DesktopNavigation__list-item-link {
+    margin: 0 .5rem;
+    display: flex;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none !important;
+    font-size: 16px;
+    line-height: 21.28px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+    color: #00342b;
+    transition: .4s;
+}
+
+.DesktopNavigation__list-item-link--open {
+    color: #fff;
+}
+
+.DesktopNavigation__list-item-link:hover {
+    color: #00ad62;
+    text-decoration: none;
+}
+
+@media (min-width: 1920px) {
+    .DesktopNavigation__list-item-link {
+        margin: 0 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .DesktopNavigation__list-item-link {
+        font-size: calc(.2232142857vw + 13.7142857143px);
+        line-height: calc(.4375vw + 16.8px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .DesktopNavigation__list-item-link {
+        font-size: 18px;
+        line-height: 25.2px;
+    }
+}
+
+.DesktopNavigation__list-item-link-caret {
+    position: relative;
+    margin-top: auto;
+    margin-right: 20px;
+    margin-bottom: auto;
+}
+
+.DesktopNavigation__list-item-link-caret:after {
+    position: absolute;
+    top: 50%;
+    right: -13px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid;
+    border-left-color: inherit;
+    content: "";
+    transform: translateY(-50%) rotate(90deg);
+}
+
+@media (min-width: 1920px) {
+    .DesktopNavigation__list-item-link-caret:after {
+        right: -20px;
+    }
+}
+
+.DesktopNavigation__list-item--active .DesktopNavigation__list-item-link-caret:after {
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.DesktopNavigation__account-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.DesktopNavigation__account-button--open .cls-1 {
+    stroke: #fff;
+}
+
+.DesktopNavigation__account-button-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cls-1 {
+    fill: none;
+    stroke: #00342b;
+    stroke-width: 1.75px;
+    transition: .4s;
+}
+
+.DesktopNavigation__account-button:hover .cls-1 {
+    stroke: #00ad62;
+}
+
+.DesktopNavigation__link-tracker {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    height: .5rem;
+    background-color: #00ad62;
+    transition: opacity 0.3s ease, left 0.3s ease, width 0.3s ease;
+    opacity: 0;
+    width: 0;
+}
+
+.DesktopNavigation__link-tracker-active-item {
+    transition: opacity 0.3s ease !important;
+}
+
+.DesktopNavigation__logo-wrapper {
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+.DesktopNavigation__logo-wrapper--active {
+    opacity: 1;
+}
+
+.DesktopNavigation__logo {
+    display: block;
+    width: auto;
+    height: 1rem;
+    opacity: 1;
+    pointer-events: auto;
+    transition: .5s ease-in-out;
+}
+
+.DesktopNavigation__logo svg {
+    width: auto;
+    height: 100%;
+    fill: #fff;
+}
+

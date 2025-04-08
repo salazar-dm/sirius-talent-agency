@@ -1,0 +1,64 @@
+.SignpostPromoAnimatedImage__wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .SignpostPromoAnimatedImage__wrapper {
+        margin-bottom: 4rem;
+    }
+}
+
+.SignpostPromoAnimatedImage__wipe {
+    position: relative;
+    overflow: hidden;
+}
+
+.SignpostPromoAnimatedImage__wipe-block {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 200%;
+    height: 100%;
+    transform: translateX(-100%);
+    background-color: #ff44c4;
+}
+
+.SignpostPromoAnimatedImage__image-container {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.SignpostPromoAnimatedImage__image {
+    max-width: 100%;
+    height: auto;
+    transition: .5s;
+}
+
+.SignpostPromoAnimatedImage__monogram-wrapper {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 4.25rem;
+    height: 4.25rem;
+    transform: translateY(50%);
+    color: #ff44c4;
+}
+
+@media (min-width: 1024px) {
+    .SignpostPromoAnimatedImage__monogram-wrapper {
+        width: auto;
+        height: auto;
+        transform: translate(-150%, 50%);
+    }
+}
+
+@media (min-width: 1920px) {
+    .SignpostPromoAnimatedImage__monogram-wrapper {
+        transform: translate(-200%, 50%);
+    }
+}

@@ -1,0 +1,23 @@
+export enum PerformerAttributesLabelMapping {
+    unionId = "Union ID",
+    socialInsuranceNumber = "SIN",
+    city = "City",
+    state = "Province",
+    postalCode = "Postal Code",
+    country = "Country",
+    selfDrive = "Self Drive",
+    gender = "Gender",
+    ethnicity = "Ethnicity",
+    hairColor = "Hair Color",
+    eyeColor = "Eye Color",
+    sizeHeight = "Height",
+    sizeWeight = "Weight",
+    sizeChest = "Chest Size",
+    sizeWaist = "Waist Size",
+    sizeHips = "Hip Size",
+    sizeShoe = "Shoe Size",
+    sizeInseam = "Inseam",
+    sizeSleeve = "Sleeve Size",
+    sizeNeck = "Neck Size",
+    sizeHat = "Hat Size"
+}

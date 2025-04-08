@@ -1,0 +1,49 @@
+.Role__container {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+    padding: 1.0625rem 1.5rem;
+    color: #fff;
+    background-color: #00884d;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2473469387755103rem + 0.29387755102040813vw, 1.6rem);
+    font-weight: 500;
+}
+
+.Role__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Role__name, .Role__max {
+    margin-right: .5rem;
+}
+
+.Role__name, .Role__max, .Role__delete-button {
+    position: relative;
+    z-index: 1;
+}
+
+.Role__delete-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+    align-items: center;
+}
+
+.Role__delete-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.Role__delete-button .cls-1 {
+    stroke: currentColor;
+}
+

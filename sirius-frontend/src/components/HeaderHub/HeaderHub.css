@@ -1,0 +1,111 @@
+.HeaderHub__header-hub {
+    overflow: hidden;
+    padding-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 450px) {
+    .HeaderHub__header-hub {
+        padding-top: 7.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .HeaderHub__header-hub {
+        padding-top: 160px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderHub__header-hub {
+        padding-top: 193px;
+    }
+}
+
+.HeaderHub__title {
+    margin-bottom: 24px;
+    color: #00342b;
+}
+
+@media (min-width: 450px) {
+    .HeaderHub__title {
+        margin-bottom: 4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .HeaderHub__title {
+        margin-bottom: 0;
+    }
+}
+
+.HeaderHub__title-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (min-width: 1024px) {
+    .HeaderHub__title-container {
+        margin-bottom: 2.5rem;
+    }
+}
+
+.HeaderHub__title {
+    font-size: 43px;
+    line-height: 45px;
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    .HeaderHub__title {
+        font-size: calc(3.125vw + 28.9375px);
+        line-height: calc(3.125vw + 30.9375px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .HeaderHub__title {
+        font-size: calc(1.2276785714vw + 56.4285714286px);
+        line-height: calc(3.125vw + 30.9375px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderHub__title {
+        font-size: 80px;
+        line-height: 83px;
+    }
+}
+
+.HeaderHub__text {
+    padding-top: 24px;
+    border-top: 3px solid #009b55;
+    color: #00342b;
+}
+
+@media (min-width: 450px) {
+    .HeaderHub__text {
+        padding-top: 2rem;
+    }
+}
+
+.HeaderHub__text {
+    font-size: 21px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+@media (min-width: 450px) {
+    .HeaderHub__text {
+        font-size: calc(.4761904762vw + 18.8571428571px);
+    }
+}
+
+.HeaderHub__header-hub .CategoryGrid__wrapper {
+    padding: 0;
+}

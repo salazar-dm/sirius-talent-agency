@@ -1,0 +1,94 @@
+.ScrollTracker__container {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .ScrollTracker__container--hide-mobile {
+        display: none;
+    }
+}
+
+.ScrollTracker__scroll-tracker {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 427px;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-name: ScrollTracker_reveal;
+    background-color: #009b54;
+    transform: scaleX(0) scaleY(1);
+    transform-origin: bottom left;
+    width: 60px;
+}
+
+@media (min-width: 1024px) {
+    .ScrollTracker__scroll-tracker {
+        height: calc(100vh - (740px + 3.5rem + 4.6875rem) + 740px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .ScrollTracker__scroll-tracker {
+        height: calc(100vh - (968px + 3.5rem + 4.6875rem) + 968px);
+    }
+}
+
+@keyframes ScrollTracker_reveal {
+    0% {
+        transform: scaleX(0) scaleY(1);
+    }
+    50% {
+        transform: scaleX(1) scaleY(1);
+    }
+    100% {
+        transform: scaleX(1) scaleY(.4);
+    }
+}
+
+.ScrollTracker__scroll-tracker-inner-bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    background: #00342b;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    width: 60px;
+    height: 60px;
+}
+
+.ScrollTracker__scroll-tracker-arrow {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    overflow: hidden;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+@keyframes ScrollTracker_arrow {
+    0% {
+        transform: translateY(-200%);
+    }
+    25% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+.ScrollTracker__scroll-tracker-arrow svg {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: ScrollTracker_arrow;
+}

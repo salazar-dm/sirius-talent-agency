@@ -1,0 +1,30 @@
+.MobileCarousel__container {
+    display: flex;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-snap-type: x unset;
+    padding: 0 20px;
+}
+
+.MobileCarousel__item {
+    width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    margin: 0 .3125rem 2.5rem;
+}
+
+.MobileCarousel__image-container {
+    position: relative;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.MobileCarousel__image {
+    max-width: 100%;
+    height: auto;
+    max-height: 600px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    transition: all 0.5s ease 0s;
+}

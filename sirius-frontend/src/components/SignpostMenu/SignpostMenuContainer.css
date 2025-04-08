@@ -1,0 +1,14 @@
+.SignpostMenuContainer__container {
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: #00342b;
+    color: #fff;
+}
+
+@media (min-width: 1024px) {
+    .SignpostMenuContainer__container {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}

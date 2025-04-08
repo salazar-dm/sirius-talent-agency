@@ -1,0 +1,43 @@
+.Uplink__uplink {
+    display: flex;
+    align-items: center;
+    color: #00342b;
+    margin-bottom: 48px;
+}
+
+@media (min-width: 450px) {
+    .Uplink__uplink {
+        margin-bottom: calc(12.543554007vw - 8.4459930314px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .Uplink__uplink {
+        margin-bottom: 120px;
+    }
+}
+
+.Uplink__icon {
+    position: absolute;
+    color: inherit;
+}
+
+.Uplink__uplink button {
+    border: none;
+    background-color: transparent;
+}
+
+.Uplink__uplink a, .Uplink__uplink button {
+    position: relative;
+    display: block;
+    padding-left: 31px;
+    color: inherit;
+    text-decoration: none;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
+    font-family: MontrealRegular, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}

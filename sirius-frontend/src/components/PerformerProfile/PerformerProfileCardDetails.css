@@ -1,0 +1,62 @@
+.PerformerProfileCardDetails__container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    color: #fff;
+    gap: 15px;
+}
+
+
+@media (min-width: 1024px) {
+    .PerformerProfileCardDetails__container {
+        width: 100%;
+    }
+}
+
+.PerformerProfileCardDetails__full-name {
+    font-size: clamp(2.0625rem, 1.7372448979591837rem + 1.1564625850340136vw, 3.125rem);
+    line-height: clamp(2.25rem, 1.8482142857142858rem + 1.4285714285714286vw, 3.5625rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.PerformerProfileCardDetails__union-status {
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    color: #00ad62;
+    text-transform: uppercase;
+}
+
+.PerformerProfileCardDetails__row-details-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 45px;
+    gap: 24px;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.PerformerProfileCardDetails__row-details {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.PerformerProfileCardDetails__label {
+    min-width: 100px;
+    color: #cce5e1;
+}
+
+.PerformerProfileCardDetails__value {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #0c594c;
+}
+

@@ -1,0 +1,205 @@
+.HeaderBanner__content-wrapper {
+    padding-bottom: 2.5rem;
+    margin-top: 4.6875rem;
+    color: #00342b;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__content-wrapper {
+        margin-top: calc(3.5rem + 4.6875rem);
+    }
+}
+
+.HeaderBanner__image {
+    width: 100%;
+    height: 427px;
+    object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__image {
+        height: 740px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderBanner__image {
+        height: 968px;
+    }
+}
+
+.HeaderBanner__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: normal;
+    justify-content: flex-end;
+}
+
+.Grid_grid__custom-cols {
+    grid-template-columns: repeat(5, 1fr) !important;
+}
+
+@media (min-width: 1024px) {
+    .Grid_grid__custom-cols {
+        grid-template-columns: repeat(10, 1fr) !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .Grid_grid__custom-cols {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+}
+
+.HeaderBanner__eyebrow {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 13px;
+    letter-spacing: .91px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+@media (min-width: 450px) {
+    .HeaderBanner__eyebrow {
+        font-size: calc(.0680272109vw + 12.693877551px);
+        letter-spacing: calc(.0047619048vw + .8885714286px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__eyebrow {
+        margin-top: 3.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderBanner__eyebrow {
+        font-size: 14px;
+        letter-spacing: .98px;
+    }
+}
+
+.HeaderBanner__title {
+    font-size: 43px;
+    line-height: 45px;
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    .HeaderBanner__title {
+        font-size: calc(3.125vw + 28.9375px);
+        line-height: calc(3.125vw + 30.9375px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__title {
+        font-size: calc(1.2276785714vw + 56.4285714286px);
+        line-height: calc(1.2276785714vw + 59.4285714286px);
+        margin-bottom: 4rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderBanner__title {
+        font-size: 80px;
+        line-height: 83px;
+    }
+}
+
+.HeaderBanner__content-col-2 {
+    padding-top: 1rem;
+    border-top: 3px solid #009b55;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__content-col-2 {
+        padding-top: 2rem;
+        margin-top: 3.5rem;
+    }
+}
+
+.HeaderBanner__description {
+    font-size: 16px;
+    line-height: 21.28px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__description {
+        font-size: calc(.2232142857vw + 13.7142857143px);
+        line-height: calc(.4375vw + 16.8px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .HeaderBanner__description {
+        font-size: 18px;
+        line-height: 25.2px;
+    }
+}
+
+.HeaderBanner__button-container {
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.HeaderBanner__grid-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.HeaderBanner__wipe-animation {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transition: all 2s ease-out;
+    transform: translateX(0%);
+    background: #00884d;
+    transform-origin: right;
+}
+
+.HeaderBanner__content-col-1 .HeaderBanner__eyebrow {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-name: HeaderBanner_heading-reveal;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__content-col-1 .HeaderBanner__eyebrow {
+        animation-delay: .3s;
+    }
+}
+
+.HeaderBanner__content-col-1 .HeaderBanner__title {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-name: HeaderBanner_heading-reveal;
+}
+
+@media (min-width: 1024px) {
+    .HeaderBanner__content-col-1 .HeaderBanner__title {
+        animation-delay: .5s;
+    }
+}
+
+@keyframes HeaderBanner_heading-reveal {
+    0% {
+        transform: translateX(-20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

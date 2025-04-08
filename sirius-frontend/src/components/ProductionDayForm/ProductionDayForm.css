@@ -1,0 +1,39 @@
+:root {
+    --form-grid-column-gap: 100px;
+}
+
+.ProductionDayForm__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem var(--form-grid-column-gap);
+    flex-wrap: wrap;
+}
+
+.ProductionDayForm__form .half-width {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .ProductionDayForm__form .half-width {
+        width: calc(50% - var(--form-grid-column-gap) / 2);
+    }
+}
+
+.ProductionDayForm__form p {
+    margin-bottom: 50px;
+}
+
+.ProductionDayForm__form label {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #00342B;
+}
+
+.FormMessage__message-container {
+    height: auto;
+    min-height: 25px;
+}
+
+

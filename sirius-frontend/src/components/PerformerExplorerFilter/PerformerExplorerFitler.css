@@ -1,0 +1,60 @@
+.PerformerExplorerFilter__container {
+    position: relative;
+    width: 420px;
+}
+
+.PerformerExplorerFilter__open-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #00884d;
+    color: #00342b;
+}
+
+.PerformerExplorerFilter__open-button {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: none;
+    color: #00342b;
+    cursor: pointer;
+}
+
+.PerformerExplorerFilter__open-button-text {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.PerformerExplorerFilter__dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+    max-height: 0;
+    transition: .3s ease-in-out;
+    background: #00342b;
+}
+
+.PerformerExplorerFilter__dropdown--open {
+    max-height: 600px;
+}
+
+.PerformerExplorerFilter__criteria-scrollable {
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+.PerformerExplorerFilter__criteria-scrollable::-webkit-scrollbar {
+    display: none;
+}

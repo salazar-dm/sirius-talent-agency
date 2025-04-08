@@ -1,0 +1,39 @@
+.SecondaryButton__secondary-button {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    overflow: hidden;
+    align-items: center;
+    padding: 1.0625rem 1.5rem;
+    border: 0;
+    background: #00884d;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color .3s linear;
+    color: #ffffff;
+    font-family: MontrealRegular, sans-serif;
+    font-size: .875rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    letter-spacing: .06125rem;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.SecondaryButton__icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin-left: 1rem;
+    flex-grow: 0;
+}
+
+.SecondaryButton__icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.SecondaryButton__icon svg .cls-1 {
+    stroke: #ffffff;
+}

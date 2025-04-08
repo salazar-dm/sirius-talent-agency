@@ -1,0 +1,44 @@
+.ModeSelector__mode-selector {
+    display: block;
+    width: 100%;
+}
+
+.ModeSelector__container {
+    display: flex;
+    width: 100%;
+    gap: 20px 20%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+    .ModeSelector__container {
+        flex-direction: row;
+    }
+}
+
+.ModeSelector__item {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    color: #00342b;
+    padding: 1.5rem 0;
+}
+
+.ModeSelector__title {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .ModeSelector__title {
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .ModeSelector__title {
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,38 @@
+.PerformerProfileDetails__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.PerformerProfileDetails__inline-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.PerformerProfileDetails__label {
+    margin-bottom: 1rem;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 1000;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.PerformerProfileDetails__value {
+    position: relative;
+    flex-basis: calc(100% - 1rem - 13px);
+    margin-bottom: 3.5rem;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}

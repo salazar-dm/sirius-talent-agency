@@ -1,0 +1,43 @@
+.Modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 98%, .8);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.Modal__content-wrapper {
+    background-color: white;
+    padding: 48px;
+    max-width: 600px;
+    width: 90%;
+    border: #00342b 1px solid;
+    pointer-events: auto;
+}
+
+.Modal__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal__title {
+    padding-bottom: 24px;
+}
+
+.Modal__message {
+    color: #00342b;
+    font-family: PPNeueMontrealAOS, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 140%;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}

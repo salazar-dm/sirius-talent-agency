@@ -1,0 +1,41 @@
+.PerformerExplorerHeader__stats {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.PerformerExplorerHeaderStats__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #00342b;
+}
+
+.PerformerExplorerHeaderStats__list-item {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffffff;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.PerformerExplorerHeaderStats__list-item-title {
+    min-width: 100px;
+    color: #cce5e1;
+}
+
+.PerformerExplorerHeaderStats__list-item-value {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #0c594c;
+}

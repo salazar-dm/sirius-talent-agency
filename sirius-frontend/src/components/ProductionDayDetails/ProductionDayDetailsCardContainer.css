@@ -1,0 +1,30 @@
+.ProductionDayDetailsCardContainer__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin: 3rem 0;
+}
+
+@media (min-width: 450px) {
+    .ProductionDayDetailsCardContainer__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ProductionDayDetailsCardContainer__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1920px) {
+    .ProductionDayDetailsCardContainer__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.ProductionDayDetailsCardContainer__scrollable {
+    max-height: 800px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

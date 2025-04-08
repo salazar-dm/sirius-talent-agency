@@ -1,0 +1,12 @@
+export const SiriusTalentAccount = () => {
+
+    return (
+        <>
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+                <circle className="cls-1" cx="10" cy="6.08" r="4.69"/>
+                <path className="cls-1" d="M1.4,19.37l.3-1.68c.74-4,4.23-6.9,8.3-6.9h0c4.07,0,7.56,2.91,8.3,6.92l.3,1.68"/>
+            </svg>
+
+        </>
+    )
+}

@@ -1,0 +1,12 @@
+.PerformerExplorerPerformerList__container {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), calc(100% / var(--columns)));
+    gap: 1rem;
+}
+
+.PerformerExplorerPerformerList__scrollable {
+    max-height: 800px;
+    height: 800px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

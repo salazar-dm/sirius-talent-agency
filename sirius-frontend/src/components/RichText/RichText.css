@@ -1,0 +1,101 @@
+.RichText__container {
+    width: 100%;
+    color: #00342b;
+}
+
+.RichText__container h2 {
+    margin-bottom: 1rem;
+}
+
+.RichText__container h2:not(:last-child) {
+    padding-top: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+    .RichText__container h2:not(:last-child) {
+        padding-top: 2rem;
+        margin-bottom: 1.25rem;
+    }
+}
+
+.RichText__container h2 {
+    font-size: 30px;
+    line-height: 34px;
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    .RichText__container h2 {
+        font-size: calc(1.3020833333vw + 24.140625px);
+        line-height: calc(1.3020833333vw + 28.140625px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .RichText__container h2 {
+        font-size: calc(.3348214286vw + 35.5714285714px);
+        line-height: calc(.3348214286vw + 40.5714285714px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .RichText__container h2 {
+        font-size: 42px;
+        line-height: 47px;
+    }
+}
+
+.RichText__container p, .RichText__container li:not(:last-child), .RichText__container ul {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .RichText__container p, .RichText__container li:not(:last-child), .RichText__container ul {
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .RichText__container p, .RichText__container li:not(:last-child), .RichText__container ul {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.RichText__container p, .RichText__container li {
+    font-size: 19px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+@media (min-width: 450px) {
+    .RichText__container p, .RichText__container li {
+        font-size: calc(.1360544218vw + 18.387755102px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .RichText__container p, .RichText__container li {
+        font-size: 21px;
+    }
+}
+
+.RichText__container ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.RichText__container li {
+    padding-left: 1rem;
+}
+
+.RichText__container li::marker {
+    color: #009b54;
+}
+
+.RichText__container a {
+    color: #009b54;
+}

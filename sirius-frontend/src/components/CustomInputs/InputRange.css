@@ -1,0 +1,56 @@
+:root {
+    --input-dual-slider-height: 20px;
+}
+
+.InputDualSlider__container {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    height: 5rem;
+    padding: 1rem;
+    background: #00342b;
+    z-index: 1;
+}
+
+.example-track {
+    top: 37.5px;
+    height: 5px;
+}
+
+.example-track.example-track-0 {
+    background: #00342b;
+}
+
+.example-track.example-track-1 {
+    background: #00ad62;
+}
+
+.example-thumb {
+    top: 30px;
+    width: var(--input-dual-slider-height);
+    height: var(--input-dual-slider-height);
+    line-height: 20px;
+    background: #00342b;
+    cursor: grab;
+    border-radius: 50%;
+    color: white;
+    border: #00ad62 3px solid;
+}
+
+.InputDualSlider__label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #ffffff;
+    white-space: nowrap;
+    padding: 2px 5px;
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: 140%;
+    font-weight: 500;
+}

@@ -1,0 +1,6 @@
+.Filter__dropdown-scrollable {
+    max-height: 420px;
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

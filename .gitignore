@@ -1,0 +1,35 @@
+# ===================
+# SYSTEM FILES
+# ===================
+.DS_Store
+Thumbs.db
+
+# ===================
+# IDEs
+# ===================
+.idea/
+*.iml
+
+# ===================
+# NODE / FRONTEND
+# ===================
+node_modules/
+build/
+dist/
+.env
+
+# ===================
+# JAVA / SPRING BOOT
+# ===================
+target/
+*.class
+*.log
+*.jar
+
+# ===================
+# OS-GENERATED
+# ===================
+*.swp
+*.bak
+*.tmp
+".env" 

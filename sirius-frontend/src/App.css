@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'HattonRegular';
+    src: url('hatton-regular.otf');
+}
+
+@font-face {
+    font-family: MontrealRegular;
+    src: url("./NeueMontreal-Regular.otf");
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: bottom;
+    color: #00342b;
+    line-height: 1;
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, summary, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: bottom;
+}
+
+h1 {
+    font-size: 43px;
+    line-height: 45px;
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    h1 {
+        line-height: calc(3.125vw + 30.9375px);
+        font-size: calc(3.125vw + 28.9375px);
+    }
+}
+
+@media (min-width: 1920px) {
+    h1 {
+        line-height: 83px;
+        font-size: 80px;
+    }
+}
+
+h2 {
+    color: #00342b;
+    font-size: 43px;
+    line-height: 45px;
+    font-family: "HattonMedium", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+h4 {
+    color: #00342b;
+    font-family: HattonMedium;
+    font-size: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+
+form {
+    --input-padding: 14px;
+    --half-size-margin: 12px;
+}
+
+input {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #009B55;
+    padding: var(--input-padding);
+    border: none;
+    border-bottom: 3px solid #009B55;
+}
+
+.invalid {
+    border: 1px solid #b23427 !important;
+    color: #b23427 !important;
+}
+
+form label, form .FormGuide__container {
+    display: block;
+    padding-bottom: 10px;
+}
+
+form p {
+    width: 100%;
+    margin-bottom: 50px;
+    font-family: PPNeueMontrealAOS, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #00342B;
+}
+
+form .half-width {
+    width: calc(50% - var(--half-size-margin));
+}
+
+form .half-size-margin-right {
+    margin-right: var(--half-size-margin);
+}
+
+form .half-size-margin-left {
+    margin-left: var(--half-size-margin);
+}
+
+select {
+    border: none;
+    border-bottom: 3px solid #009B55;
+    font-family: PPNeueMontrealAOS, Arial, sans-serif;
+    font-size: 18px;
+    color: #00342B;
+    padding: 14px 14px 13px 14px;
+    width: 100%;
+}
+
+.highlight {
+    color: #009B55 !important;
+}
+
+.Grid_grid__container__margin {
+    margin: 0 20px;
+}
+
+@media (min-width: 1024px) {
+    .Grid_grid__container__margin {
+        margin: 0 60px;
+    }
+}
+
+.Grid_grid__container {
+    display: grid;
+    grid-gap: 0 17px;
+    grid-template-columns: repeat(8, 1fr);
+    height: auto;
+}
+
+@media (min-width: 1024px) {
+    .Grid_grid__container {
+        grid-gap: 24px;
+        grid-template-columns: repeat(16, 1fr);
+    }
+}
+
+.Grid_grid__item {
+    grid-column: var(--sm-start) / var(--sm-end);
+}
+
+@media (min-width: 450px) {
+    .Grid_grid__item {
+        grid-column: var(--md-start) / var(--md-end);
+    }
+}
+
+@media (min-width: 1024px) {
+    .Grid_grid__item {
+        grid-column: var(--lg-start) / var(--lg-end);
+    }
+}
+
+@media (min-width: 1920px) {
+    .Grid_grid__item {
+        grid-column: var(--xl-start) / var(--xl-end);
+    }
+}
+
+.Grid_grid__bleed-direction-right {
+    margin-right: -60px;
+}
+
+.Grid_grid__full-height {
+    height: 100%;
+}
+
+:focus-visible {
+    outline: none;
+}
+

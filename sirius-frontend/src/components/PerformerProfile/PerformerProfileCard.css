@@ -1,0 +1,46 @@
+.PerformerProfileCard__container {
+    position: relative;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-bottom: 3rem;
+}
+
+.PerformerProfileCard__container--sticky {
+    position: sticky;
+    top: 3.5rem;
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    background-color: #00342b;
+}
+
+.CustomModal__container .PerformerProfileCard__container--sticky {
+    position: unset;
+}
+
+.PerformerProfileCard__image-container {
+    width: 100%;
+}
+
+.PerformerProfileCard__image-container img {
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 450px) {
+    .PerformerProfileCard__image-container img {
+        height: 281px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .PerformerProfileCard__image-container img {
+        height: 315px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .PerformerProfileCard__image-container img {
+        height: 428px;
+    }
+}

@@ -1,0 +1,19 @@
+
+
+.PaymentDetail__payment-summary-container {
+    margin-bottom: 24px;
+}
+
+.PaymentDetail__payment-summary-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.PaymentDetail__payment-summary-item {
+    color: #00342b;
+    font-family: PPNeueMontrealAOS, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 140%;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}

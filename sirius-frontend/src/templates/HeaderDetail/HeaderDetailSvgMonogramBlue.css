@@ -1,0 +1,19 @@
+#SiriusMonogram__blue .cls-1, #SiriusMonogram__blue .cls-2 {
+    stroke: #086bec;
+    stroke-miterlimit: 10;
+    stroke-width: .5px;
+    fill: none;
+}
+
+#SiriusMonogram__blue .filled {
+    fill: none;
+}
+
+.SiriusMonogram__blue__overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}

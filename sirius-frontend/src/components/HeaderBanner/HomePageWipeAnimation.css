@@ -1,0 +1,14 @@
+.WipeAnimation__wipe-animation {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transition: all 2s ease-out;
+    transform: translateX(0%);
+    background: #00884d;
+    transform-origin: right;
+}
+
+.WipeAnimation__wipe-animation--active {
+    transform: translateX(100%);
+}

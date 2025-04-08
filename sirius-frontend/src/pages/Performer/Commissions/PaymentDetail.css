@@ -1,0 +1,59 @@
+.PaymentDetail__field {
+    display: inline-block;
+}
+
+.PaymentDetail__field-amount, .PaymentDetail__field-rate {
+    display: inline-block;
+    max-width: calc(50% - 12px);
+}
+
+.PaymentDetail__field-amount {
+    margin-right: 12px;
+}
+
+.PaymentDetail__field-rate {
+    margin-left: 12px;
+}
+
+.PaymentDetail__title {
+    padding-bottom: 24px;
+    border-bottom: 3px solid #009b55;
+    margin-bottom: 24px;
+    color: #00342b;
+    font-size: 43px;
+    line-height: 45px;
+    font-family: "HattonMedium", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.PaymentDetail__card-element-wrapper {
+    padding-bottom: 24px;
+    border-bottom: 3px solid #009b55;
+    margin-bottom: 48px;
+}
+
+.rmdp-container {
+    width: 100% !important;
+}
+
+.rmdp-input {
+    width: 100% !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 18px !important;
+    color: #009B55 !important;
+    padding: var(--input-padding) !important;
+    border: none !important;
+    border-bottom: 3px solid #009B55 !important;
+    border-radius: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+.rmdp-input:focus {
+    box-shadow: none !important;
+}
+
+.rmdp-panel-body li .b-deselect {
+    background: #ffffff !important;
+}

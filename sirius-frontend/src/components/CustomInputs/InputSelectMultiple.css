@@ -1,0 +1,41 @@
+.InputSelect__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.InputSelect__option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #004035;
+    background-color: #00342b;
+    cursor: pointer;
+}
+
+.InputSelect__option:hover {
+    background-color: #004035;
+}
+
+.InputSelect__checkbox {
+    display: flex;
+    width: 1.5rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border: 2px solid #009b55;
+    border-radius: 3px;
+    margin-right: 1rem;
+    color: #fff;
+}
+
+.InputSelect__option-text {
+    color: white;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}

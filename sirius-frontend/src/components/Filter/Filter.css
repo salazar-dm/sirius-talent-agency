@@ -1,0 +1,57 @@
+.Filter__wrapper {
+    display: none;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .Filter__wrapper {
+        display: flex;
+    }
+}
+
+.Filter__filter {
+    position: relative;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.Filter__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #00884d;
+    color: #00342b;
+    cursor: pointer;
+}
+
+.Filter__placeholder {
+    outline: none;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+}
+
+.Filter__dropdown {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    max-height: 0;
+    background-color: #002620;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    opacity: 0;
+    transition: max-height .3s ease, opacity .3s ease;
+}
+
+.Filter__dropdown--open {
+    max-height: 500px;
+    opacity: 1;
+}

@@ -1,0 +1,73 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, summary, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: bottom;
+}
+
+.ElevatorText__wrapper {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    color: #00342b;
+}
+
+
+.ElevatorText__eyebrow {
+    /*large*/
+    margin-bottom: 2rem;
+    /*x-large*/
+    letter-spacing: .98px;
+    font-size: 14px;
+    /**/
+    font-family: "NeueMontreal-Medium", "sans-serif";
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.ElevatorText__wrapper .ElevatorText__container {
+    display: block
+}
+
+.ElevatorText__wrapper .ElevatorText__container .ElevatorText__text {
+    font-size: 37px;
+    line-height: 39px;
+    font-family: 'HattonMedium', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    .ElevatorText__wrapper .ElevatorText__container .ElevatorText__text {
+        font-size: calc(1.4285714286vw + 30.5714285714px);
+        line-height: calc(1.6326530612vw + 31.6530612245px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .ElevatorText__wrapper .ElevatorText__container .ElevatorText__text {
+        font-size: 58px;
+        line-height: 63px;
+    }
+}
+
+.ElevatorText__wrapper .ElevatorText__container .ElevatorText__text {
+    background: linear-gradient(90deg, #00342b 50%, #cce5e1 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-position-x: 100%;
+    background-size: 200% 100%;
+    color: transparent;
+}
+
+.ElevatorText__cta-container {
+    display: flex;
+    margin-top: 3.5rem;
+}
+
+
+
+

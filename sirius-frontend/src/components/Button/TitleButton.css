@@ -1,0 +1,84 @@
+.TitleButton__title-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: color .4s;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.TitleButton__title-button:hover {
+    color: #009b54;
+}
+
+.TitleButton__title {
+    font-size: 33px;
+    line-height: 36px;
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 450px) {
+    .TitleButton__title {
+        font-size: calc(1.5625vw + 25.96875px);
+        line-height: calc(1.8229166667vw + 27.796875px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .TitleButton__title {
+        font-size: calc(.5580357143vw + 39.2857142857px);
+        line-height: calc(.6696428571vw + 42.1428571429px)
+    }
+}
+
+@media (min-width: 1920px) {
+    .TitleButton__title {
+        font-size: 50px;
+        line-height: 55px;
+    }
+}
+
+.TitleButton__icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    overflow: hidden;
+    margin-left: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .TitleButton__icon {
+        margin-left: 1.5rem;
+    }
+}
+
+.TitleButton__icon-slide {
+
+    position: absolute;
+    display: flex;
+    transform: translateX(-50%);
+    transition: left .5s ease-out;
+    left: 0;
+}
+
+.TitleButton__icon svg {
+    margin-right: .9375rem;
+    transition: transform .5s ease-out;
+}
+
+.TitleButton__icon, .TitleButton__icon svg {
+    width: clamp(1.25rem, 0.8673469387755102rem + 1.3605442176870748vw, 2.5rem);
+    height: clamp(1.25rem, 0.8673469387755102rem + 1.3605442176870748vw, 2.5rem);
+}
+
+.TitleButton__title-button:hover svg {
+    transform: translateX(calc(100% + .9375rem));
+}

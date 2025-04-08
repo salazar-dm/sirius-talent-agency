@@ -1,0 +1,117 @@
+.ResultsListCarouselControls__container {
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.ResultsListCarouselControls__primary-controls {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 1024px) {
+    .ResultsListCarouselControls__primary-controls {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.ResultsListCarouselControls__next, .ResultsListCarouselControls__previous {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 62px;
+    height: 62px;
+    border: 2px solid transparent;
+    margin-top: auto;
+    margin-bottom: auto;
+    appearance: none;
+    background: #00884d;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+@media (min-width: 1024px) {
+    .ResultsListCarouselControls__next {
+        transform: translateX(70%);
+    }
+
+    .ResultsListCarouselControls__previous {
+        transform: translateX(-70%);
+    }
+}
+
+.ResultsListCarouselControls__previous-icon {
+    display: block;
+    transform: rotate(180deg) translateY(3px);
+}
+
+.ResultsListCarouselControls__secondary-controls {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    transform: translateY(50px);
+}
+
+.ResultsListCarouselControls__duration {
+    display: flex;
+    width: 100%;
+}
+
+.ResultsListCarouselControls__duration-dash {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #cce5e1;
+}
+
+.ResultsListCarouselControls__duration-dash:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.ResultsListCarouselControls__duration-dash::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #00884d;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.ResultsListCarouselControls__duration-dash--active::before {
+    animation-delay: 0s;
+    animation-duration: 7.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-name: ResultsListCarousel_duration;
+}
+
+@keyframes ResultsListCarousel_duration {
+    0% {
+    opacity: 1;
+    transform: scaleX(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleX(1);
+    }
+}

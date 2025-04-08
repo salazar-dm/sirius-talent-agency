@@ -1,0 +1,11 @@
+.Divider__divider {
+    width: 100%;
+    border-bottom: 3px solid #009b55;
+    margin: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+    .Divider__divider {
+        margin: 5rem 0;
+    }
+}

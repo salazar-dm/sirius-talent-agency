@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'HattonMedium';
+    src: url('fonts/PPHatton-Medium.otf');
+}
+
+.VerificationRequest__verification-request {
+    padding-top: 24rem;
+    padding-bottom: 24rem;
+}
+
+.VerificationRequest__title {
+    font-size: 43px;
+    line-height: 45px;
+    font-family: "HattonMedium", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.VerificationRequest__title {
+    margin-bottom: 24px;
+    color: #00342b;
+}
+
+@media (min-width: 450px) {
+    .VerificationRequest__title {
+        font-size: calc(2.5170068027vw + 31.6734693878px);
+        line-height: calc(2.5850340136vw + 33.3673469388px);
+        margin-bottom: 4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .VerificationRequest__title {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1920px) {
+    .VerificationRequest__title {
+        font-size: 80px;
+        line-height: 83px;
+    }
+}
+
+.VerificationRequest__body {
+    font-size: 21px;
+    font-family: "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.VerificationRequest__body {
+    padding-top: 24px;
+    border-top: 3px solid #009b55;
+    color: #00342b;
+}
+
+@media (min-width: 450px) {
+    .VerificationRequest__body {
+        padding-top: 2rem;
+        font-size: calc(.4761904762vw + 18.8571428571px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .VerificationRequest__body {
+        font-size: 28px;
+    }
+}

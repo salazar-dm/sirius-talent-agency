@@ -1,0 +1,27 @@
+.ProductionListNavigation__container {
+    padding-bottom: 54px;
+    margin-bottom: 36px;
+}
+
+@media (min-width: 1024px) {
+    .ProductionListNavigation__container {
+        margin-bottom: 60px;
+    }
+}
+
+.ProductionListNavigation__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.ProductionListNavigation__title {
+    margin-bottom: 36px;
+    color: #00342b;
+    font-size: clamp(2.3125rem, 1.9107142857142858rem + 1.4285714285714286vw, 3.625rem);
+    line-height: clamp(2.4375rem, 1.9974489795918369rem + 1.5646258503401358vw, 3.875rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}

@@ -1,0 +1,13 @@
+import React from "react";
+
+const CloseModal: React.FC = () => {
+    return (
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+            <rect className="cls-1" fill="currentColor" x="-3.5" y="9.5" width="27" height="1" transform="translate(-4.14 10) rotate(-45)"/>
+            <rect className="cls-1" fill="currentColor" x="-3.5" y="9.5" width="27" height="1"
+                  transform="translate(10 24.14) rotate(-135)"/>
+        </svg>
+    );
+}
+
+export default CloseModal

@@ -1,0 +1,33 @@
+.PageProgressContainer__page-progress-container {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8.25rem;
+    margin-bottom: 3.75rem;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+    transform: translateY(-100%);
+}
+
+.PageProgressContainer__page-progress-container--open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.PageProgressContainer__grid-container {
+    height: 100%;
+}
+
+.PageProgressContainer__grid-item {
+    position: relative;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-color: #fff;
+}

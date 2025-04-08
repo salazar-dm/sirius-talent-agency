@@ -1,0 +1,23 @@
+.FormDatePicker__dates-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.FormDatePicker__row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+.FormDatePicker__dates-container .rmdp-input {
+    width: 100% !important;
+    font-family: Arial, sans-serif !important;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem) !important;
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem) !important;
+    font-weight: 500 !important;
+    color: #009b54 !important;
+    padding: 14px !important;
+    border: none !important;
+    border-bottom: 3px solid #009B54 !important;
+}

@@ -1,0 +1,86 @@
+.PerformerCard__container {
+    display: inline-block;
+    width: 100%;
+}
+
+.PerformerCard__image-container {
+    cursor: pointer;
+}
+
+.PerformerCard__image {
+    width: 100%;
+    height: auto;
+}
+
+.PerformerCard__details-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 1rem 2rem;
+    flex-direction: column;
+    gap: 0;
+    background: #00342b;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.PerformerCard__details-container--selected {
+    background: #009b55;
+}
+
+.PerformerCard__row-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.PerformerCard__row-details {
+    display: flex;
+    flex-direction: row;
+
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.PerformerCard__label {
+    min-width: 100px;
+    color: #cce5e1;
+}
+
+.PerformerCard__value {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #0c594c;
+    transition: all 0.3s;
+}
+
+.PerformerCard__details-container--selected .PerformerCard__value {
+    border-bottom: 2px solid #00e383;
+}
+
+.PerformerCard__modal-button {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.PerformerCard__modal-text {
+    display: block;
+    padding-left: .75rem;
+    color: #ddf1ee;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+
+}

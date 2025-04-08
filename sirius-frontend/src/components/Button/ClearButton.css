@@ -1,0 +1,27 @@
+.ClearButton__button {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: #00ad62;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.ClearButton__button:hover {
+    color: #00884d;
+}
+
+.ClearButton__text {
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    line-height: 140%;
+    font-weight: 700;
+    text-transform: uppercase;
+}

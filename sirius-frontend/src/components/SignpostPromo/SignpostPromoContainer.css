@@ -1,0 +1,15 @@
+.SignpostPromoContainer__container {
+    padding: 3.5rem 0;
+}
+
+@media (min-width: 1024px) {
+    .SignpostPromoContainer__container {
+        padding: 5rem 0;
+    }
+}
+
+@media (min-width: 1920px) {
+    .SignpostPromoContainer__container {
+        padding: 7.5rem 0;
+    }
+}

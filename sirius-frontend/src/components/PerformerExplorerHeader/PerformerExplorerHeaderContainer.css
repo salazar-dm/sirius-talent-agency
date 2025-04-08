@@ -1,0 +1,8 @@
+.PerformerExplorerHeaderContainer__performer-explorer-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}

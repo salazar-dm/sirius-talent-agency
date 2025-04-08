@@ -1,0 +1,33 @@
+export type PerformerProfileType = {
+    keyName: string;
+    firstName: string;
+    lastName: string;
+    unionStatus: string;
+    unionId: string;
+    dateOfBirth: string;
+    socialInsuranceNumber: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+    selfDrive: boolean;
+    gender: string;
+    ethnicity: string;
+    hairColor: string;
+    eyeColor: string;
+    sizeHeight: number;
+    sizeWeight: number;
+    sizeChest: number;
+    sizeWaist: number;
+    sizeHips: number;
+    sizeShoe: number;
+    sizeInseam: number;
+    sizeSleeve: number;
+    sizeNeck: number;
+    sizeHat: number;
+    sizeJacket: string;
+    sizeBustCup: string;
+    sizeBustBand: number;
+    sizeDress: number;
+    [key: string]: string | number | boolean | undefined;
+}

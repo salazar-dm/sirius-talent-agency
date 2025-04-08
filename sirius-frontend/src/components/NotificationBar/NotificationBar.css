@@ -1,0 +1,57 @@
+.NotificationBar__notification-bar {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 2rem 3.5rem;
+    margin-bottom: 7.5rem;
+    gap: 1rem;
+    border-left: 3px solid #3f80da;
+    background-color: #f5f9fd;
+}
+
+.NotificationBar__title {
+    font-size: 13px;
+    letter-spacing: .91px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+@media (min-width: 450px) {
+    .NotificationBar__title {
+        font-size: calc(.0680272109vw + 12.693877551px);
+        font-size: calc(.0680272109vw + 12.693877551px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .NotificationBar__title {
+        font-size: 14px;
+        letter-spacing: .98px;
+    }
+}
+
+.NotificationBar__text {
+    font-size: 16px;
+    line-height: 21.28px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+@media (min-width: 1024px) {
+    .NotificationBar__text {
+        font-size: calc(.2232142857vw + 13.7142857143px);
+        line-height: calc(.4375vw + 16.8px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .NotificationBar__text {
+        font-size: 18px;
+        line-height: 25.2px;
+    }
+}

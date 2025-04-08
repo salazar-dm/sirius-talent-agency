@@ -1,0 +1,52 @@
+.RegistrationForm__content-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+.RegistrationForm__body {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 25.2px;
+    font-size: 28px;
+    color: #005731;
+    font-family: "Arial", "sans-serif";
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    text-transform: none;
+}
+
+option {
+    width: calc(100% - 3rem);
+    font-size: 1em;
+}
+
+input:focus {
+    opacity: 1;
+}
+
+.RegistrationForm__container {
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 140%;
+    color: #00342b;
+}
+
+.RegistrationForm__container a {
+    color: #009b55;
+    text-decoration: underline;
+}
+
+.RegistrationForm__sign-up {
+    margin-bottom: 24px;
+}
+
+.RegistrationForm__select-input .FormSelect__select-placeholder {
+    color: #6c757d;
+}
+
+.RegistrationForm__container input, .RegistrationForm__select-input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+}

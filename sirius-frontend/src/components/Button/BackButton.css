@@ -1,0 +1,18 @@
+.BackButton__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border: none;
+    background: #00ad62;
+    color: white;
+    cursor: pointer;
+}
+
+.BackButton__icon {
+    padding: 0 .5rem;
+}
+
+.BackButton__icon svg {
+    transform: rotate(180deg) translateX(4px);
+}
