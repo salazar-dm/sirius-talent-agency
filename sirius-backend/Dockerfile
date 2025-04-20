@@ -1,5 +1,6 @@
+# force rebuild
 # Базовый образ Oracle JDK 22
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21.0.6_7-jdk
 
 # Рабочая директория
 WORKDIR /app
