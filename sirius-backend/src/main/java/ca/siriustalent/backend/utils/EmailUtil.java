@@ -36,7 +36,7 @@ public class EmailUtil {
     }
 
     private void sendEmail(String to, String subject, String htmlBody) throws EmailFailureException {
-        Email from = new Email(fromAddress);
+        Email from = new Email(fromAddress, "Sirius Talent Agency");
         Email toEmail = new Email(to);
         Content content = new Content("text/html", htmlBody);
         Mail mail = new Mail(from, subject, toEmail, content);
