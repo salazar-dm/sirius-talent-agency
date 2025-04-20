@@ -7,6 +7,8 @@ WORKDIR /app
 # Копируем всё содержимое проекта внутрь контейнера
 COPY . .
 
+RUN chmod +x mvnw
+
 # Сборка через Maven Wrapper (если ты его используешь)
 RUN ./mvnw clean install -DskipTests
 
