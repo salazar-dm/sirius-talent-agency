@@ -13,4 +13,5 @@ RUN chmod +x mvnw
 RUN ./mvnw clean install -DskipTests
 
 # Запуск собранного JAR-а
-CMD ["java", "-jar", "target/sirius-backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
+
