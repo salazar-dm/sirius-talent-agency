@@ -7,12 +7,23 @@ public class PerformerProfile {
 
     private String keyName;
     private String fullBodyKeyName;
+    private String documentKeyName;
+    // === ЕСЛИ ВЫБРАН АКТРА СТАТУС ===
+    private String actraCardKeyName;
+
+    private String whasaKeyName;
+
     private String firstName;
+    private String middleName;
     private String lastName;
     private String unionStatus;
     private String unionId;
     private String dateOfBirth;
+    private String guardianFullName;
+    private String guardianTel;
     private String socialInsuranceNumber;
+    private String emergencyFullName;
+    private String emergencyTel;
     private String city;
     private String state;
     private String postalCode;
@@ -20,6 +31,10 @@ public class PerformerProfile {
     private boolean selfDrive;
     private String gender;
     private String ethnicity;
+    private boolean lgbt;
+    private boolean bipoc;
+    private boolean trans;
+    private boolean visibleTattoos;
     private String hairColor;
     private String eyeColor;
     // === ОБЩИЕ ДЛЯ ВСЕХ ===
@@ -45,12 +60,23 @@ public class PerformerProfile {
     public PerformerProfile() {
         this.keyName = "";
         this.fullBodyKeyName = "";
+        this.documentKeyName = "";
+
+        this.actraCardKeyName = "";
+        this.whasaKeyName = "";
         this.firstName = "";
+        this.middleName = "";
         this.lastName = "";
         this.unionStatus = "";
         this.unionId = "";
         this.dateOfBirth = "";
+
+        this.guardianFullName = "";
+        this.guardianTel = "";
         this.socialInsuranceNumber = "";
+
+        this.emergencyFullName = "";
+        this.emergencyTel = "";
         this.city = "";
         this.state = "";
         this.postalCode = "";
@@ -58,6 +84,11 @@ public class PerformerProfile {
         this.selfDrive = false;
         this.gender = "";
         this.ethnicity = "";
+
+        this.lgbt = false;
+        this.bipoc = false;
+        this.trans = false;
+        this.visibleTattoos = false;
         this.hairColor = "";
         this.eyeColor = "";
         this.sizeHeight = 0;
@@ -76,6 +107,56 @@ public class PerformerProfile {
         this.sizeDress = "";
     }
 
+
+    public boolean getLgbt() {
+        return lgbt;
+    }
+
+    public void setLgbt(boolean lgbt) {
+        this.lgbt = lgbt;
+    }
+
+    public boolean getBipoc() {
+        return bipoc;
+    }
+
+    public void setBipoc(boolean bipoc) {
+        this.bipoc = bipoc;
+    }
+
+    public boolean getTrans() {
+        return trans;
+    }
+
+    public void setTrans(boolean trans) {
+        this.trans = trans;
+    }
+    public String getGuardianFullName() {
+        return guardianFullName;
+    }
+    public void setGuardianFullName(String guardianFullName) {
+        this.guardianFullName = guardianFullName;
+    }
+    public String getGuardianTel() {
+        return guardianTel;
+    }
+    public void setGuardianTel(String guardianTel) {
+        this.guardianTel = guardianTel;
+    }
+
+    public String getEmergencyFullName() {
+        return emergencyFullName;
+    }
+    public void setEmergencyFullName(String emergencyFullName) {
+        this.emergencyFullName = emergencyFullName;
+    }
+    public String getEmergencyTel() {
+        return emergencyTel;
+    }
+    public void setEmergencyTel(String emergencyTel) {
+        this.emergencyTel = emergencyTel;
+    }
+
     public String getKeyName() {
         return keyName;
     }
@@ -88,6 +169,34 @@ public class PerformerProfile {
     public void setFullBodyKeyName(String fullBodyKeyName) {
         this.fullBodyKeyName = fullBodyKeyName;
     }
+    public String getDocumentKeyName() {
+        return documentKeyName;
+    }
+    public void setDocumentKeyName(String documentKeyName) {
+        this.documentKeyName = documentKeyName;
+    }
+
+    public String getActraCardKeyName() {
+        return actraCardKeyName;
+    }
+    public void setActraCardKeyName(String actraCardKeyName) {
+        this.actraCardKeyName = actraCardKeyName;
+    }
+
+    public String getWhasaKeyName() {
+        return whasaKeyName;
+    }
+    public void setWhasaKeyName(String whasaKeyName) {
+        this.whasaKeyName = whasaKeyName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
     public int getSizeHat() {
         return sizeHat;
     }
@@ -202,6 +311,14 @@ public class PerformerProfile {
 
     public boolean getSelfDrive() {
         return selfDrive;
+    }
+
+    public void setVisibleTattoos(boolean visibleTattoos) {
+        this.visibleTattoos = visibleTattoos;
+    }
+
+    public boolean getVisibleTattoos() {
+        return visibleTattoos;
     }
 
     public void setSelfDrive(boolean selfDrive) {

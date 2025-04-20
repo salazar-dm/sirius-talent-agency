@@ -242,7 +242,7 @@ const ActivationForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/profile/activate', {
+            const response = await fetch('https://www.siriustalent.ca/profile/activate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

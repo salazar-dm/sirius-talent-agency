@@ -67,6 +67,12 @@ public class EmailUtil {
         sendEmail(email, "Please verify your email", htmlContent);
     }
 
+    public void sendActivationEmail(String email) throws EmailFailureException {
+        Context context = new Context();
+        String htmlContent = templateEngine.process("activationEmail", context);
+        sendEmail(email, "Your account has been activated", htmlContent);
+    }
+
     public void sendAvailabilityEmail(String email, String token, String production, LocalDate date) throws EmailFailureException {
         String body = "Please follow the link below to check your availability:<br><br>" +
                 "<a href=\"" + url + "/public/availability?token=" + token + "\">Check Availability</a>";
@@ -83,7 +89,7 @@ public class EmailUtil {
 
     public void sendRegistrationNotificationToAdmin(LocalUser user) throws EmailFailureException {
         String body = "New casting registration submitted.<br><br>" +
-                "<a href=\"http://localhost:8080/api/admin/pending-submissions\">View Pending Submissions</a>";
+                "<a href=\"https://www.siriustalent.ca/api/admin/pending-submissions\">View Pending Submissions</a>";
         sendEmail(adminEmail, "New Casting registration", body);
     }
 

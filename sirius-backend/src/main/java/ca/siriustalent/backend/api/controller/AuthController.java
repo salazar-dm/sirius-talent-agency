@@ -4,6 +4,7 @@ import ca.siriustalent.backend.api.model.LocalUserBody;
 import ca.siriustalent.backend.exception.AuthenticationException;
 import ca.siriustalent.backend.model.entities.LocalUser;
 import ca.siriustalent.backend.service.UserService;
+import ca.siriustalent.backend.utils.JwtUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final UserService userService;
+    private final JwtUtil jwtUtil;
 
-    public AuthController(UserService userService) {
+    public AuthController(UserService userService, JwtUtil jwtUtil) {
+        this.jwtUtil = jwtUtil;
         this.userService = userService;
     }
 
@@ -58,6 +61,13 @@ public class AuthController {
         String token = authorization.replace("Bearer ", "");
         String role = userService.getCurrentUserRole(token);
         return ResponseEntity.ok().body(role);
+    }
+
+    @GetMapping("/get-user")
+    public ResponseEntity<LocalUser> getUser(@RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        LocalUser user = userService.getUser(jwtUtil.extractSubject(token));
+        return ResponseEntity.ok().body(user);
     }
 
     @PostMapping("/activate")

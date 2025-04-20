@@ -59,6 +59,7 @@ export const FormNumericInput: React.FC<FormNumericInputProps> = ({
             <input
                 id={input.id}
                 type="number"
+                onWheel={(e) => e.currentTarget.blur()}
                 step="0.1"
                 value={value}
                 onChange={handleChange}

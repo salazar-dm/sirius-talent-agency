@@ -44,7 +44,7 @@ const HeaderBanner: React.FC<HeaderBannerProps> = ({image, imageAlt, eyebrow, ti
                                     <div className="HeaderBanner__content-col-2">
                                         <p className="HeaderBanner__description">{description}</p>
                                         <div className="HeaderBanner__button-container">
-                                            <Button buttonStyle={"primary"} buttonLink={"/about"} buttonText={"Learn more"}/>
+                                            <Button buttonStyle={"primary"} buttonLink={"/about-us"} buttonText={"Learn more"}/>
                                         </div>
                                     </div>
                                 </div>

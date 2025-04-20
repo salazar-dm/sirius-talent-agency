@@ -1,8 +1,15 @@
-export const SiriusTalentLogo = () => {
+import React from "react";
+
+interface SiriusTalentLogoProps {
+    scale?: number
+}
+
+export const SiriusTalentLogo: React.FC<SiriusTalentLogoProps> = ({scale= 1}) => {
+
     return (
         <>
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 595.5 43.68">
+                 viewBox="0 0 595.5 43.68" style={{transform: `scale(${scale})`}}>
                 <path className="cls-2"
                       d="M.45,38.3c.45-3.14.45-6.22,0-9.35,5.26,5.04,17.25,7.45,27.5,7.45,8.34,0,11.82-1.85,11.82-5.54,0-4.93-5.26-5.49-17.75-6.55C8.29,23.07,0,20.89,0,12.43S7.45,0,22.68,0c10.7,0,17.08,1.46,24.98,3.36-.45,3.02-.45,5.88,0,8.74-6.5-2.69-15.12-5.43-25.31-5.43-8.62,0-12.26,1.74-12.26,5.49,0,4.48,4.48,5.66,15.9,6.55,14.39,1.12,23.86,3.08,23.86,12.1,0,8.29-7.62,12.26-22.79,12.26-10.25,0-19.54-2.13-26.6-4.76Z"/>
                 <path className="cls-2"

@@ -143,6 +143,7 @@ public class UserService {
         }
 
         user.setUserActivated(true);
+        emailUtil.sendActivationEmail(user.getEmail());
         return localUserRepository.save(user);
     }
 

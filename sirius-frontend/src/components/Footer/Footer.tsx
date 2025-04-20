@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Footer.css";
 import "C:/Users/traxler/training/sirius/src/App.css";
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
+import LoadingContext from "../../context/LoadingContext.tsx";
+import footerCategoryList from "../../dummy-data/FooterItemDummyData.tsx";
+import {FacebookSvg} from "../../assets/FacebookSvg.tsx";
+import {InstagramSvg} from "../../assets/InstagramSvg.tsx";
 
 const Footer:React.FC = () => {
+    const { loading } = useContext(LoadingContext);
+
+    if (loading) return null;
 
 
     return (
@@ -17,39 +24,35 @@ const Footer:React.FC = () => {
                      style={columnsStyle(1, 9, 1, 9, 1, 12, 3, 12)}>
                          <div className="Grid_grid__container"
                          style={numberOfColumnsStyle(9)}>
-                             <div className="Grid_grid__item"
-                                  style={columnsStyle(1, 10, 1, 10, 2, 5, 1, 4)}>
-                                 <div className="Footer_footer__link-list">
-                                     <div className="Footer_footer__list-header">
-                                         <h3 className="Footer_footer__title">Services</h3>
-                                     </div>
-                                     <div className="Footer_footer__list-body">
+                             {footerCategoryList.map((category, index) => {
+                                 const style = columnsStyle(
+                                     1, 10,         // sm
+                                     1, 10,         // md
+                                     2 + 4 * index, 5 + 4 * index,   // lg
+                                     1 + 3 * index, 4 + 3 * index    // xl
+                                 );
 
+                                 return (
+                                     <div key={category.categoryTitle} className="Grid_grid__item" style={style}>
+                                         <div className="Footer_footer__link-list">
+                                             <div className="Footer_footer__list-header">
+                                                 <h3 className="Footer_footer__title">{category.categoryTitle}</h3>
+                                             </div>
+                                             <div className="Footer_footer__list-body">
+                                                 <ul>
+                                                     {category.categoryItemList.map((item) => (
+                                                         <li key={item.href} className={"Footer__list-item"}>
+                                                             <a href={item.href} className="Footer__list-link">
+                                                                 {item.name}
+                                                             </a>
+                                                         </li>
+                                                     ))}
+                                                 </ul>
+                                             </div>
+                                         </div>
                                      </div>
-                                 </div>
-                             </div>
-                             <div className="Grid_grid__item"
-                                  style={columnsStyle(1, 10, 1, 10, 6, 9, 4, 7)}>
-                                 <div className="Footer_footer__link-list">
-                                     <div className="Footer_footer__list-header">
-                                         <h3 className="Footer_footer__title">Quality</h3>
-                                     </div>
-                                     <div className="Footer_footer__list-body">
-
-                                     </div>
-                                 </div>
-                             </div>
-                             <div className="Grid_grid__item"
-                                  style={columnsStyle(1, 10, 1, 10, 10, 13, 7, 10)}>
-                                 <div className="Footer_footer__link-list">
-                                     <div className="Footer_footer__list-header">
-                                         <h3 className="Footer_footer__title">Firm</h3>
-                                     </div>
-                                     <div className="Footer_footer__list-body">
-
-                                     </div>
-                                 </div>
-                             </div>
+                                 );
+                             })}
                              <div className="Grid_grid__item"
                                   style={columnsStyle(1, 5, 1, 5, 2, 14, 1, 14)}>
                                  <ul className="Footer_footer__hygiene-list">
@@ -78,14 +81,15 @@ const Footer:React.FC = () => {
                                              <div className="Footer_footer__social-list-body">
                                                  <ul>
                                                      <li className="Footer_footer__list-item-social Footer_footer__list-item">
-                                                         <svg height="20px"
-                                                              viewBox="0 0 20 20"
-                                                              width="20px">
-                                                             <path className="Footer_footer__list-item-social-icon"
-                                                                   d="M17.56,0C18.91,0,20,1.09,20,2.44v15.11c0,1.35-1.09,2.44-2.44,2.44H2.44c-1.35,0-2.44-1.09-2.44-2.44V2.44C0,1.09,1.09,0,2.44,0h15.11ZM6.27,16.53V7.72h-2.93v8.82h2.93ZM16.84,16.53v-5.06c0-2.71-1.45-3.97-3.37-3.97-1.55,0-2.25.86-2.64,1.46v-1.25h-2.93c.04.83,0,8.82,0,8.82h2.93v-4.92c0-.26.02-.53.1-.72.21-.53.69-1.07,1.5-1.07,1.06,0,1.48.81,1.48,1.99v4.72h2.93ZM4.82,3.47c-1,0-1.66.66-1.66,1.52s.64,1.52,1.62,1.52h.02c1.02,0,1.66-.68,1.66-1.52-.02-.86-.63-1.52-1.64-1.52h0Z"/>
-                                                         </svg>
-                                                         <a href="/"
-                                                            className="Footer_footer__social-list-link">LinkedIn</a>
+                                                         <FacebookSvg/>
+                                                         <a href="https://www.facebook.com/share/1EJmiHFdvL/?mibextid=wwXIfr
+"
+                                                            className="Footer_footer__social-list-link">Facebook</a>
+                                                     </li>
+                                                     <li className="Footer_footer__list-item-social Footer_footer__list-item">
+                                                         <InstagramSvg/>
+                                                         <a href="https://www.instagram.com/sirius_talent_agency?igsh=MWJyN3BjNzZpM2F2Ng=="
+                                                            className="Footer_footer__social-list-link">Instagram</a>
                                                      </li>
                                                  </ul>
                                              </div>

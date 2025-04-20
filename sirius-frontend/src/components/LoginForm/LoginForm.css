@@ -12,17 +12,20 @@
 }
 
 .LoginForm__container {
+    color: #005731 !important;
+}
+
+.LoginForm__container {
+    font-size: 19px;
     font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
     line-height: 140%;
-    font-size: 28px;
-    color: #00342b;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 450px) {
     .LoginForm__container {
-        font-size: 28px;
+        font-size: calc(.1360544218vw + 18.387755102px);
     }
 }
 

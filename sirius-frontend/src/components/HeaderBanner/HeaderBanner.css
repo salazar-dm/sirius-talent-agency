@@ -57,7 +57,7 @@
     margin-bottom: 1.5rem;
     font-size: 13px;
     letter-spacing: .91px;
-    font-family: Arial, sans-serif;
+    font-family: "NeueMontreal-Bold", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;
@@ -117,6 +117,7 @@
 
 .HeaderBanner__content-col-2 {
     padding-top: 1rem;
+    margin-top: 2rem;
     border-top: 3px solid #009b55;
 }
 

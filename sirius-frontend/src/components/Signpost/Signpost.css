@@ -1,8 +1,19 @@
+.Signpost__container {
+    margin-top: 75px;
+}
+
+@media (min-width: 1024px) {
+    .Signpost__container {
+        margin-top: 200px;
+    }
+}
+
 .Signpost__signpost {
     position: sticky;
     top: 3.5rem;
     background-color: #00342b;
     color: #fff;
+    padding: 2rem 1.25rem;
 }
 
 @media (min-width: 1024px) {
@@ -45,5 +56,10 @@
     font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
+}
+
+.Signpost__button-container {
+    display: inline-block;
+    width: auto;
 }
 

@@ -26,7 +26,7 @@ const GetAllPerformers : React.FC = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get<LocalUser[]>(`http://localhost:8080/api/admin/get-all/${role}`);
+                const response = await axios.get<LocalUser[]>(`https://www.siriustalent.ca/api/admin/get-all/${role}`);
                 setUsers(response.data);
             } catch (error: any) {
                 setError(error.message);

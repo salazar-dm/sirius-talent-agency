@@ -33,10 +33,8 @@ public class CloudinaryService {
                 .findById(jwtUtil.extractSubject(token))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        String baseName = user.getProfile().getFirstName().toLowerCase().replaceAll("\\s+", "-") + "-"
-                + user.getProfile().getLastName().toLowerCase().replaceAll("\\s+", "-");
+        String folder = "performers/" + user.getId();
 
-        String folder = baseName;
         String publicId = folder + "/" + suffix;
 
         try {

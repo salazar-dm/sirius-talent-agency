@@ -91,26 +91,40 @@
     }
 }
 
+
+.UpdateForm__update-form-container {
+    margin: 2rem 0;
+}
+
+@media (min) {
+    .UpdateForm__update-form-container {
+        margin: 0;
+    }
+}
+
 .UpdateProfile__cropped-image-preview-container {
-    width: 100%;
+    width: 80%;
     margin-bottom: 50px;
 }
 
 .UpdateProfile__cropped-image-preview {
-    width: 100%;
+    width: 80%;
     height: auto;
     object-fit: contain;
     display: block;
 }
 
-.SecondaryButton_button {
+.UpdateProfile__submit-button {
     position: fixed !important;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10000;
 }
 
 .reactEasyCrop_Container {
     position: fixed !important;
     z-index: 9999 !important;
+
 }
 

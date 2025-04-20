@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect} from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./FormSelect.css";
 import "../../App.css";
-import {DropdownSvg} from "../../assets/DropdownSvg.tsx";
+import { DropdownSvg } from "../../assets/DropdownSvg.tsx";
 import FilterDropdown from "../Filter/FilterDropdown.tsx";
 import FilterDropdownLine from "../Filter/FilterDropdownLine.tsx";
 
@@ -19,18 +19,25 @@ interface FormSelectProps {
 }
 
 interface OptionProps {
-    label: string,
-    value: any
+    label: string;
+    value: any;
 }
 
-export const FormSelect: React.FC<FormSelectProps> = ({label, select, className, triggerSubmit}) => {
-    const [selectedOption, setSelectedOption] = React.useState<OptionProps | null>(null);
-    const [isDropdownOpen, setDropdownOpen] = React.useState<boolean>(false);
-    const [error, setError] = React.useState<string | null>(null);
+export const FormSelect: React.FC<FormSelectProps> = ({
+                                                          label,
+                                                          select,
+                                                          className,
+                                                          triggerSubmit
+                                                      }) => {
+    const [selectedOption, setSelectedOption] = useState<OptionProps | null>(null);
+    const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const onOptionClick = (option: OptionProps) => {
         setSelectedOption(option);
         select.onChange(option.value);
+        setDropdownOpen(false); // сразу закрыть после выбора
     };
 
     const resetFormField = useCallback(() => {
@@ -51,21 +58,56 @@ export const FormSelect: React.FC<FormSelectProps> = ({label, select, className,
         }
     }, [triggerSubmit, resetFormField, select.defaultValue, select.options]);
 
+    // ✅ Клик вне компонента
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(e.target as Node)
+            ) {
+                setDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // 🌀 При желании можно ещё добавить закрытие по скроллу:
+    // useEffect(() => {
+    //     const onScroll = () => setDropdownOpen(false);
+    //     window.addEventListener("scroll", onScroll, true);
+    //     return () => window.removeEventListener("scroll", onScroll, true);
+    // }, []);
+
     return (
-        <div className={`FormSelect__select-container ${className || ''}`}>
-            {label && <label htmlFor={select.id} className="FormSelect__label">{label}</label>}
+        <div
+            className={`FormSelect__select-container ${className || ""}`}
+            ref={containerRef}
+        >
+            {label && (
+                <label htmlFor={select.id} className="FormSelect__label">
+                    {label}
+                </label>
+            )}
             <div className="FormSelect__select">
                 <div
                     className="FormSelect__select-placeholder"
                     role="button"
                     onClick={() => setDropdownOpen(!isDropdownOpen)}
                 >
-                    <span className="Filter__placeholder">{selectedOption?.label || ""}</span>
-                    <DropdownSvg/>
+                    <span className="Filter__placeholder">
+                        {selectedOption?.label || ""}
+                    </span>
+                    <DropdownSvg />
                 </div>
-                <div className={`Filter__dropdown ${isDropdownOpen ? 'Filter__dropdown--open' : ''}`}>
+                <div
+                    className={`Filter__dropdown ${
+                        isDropdownOpen ? "Filter__dropdown--open" : ""
+                    }`}
+                >
                     <FilterDropdown>
-                        {select.options.map((option) => (
+                        {select.options.map(option => (
                             <FilterDropdownLine
                                 key={option.value}
                                 text={option.label}

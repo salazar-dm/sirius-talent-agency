@@ -25,7 +25,8 @@ const ResultsListCarousel: React.FC<ResultsListCarouselLeftProps> = ({isDesktop,
             {isDesktop ? (
                 <ResultsListDesktopCarousel props={props} intervalTime={intervalTime}/>
             ) : (
-                <ResultsListMobileCarousel props={props} intervalTime={intervalTime}/>
+                /*<ResultsListMobileCarousel props={props} intervalTime={intervalTime}/>*/
+                null
             )}
         </>
     )

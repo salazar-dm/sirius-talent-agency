@@ -13,7 +13,7 @@ interface AccordionItemProps {
     maxCategoryItemsPerTabColumn?: number;
 }
 
-const DesktopAccordionItem: React.FC<AccordionItemProps> = ({isAccordionOpen, selectedNavigationItem, maxCategoryItemsPerTabColumn = 5}) => {
+const DesktopAccordionItem: React.FC<AccordionItemProps> = ({isAccordionOpen, selectedNavigationItem, maxCategoryItemsPerTabColumn = 4}) => {
     if (!selectedNavigationItem.categories || selectedNavigationItem.categories.length === 0) {
         return null;
     }

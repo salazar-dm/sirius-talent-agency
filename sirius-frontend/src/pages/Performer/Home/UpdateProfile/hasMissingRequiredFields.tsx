@@ -1,7 +1,8 @@
-import { PerformerProfile } from "./UpdateProfile.tsx";
+import {PerformerProfileType} from "../../../../types/PerformerProfileType.tsx";
+
 
 export const getMissingRequiredFields = (
-    profile: PerformerProfile | null,
+    profile: PerformerProfileType | null,
     imagesSelected: boolean
 ): string[] => {
     if (!profile) return ["Profile"];
@@ -11,11 +12,11 @@ export const getMissingRequiredFields = (
 
     const requiredFields: string[] = [
         "firstName", "lastName", "dateOfBirth", "city", "state", "postalCode", "gender",
-        "ethnicity", "hairColor", "eyeColor", "sizeHeight", "sizeWeight", "sizeChest",
-        "sizeWaist", "sizeHips", "sizeShoe", "sizeInseam"
+        "ethnicity", "visibleTattoos", "hairColor", "eyeColor", "sizeHeight", "sizeWeight", "sizeChest",
+        "sizeWaist", "sizeHips", "sizeShoe", "sizeInseam", "emergencyFullName", "emergencyTel", "lgbt",
+        "bipoc", "trans"
     ];
 
-    // Union ID (if applicable)
     if (
         profile.unionStatus === "AABP" ||
         profile.unionStatus === "ACTRA Apprentice" ||
@@ -24,14 +25,22 @@ export const getMissingRequiredFields = (
         requiredFields.push("unionId");
     }
 
-    // Male or Non-Binary-Male
     if (profile.gender === "male" || profile.gender === "non-binary-male") {
         requiredFields.push("sizeJacket", "sizeSleeve", "sizeNeck", "sizeHat");
     }
 
-    // Female or Non-Binary-Female
     if (profile.gender === "female" || profile.gender === "non-binary-female") {
         requiredFields.push("sizeDress", "sizeBustCup", "sizeBustBand");
+    }
+
+    const today = new Date();
+    const dob = new Date(profile.dateOfBirth);
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const isMinor = age < 18 || (age === 18 && monthDiff < 0);
+
+    if (isMinor) {
+        requiredFields.push("guardianFullName", "guardianTel");
     }
 
     const missingFields: string[] = requiredFields.filter(field =>
@@ -42,8 +51,6 @@ export const getMissingRequiredFields = (
         missingFields.push("Image");
     }
 
-    console.log(profile.keyName, profile.fullBodyKeyName)
-
     const fieldNameMap: Record<string, string> = {
         firstName: "First Name",
         lastName: "Last Name",
@@ -53,6 +60,7 @@ export const getMissingRequiredFields = (
         postalCode: "Postal Code",
         gender: "Gender",
         ethnicity: "Ethnicity",
+        visibleTattoos: "Visible Tattoos",
         hairColor: "Hair Color",
         eyeColor: "Eye Color",
         sizeHeight: "Size Height",
@@ -72,7 +80,11 @@ export const getMissingRequiredFields = (
         sizeDress: "Dress Size",
         sizeBustCup: "Bust Cup Size",
         sizeBustBand: "Bust Band Size",
-        Image: "Images"
+        Image: "Images",
+        emergencyFullName: "Emergency Contact Name",
+        emergencyTel: "Emergency Contact Phone Number",
+        guardianFullName: "Guardian Full Name",
+        guardianTel: "Guardian Phone Number"
     };
 
     return missingFields.map(field => fieldNameMap[field] || field);

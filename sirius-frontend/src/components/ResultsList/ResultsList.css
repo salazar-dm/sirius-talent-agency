@@ -1,6 +1,13 @@
 .ResultList__result-list {
     overflow: hidden;
     padding: 5rem 0;
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .ResultList__result-list {
+        display: inline-block;
+    }
 }
 
 .ResultList__eyebrow {
@@ -11,7 +18,7 @@
 .ResultList__eyebrow {
     font-size: 13px;
     letter-spacing: .91px;
-    font-family: MontrealRegular, sans-serif;
+    font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;

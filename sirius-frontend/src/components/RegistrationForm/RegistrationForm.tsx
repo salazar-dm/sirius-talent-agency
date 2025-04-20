@@ -4,6 +4,9 @@ import {useNavigate} from "react-router-dom";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {FormSelect} from "../Form/FormSelect.tsx";
+import {CustomModal} from "../Modal/CustomModal.tsx";
+import LicenseAgreement from "../../pages/LicenseAgreement.tsx";
+import PrimaryButton from "../Button/PrimaryButton.tsx";
 
 //TODO: hide password and make it optionally visible
 
@@ -14,6 +17,8 @@ const RegistrationForm: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [role, setRole] = useState<string>('Performer');
+
+    const [isLicenseAgreementOpen, setIsLicenseAgreementOpen] = useState<boolean>(false);
 
     const formatPhoneNumber = (value: string): string => {
         let input = value.replace(/\D/g, '');
@@ -65,7 +70,7 @@ const RegistrationForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/api/auth/register', {
+            const response = await fetch('https://www.siriustalent.ca/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,88 +102,97 @@ const RegistrationForm: React.FC = () => {
     };
 
         return (
-            <div className="RegistrationForm__wrapper">
-                <div className="Grid_grid__container RegistrationForm__grid"
-                     style={numberOfColumnsStyle(16)}>
-                    <div className="Grid_grid__item RegistrationForm__item"
-                         style={columnsStyle(1, 9, 1, 9, 1, 18, 1, 18)}>
-                        <div className="RegistrationForm__container">
-                            <div className="RegistrationForm__body">
-                                Already have an account? Sign in <a href="/login">here</a>.
-                            </div>
-                            <form onSubmit={handleSubmit}>
-                                <div className="RegistrationForm__input-tel">
-                                    <input
-                                        id="phone-number"
-                                        type="tel"
-                                        value={tel}
-                                        onChange={handleChange}
-                                        placeholder="Phone Number"
-                                        pattern="\d{1}-\d{3}-\d{3}-\d{4}"
-                                        required
-                                    />
+            <>
+                {isLicenseAgreementOpen && (
+                    <CustomModal
+                        isOpen={isLicenseAgreementOpen}
+                        onClose={() => setIsLicenseAgreementOpen(false)}>
+                        <LicenseAgreement/>
+                    </CustomModal>
+                )}
+                <div className="RegistrationForm__wrapper">
+                    <div className="Grid_grid__container RegistrationForm__grid"
+                         style={numberOfColumnsStyle(16)}>
+                        <div className="Grid_grid__item RegistrationForm__item"
+                             style={columnsStyle(1, 9, 1, 9, 1, 18, 1, 18)}>
+                            <div className="RegistrationForm__container">
+                                <div className="RegistrationForm__body">
+                                    Already have an account? Sign in <a href="/login">here</a>.
                                 </div>
-                                <div className="RegistrationForm__input-email">
-                                    <input
-                                        id="email"
-                                        type="text"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Email"
-                                        required
-                                    />
-                                </div>
-                                <div className="RegistrationForm__input-password">
-                                    <input
-                                        type="text"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Password"
-                                        required
-                                    />
-                                </div>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="RegistrationForm__input-tel">
+                                        <input
+                                            id="phone-number"
+                                            type="tel"
+                                            value={tel}
+                                            onChange={handleChange}
+                                            placeholder="Phone Number"
+                                            pattern="\d{1}-\d{3}-\d{3}-\d{4}"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="RegistrationForm__input-email">
+                                        <input
+                                            id="email"
+                                            type="text"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="Email"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="RegistrationForm__input-password">
+                                        <input
+                                            type="text"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            placeholder="Password"
+                                            required
+                                        />
+                                    </div>
 
-                                <div className="RegistrationForm__input-role RegistrationForm__select-input">
-                                    <FormSelect
-                                        select={{
-                                            id: 'role-select',
-                                            required: true,
-                                            defaultValue: role,
-                                            options: [
-                                                { label: 'Performer', value: 'Performer' },
-                                                { label: 'Casting', value: 'Casting' },
-                                            ],
-                                            onChange: (value) => setRole(value),
-                                        }}
-                                    />
-                                </div>
-                                <button className="PrimaryButton_button" type="submit" disabled={loading}>
-                                    <span className="PrimaryButton_text">Submit</span>
-                                    <span className="PrimaryButton_icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                         fill="none">
-                                        <g clipPath="url(#clip0_840_451)">
-                                            <path d="M20 10L15 15L15 5L20 10Z" fill="currentColor"></path>
-                                            <path d="M0 10L17 10" stroke="currentColor" strokeWidth="2"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_840_451">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </span>
-                                </button>
-                                {
-                                    error && <p style={{color: 'red'}}>{error}</p>
-                                }
-                            </form>
+                                    <div className="RegistrationForm__input-role RegistrationForm__select-input">
+                                        <FormSelect
+                                            select={{
+                                                id: 'role-select',
+                                                required: true,
+                                                defaultValue: role,
+                                                options: [
+                                                    { label: 'Performer', value: 'Performer' },
+                                                ],
+                                                onChange: (value) => setRole(value),
+                                            }}
+                                        />
+                                    </div>
+                                    <div className={"RegistrationForm__body"}>By submitting this form, I agree to the <a onClick={() => setIsLicenseAgreementOpen(true)}>terms of use</a>.</div>
+                                    <button className="PrimaryButton_button" type="submit" disabled={loading}>
+                                        <span className="PrimaryButton_text">Submit</span>
+                                        <span className="PrimaryButton_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                             fill="none">
+                                            <g clipPath="url(#clip0_840_451)">
+                                                <path d="M20 10L15 15L15 5L20 10Z" fill="currentColor"></path>
+                                                <path d="M0 10L17 10" stroke="currentColor" strokeWidth="2"></path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_840_451">
+                                                    <rect width="20" height="20" fill="white"></rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                    </button>
+                                    {
+                                        error && <p style={{color: 'red'}}>{error}</p>
+                                    }
+                                </form>
+                            </div>
                         </div>
                     </div>
+
+
                 </div>
-
-
-            </div>
+            </>
         );
 }
 

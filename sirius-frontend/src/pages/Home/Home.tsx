@@ -20,68 +20,42 @@ const Home : React.FC<HomeProps> = ({isDesktop}) => {
 
     return (
         <>
-            <HeaderBanner image={"https://www.aoshearman.com//_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Fhomepage%2Fcdd-1124-027856_image_2-web1.png%3Fh%3D1568%26iar%3D0%26w%3D1319&w=1080&q=75"}
+            <HeaderBanner image={"https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092089/website-pictures/wwynrqk2pw8befv42hew.webp"}
                           imageAlt={"Man standing at the top of the mountain and looking in the telescope"}
-                          eyebrow={"DEMYSTIFYING DECARBONIZATION"}
-                          title={"How big is the net zero financing gap?"}
-                          description={"Better climate finance data can help investors and policymakers make better decisions. As COP29 begins in Baku, our landmark study reveals the amount of capital needed to decarbonize the global economy."}
+                          eyebrow={"REDEFINING BACKGROUND WORK"}
+                          title={"Who’s really behind every great scene?"}
+                          description={"Smart systems, faster payments, and real support for performers. Sirius Talent is what we wish existed when we started. Now it does."}
             />
 
-            <ElevatorText text="See why we are uniquely equipped to support global businesses in a fast-changing world." buttonText="Read more" buttonLink="/about-us"></ElevatorText>
+            {/*<ElevatorText text="See why we are uniquely equipped to support global businesses in a fast-changing world." buttonText="Read more" buttonLink="/about-us"></ElevatorText>*/}
 
             <ResultsList
                 eyebrow="Spotlight on"
                 title="Universal simplicity"
                 children={[
                     {
-                        title: "Casting",
+                        title: "Performers",
                         carousel: <ResultsListCarousel isDesktop={isDesktop} props={[
                             {
                                 category: "Reliability",
                                 title: "The first completely automated background agency in Canada",
                                 description: "Eliminating human error and reducing time costs to efficiently cover every production day",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Finsights%2Fgeneral-images%2Fgettyimages-1427461072_bwresized.jpg%3Fh%3D1063%26iar%3D0%26w%3D1600&w=1920&q=75",
+                                imageSrc: "https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092089/website-pictures/bzeouxtacjqypln02td4.webp",
                                 imageAlt: "Man standing at the top of the mountain and looking in the telescope"
                             },
                             {
                                 category: "Convenience",
                                 title: "Effortless start with an intuitive interface",
                                 description: "An easy-to-use platform with a seamless interface, designed to get you up and running quickly without any hassle",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Finsights%2Ffinance%2Fbr39756ldncwwaogi155438452rgb.jpg%3Fh%3D1063%26iar%3D0%26w%3D1600&w=1920&q=75",
-                                imageAlt: "Man standing at the top of the mountain and looking in the telescope"
+                                imageSrc: "https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092089/website-pictures/ypxzivo5lnmxgdakjz0d.webp",
+                                imageAlt: "Abstract grey illustration of architectural pattern"
                             },
                             {
                                 category: "Efficiency",
                                 title: "Lightning-fast response times with automated booking",
                                 description: "Streamlining the process by removing the middleman, allowing casting to work directly with the system for more efficient bookings every time",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Fblogs%2Fimages%2Fon-tech%2Fgettyimages-88586616_bw.jpeg%3Fh%3D1066%26iar%3D0%26w%3D1600&w=1920&q=75",
-                                imageAlt: "Man standing at the top of the mountain and looking in the telescope"
-                            }
-                        ]}/>
-                    },
-                    {
-                        title: "Performers",
-                        carousel: <ResultsListCarousel isDesktop={isDesktop} props={[
-                            {
-                                category: "q",
-                                title: "The first completely automated background agency in Canada",
-                                description: "Eliminating human error and reducing time costs to efficiently cover every production day",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Finsights%2Fgeneral-images%2Fgettyimages-1427461072_bwresized.jpg%3Fh%3D1063%26iar%3D0%26w%3D1600&w=1920&q=75",
-                                imageAlt: "Man standing at the top of the mountain and looking in the telescope"
-                            },
-                            {
-                                category: "w",
-                                title: "Effortless start with an intuitive interface",
-                                description: "An easy-to-use platform with a seamless interface, designed to get you up and running quickly without any hassle",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Finsights%2Fgeneral-images%2Fgettyimages-1427461072_bwresized.jpg%3Fh%3D1063%26iar%3D0%26w%3D1600&w=1920&q=75",
-                                imageAlt: "Man standing at the top of the mountain and looking in the telescope"
-                            },
-                            {
-                                category: "e",
-                                title: "Lightning-fast response times with automated booking",
-                                description: "Streamlining the process by removing the middleman, allowing casting to work directly with the system for more efficient bookings every time",
-                                imageSrc: "https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Finsights%2Fgeneral-images%2Fgettyimages-1427461072_bwresized.jpg%3Fh%3D1063%26iar%3D0%26w%3D1600&w=1920&q=75",
-                                imageAlt: "Man standing at the top of the mountain and looking in the telescope"
+                                imageSrc: "https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092089/website-pictures/cfhdj7mkdmieuetklaeg.webp",
+                                imageAlt: "Man shoulder in a black striped tuxedo"
                             }
                         ]}/>
                     }
@@ -90,8 +64,8 @@ const Home : React.FC<HomeProps> = ({isDesktop}) => {
 
             <ContentBlockWrapper>
                 <SignpostPromo>
-                    <SignpostPromoText eyebrow="Join our roster" title="No ordinary career" text="All the opportunities you would expect from a world-leading law firm. And some you might not. " button={{text: "Register", link: "http://localhost:3000/register"}}/>
-                    <SignpostPromoAnimatedImage image="https://www.aoshearman.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fallenoveryllp1-aoshearmanwe0db-production-ecf3%2Fmedia%2Fproject%2Faoshearman%2Faoshearman%2Fcareers%2Fgettyimages-1283477396.jpg%3Fh%3D4026%26iar%3D0%26w%3D6039&w=3840&q=75"/>
+                    <SignpostPromoText eyebrow="Join our roster" title="No ordinary gig" text="All the opportunities you’d expect from a leading background talent agency - and a few you wouldn’t. " button={{text: "Register", link: "https://www.siriustalent.ca/registration"}}/>
+                    <SignpostPromoAnimatedImage image="https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092088/website-pictures/kkaikyx6tio1hgmvcoim.webp"/>
                 </SignpostPromo>
             </ContentBlockWrapper>
         </>

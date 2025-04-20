@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account has been activated</title>
+    <style>
+        @font-face {
+            font-family: 'HattonMedium';
+            src: url('fonts/PPHatton-Medium.otf');
+        }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        @font-face {
+            font-family: "NeueMontreal-Bold";
+            src: url("fonts/PPNeueMontreal-Bold.otf");
+        }
+
+        h2 {
+            padding-bottom: 24px;
+            border-bottom: 3px solid #009b55;
+            margin-bottom: 24px;
+            color: #00342b;
+            font-size: 37px;
+            line-height: 39px;
+            font-family: "HattonMedium", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 500;
+        }
+
+        @media (min-width: 450px) {
+            h2 {
+                font-size: calc(1.4285714286vw + 30.5714285714px);
+                line-height: calc(1.6326530612vw + 31.6530612245px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            h2 {
+                font-size: 58px;
+                line-height: 63px;
+            }
+        }
+
+        p, li:not(:last-child), ul, img {
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            p, li:not(:last-child), ul, img {
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            p, li:not(:last-child), ul, img {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        p, li {
+            font-size: 19px;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 400;
+            line-height: 140%;
+            color: #00342b;
+        }
+
+        @media (min-width: 450px) {
+            p, li {
+                font-size: calc(.1360544218vw + 18.387755102px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            p, li {
+                font-size: 21px;
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        li {
+            padding-left: 1rem;
+        }
+
+        li::marker {
+            color: #009b54;
+        }
+
+        .PrimaryButton_button {
+            max-width: fit-content;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            padding: 1.0625rem 1.5rem;
+            border: 0;
+            background: #00ad62;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color .3s linear;
+            color: #ffffff;
+        }
+
+        .PrimaryButton_button {
+            font-family: "NeueMontreal-Bold", sans-serif;
+            font-size: .875rem;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 700;
+            letter-spacing: .06125rem;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+        .PrimaryButton_text {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Your account has been activated!</h2>
+    <p>Your profile has been reviewed and activated — you’re now officially part of the Sirius Talent roster.</p>
+
+    <p>
+        This means you’re eligible for bookings and may start receiving availability checks.
+    </p>
+
+    <p>To increase your chances of getting booked:</p>
+    <ul>
+        <li>Keep your profile photos current</li>
+        <li>Respond to availability checks quickly</li>
+        <li>Follow set etiquette — we’re here to help if you need guidance</li>
+    </ul>
+
+    <p>Thanks for joining Sirius Talent. We’re excited to have you on set!</p>
+</div>
+</body>
+</html>

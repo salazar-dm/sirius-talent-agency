@@ -6,12 +6,7 @@
 .RegistrationForm__body {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    line-height: 25.2px;
-    font-size: 28px;
     color: #005731;
-    font-family: "Arial", "sans-serif";
-    -webkit-font-smoothing: antialiased;
-    font-weight: 500;
     text-transform: none;
 }
 
@@ -25,11 +20,17 @@ input:focus {
 }
 
 .RegistrationForm__container {
+    font-size: 19px;
     font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
     line-height: 140%;
-    color: #00342b;
+}
+
+@media (min-width: 450px) {
+    .RegistrationForm__container {
+        font-size: calc(.1360544218vw + 18.387755102px);
+    }
 }
 
 .RegistrationForm__container a {

@@ -1,11 +1,20 @@
 export type PerformerProfileType = {
     keyName: string;
+    fullBodyKeyName: string;
+    documentKeyName: string;
+    actraCardKeyName: string;
+    whasaKeyName: string;
     firstName: string;
+    middleName: string;
     lastName: string;
     unionStatus: string;
     unionId: string;
     dateOfBirth: string;
+    guardianFullName: string;
+    guardianTel: string;
     socialInsuranceNumber: string;
+    emergencyFullName: string;
+    emergencyTel: string;
     city: string;
     state: string;
     postalCode: string;
@@ -13,6 +22,10 @@ export type PerformerProfileType = {
     selfDrive: boolean;
     gender: string;
     ethnicity: string;
+    lgbt: boolean;
+    bipoc: boolean;
+    trans: boolean;
+    visibleTattoos: boolean;
     hairColor: string;
     eyeColor: string;
     sizeHeight: number;
@@ -28,6 +41,6 @@ export type PerformerProfileType = {
     sizeJacket: string;
     sizeBustCup: string;
     sizeBustBand: number;
-    sizeDress: number;
+    sizeDress: string;
     [key: string]: string | number | boolean | undefined;
 }

@@ -13,7 +13,7 @@ const VerificationRequest:React.FC = () => {
         const token = urlParams.get('token');
 
         if (token) {
-            const requestUrl = `http://localhost:8080/api/auth/verify?token=${token}`;
+            const requestUrl = `https://www.siriustalent.ca/api/auth/verify?token=${token}`;
 
             fetch(requestUrl, {
                 method: 'GET',

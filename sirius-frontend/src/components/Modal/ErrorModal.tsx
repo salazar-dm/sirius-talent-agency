@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './ErrorModal.css';
 import '../../App.css';
 
@@ -9,7 +10,7 @@ interface ErrorModalProps {
 }
 
 const ErrorModal: React.FC<ErrorModalProps> = ({ title, message, onClose }) => {
-    return (
+    return ReactDOM.createPortal(
         <div className="error-modal-overlay">
             <div className="ErrorModal__container">
                 <h2 className="ErrorModal__title">{title}</h2>
@@ -18,7 +19,8 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ title, message, onClose }) => {
                     Close
                 </button>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

@@ -1,0 +1,220 @@
+.PageProgress__content-wrapper {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8.75rem;
+    margin-bottom: 3.75rem;
+    background-color: #fff;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+}
+
+@media (min-width: 1024px) {
+    .PageProgress__content-wrapper {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.PageProgress__content-wrapper--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.PageProgress__content-wrapper {
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.PageProgress__content-wrapper__grid {
+    height: 100%;
+    transform: translateY(0);
+    transition: .5s;
+}
+
+.PageProgress__content-wrapper__grid--hidden {
+    transform: translateY(-100%);
+}
+
+.PageProgress__content-wrapper__grid-item {
+    position: relative;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.PageProgress__controls-wrapper {
+    display: flex;
+    height: calc(100% - 3px);
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+    .PageProgress__controls-wrapper {
+        margin: 0;
+    }
+}
+
+.PageProgress__controls-wrapper__left {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.PageProgress__controls-wrapper-selection {
+    width: 100%;
+    max-width: 16rem;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+}
+
+@media (min-width: 450px) {
+    .PageProgress__controls-wrapper-selection {
+        max-width: 22.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .PageProgress__controls-wrapper-selection {
+        max-width: 26rem;
+        margin-left: -1rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .PageProgress__controls-wrapper-selection {
+        max-width: 31.25rem;
+    }
+}
+
+.PageProgress__select-filter-heading {
+    display: flex;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: #00342b;
+    gap: 1rem;
+    transition: border .3s ease;
+}
+
+.PageProgress__select-filter-title {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.PageProgress__label, .PageProgress__share-container {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: .98px;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.PageProgress__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.PageProgress__controls-wrapper__right {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+@media (min-width: 450px) {
+    .PageProgress__controls-wrapper__right {
+        width: unset;
+    }
+}
+
+.PageProgress__share-container {
+    width: 3.5rem;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: #00884d;
+    cursor: pointer;
+    gap: 1rem;
+    transition: border .3s ease;
+}
+
+@media (min-width: 450px) {
+    .PageProgress__share-container {
+        width: 12.5rem;
+    }
+}
+
+
+.PageProgress__share-icon {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.PageProgress__share-label {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+@media (min-width: 450px) {
+    .PageProgress__share-label {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.PageProgress__share-label__left {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.PageProgress__share-label-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.PageProgress__progress-bar-container {
+    width: 100%;
+    height: .1875rem;
+    background-color: #ddf1ee;
+}
+
+.PageProgress__progress-bar {
+    width: 0;
+    height: .1875rem;
+    background-color: #00884d;
+}
+
+@media print {
+    .PageProgress__content-wrapper {
+        display: none;
+    }
+}
+
+

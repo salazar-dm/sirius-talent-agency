@@ -41,6 +41,43 @@
             }
         }
 
+        p, li:not(:last-child), ul, img {
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            p, li:not(:last-child), ul, img {
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            p, li:not(:last-child), ul, img {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        p, li {
+            font-size: 19px;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 400;
+            line-height: 140%;
+            color: #00342b;
+        }
+
+        @media (min-width: 450px) {
+            p, li {
+                font-size: calc(.1360544218vw + 18.387755102px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            p, li {
+                font-size: 21px;
+            }
+        }
+
         .PrimaryButton_button {
             max-width: fit-content;
             position: relative;

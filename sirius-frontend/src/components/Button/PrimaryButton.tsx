@@ -15,7 +15,8 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({text, href, onClick, type,
     return (
         <>
             {href &&
-                <a href={href} className="PrimaryButton__primary-button">
+                <a href={href} className="PrimaryButton__primary-button"         target="_blank"
+                   rel="noopener noreferrer">
                     <span className="PrimaryButton__text">{text}</span>
                     <span className="PrimaryButton__icon">
                             {icon ? icon : <ArrowSvg/>}

@@ -21,7 +21,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     letter-spacing: .98px;
     font-size: 14px;
     /**/
-    font-family: "NeueMontreal-Medium", "sans-serif";
+    font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;

@@ -16,8 +16,8 @@ const CardElement: React.FC<CardElementProps> = ({title, children, dividerTop = 
             <div className="CardElement__container">
                 {dividerTop && <div className="CardElement__divider"/>}
                 <h2 className="CardElement__title">{title}</h2>
-                {children.map((item) => (
-                    <div className="CardElement__item">{item}</div>
+                {children.map((item, index) => (
+                    <div key={"item-" + index} className="CardElement__item">{item}</div>
                 ))}
                 {dividerBottom && <div className="CardElement__divider"/>}
             </div>

@@ -113,7 +113,7 @@ const PaymentDetail: React.FC = () => {
 
         try {
             const response = await axios.post<PaymentIntentResponse>(
-                'http://localhost:8080/api/performer/stripe/create-payment-intent',
+                'https://www.siriustalent.ca/api/performer/stripe/create-payment-intent',
                 paymentBody,
                 {
                     headers: {

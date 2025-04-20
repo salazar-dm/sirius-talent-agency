@@ -6,9 +6,10 @@ interface ButtonProps {
     buttonLink?: string
     buttonText: string
     buttonOnClick?: () => void
+    className?: string
 }
 
-const Button : React.FC<ButtonProps> = ({buttonStyle, buttonLink, buttonText, buttonOnClick}) => {
+const Button : React.FC<ButtonProps> = ({buttonStyle, buttonLink, buttonText, buttonOnClick, className}) => {
     if (buttonStyle === "primary") {
         return (
             <>
@@ -41,7 +42,7 @@ const Button : React.FC<ButtonProps> = ({buttonStyle, buttonLink, buttonText, bu
     } else if (buttonStyle === "secondaryTextOnClick") {
         return (
             <>
-                <button className="SecondaryButton_button" onClick={buttonOnClick}>
+                <button className={`SecondaryButton_button ${className}`} onClick={buttonOnClick}>
                     <span className="SecondaryButton_text">{buttonText}</span>
                 </button>
             </>

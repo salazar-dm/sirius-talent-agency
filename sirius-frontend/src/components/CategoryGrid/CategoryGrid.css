@@ -1,5 +1,11 @@
 .CategoryGrid__wrapper {
-    padding-bottom: 7.5rem;
+    padding-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+    .CategoryGrid__wrapper {
+        padding-bottom: 7.5rem;
+    }
 }
 
 .CategoryGrid__custom-grid {

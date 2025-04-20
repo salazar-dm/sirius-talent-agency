@@ -4,7 +4,7 @@ import axios from "axios";
 
 const useFetchProductionList = () => {
     return useQuery<ProductionType[], Error>('productionList', async () => {
-        const response = await axios.get<ProductionType[]>('http://localhost:8080/api/casting/production-days/all', {
+        const response = await axios.get<ProductionType[]>('https://www.siriustalent.ca/api/casting/production-days/all', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }

@@ -8,6 +8,6 @@ export type LocalUserType = {
     emailVerified: boolean;
     userActivated: boolean;
     submissionPending: boolean;
-    performerProfile: PerformerProfileType;
+    profile: PerformerProfileType;
     productionDays: ProductionDayType[];
 };

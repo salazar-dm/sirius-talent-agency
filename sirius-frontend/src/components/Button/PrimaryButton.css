@@ -1,8 +1,13 @@
 .PrimaryButton__primary-button {
+    font-family: "NeueMontreal-Bold", sans-serif;
+    font-size: .875rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    letter-spacing: .06125rem;
+    line-height: normal;
+    text-transform: uppercase;
     position: relative;
     display: flex;
-    flex-wrap: nowrap;
-    flex-grow: 0;
     overflow: hidden;
     align-items: center;
     padding: 1.0625rem 1.5rem;
@@ -12,13 +17,6 @@
     text-decoration: none;
     transition: color .3s linear;
     color: #00884d;
-    font-family: MontrealRegular, sans-serif;
-    font-size: .875rem;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 700;
-    letter-spacing: .06125rem;
-    line-height: normal;
-    text-transform: uppercase;
 }
 
 .PrimaryButton__primary-button:before {

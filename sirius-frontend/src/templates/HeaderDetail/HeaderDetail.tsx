@@ -24,7 +24,7 @@ const HeaderDetail : React.FC<HeaderDetailProps> = ({ form, monogram, title, bod
                          style={columnsStyle(1, 9, 1, 9, 3, 9, 3, 9)}>
                         <div className="HeaderDetail__content-wrapper">
                             <h1 className="HeaderDetail__title">{title}</h1>
-                            <p className="HeaderDetail__body">{body}</p>
+                            {body && <p className="HeaderDetail__body">{body}</p>}
                             {form}
                         </div>
                     </div>

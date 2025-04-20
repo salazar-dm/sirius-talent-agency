@@ -4,7 +4,7 @@
 }
 
 .VerificationRequest__verification-request {
-    padding-top: 24rem;
+    padding-top: calc(24rem - 140px);
     padding-bottom: 24rem;
 }
 

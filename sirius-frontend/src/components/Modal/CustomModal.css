@@ -5,9 +5,10 @@
     right: 0;
     bottom: 0;
     z-index: 9999;
-    transform: translateX(-100%);
-    transition: all 0.3s ease-in-out;
+    opacity: 1;
     background: #ffffff;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-out;
 }
 
 .CustomModal__container--open {

@@ -56,4 +56,62 @@ public class CdnController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
         }
     }
+
+    @PostMapping("/upload-performer-document-picture")
+    public ResponseEntity<String> uploadDocument(
+            @RequestHeader("Authorization") String jwtToken,
+            @RequestParam("file") MultipartFile file) {
+
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing Authorization header.");
+        }
+
+        try {
+            String url = cloudinaryService.uploadPerformerImage(jwtToken.substring(7), file, "document");
+            return ResponseEntity.ok(url);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
+        }
+    }
+
+    @PostMapping("/upload-performer-actra-card-picture")
+    public ResponseEntity<String> uploadActraCard(
+            @RequestHeader("Authorization") String jwtToken,
+            @RequestParam("file") MultipartFile file) {
+
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing Authorization header.");
+        }
+
+        try {
+            String url = cloudinaryService.uploadPerformerImage(jwtToken.substring(7), file, "actra-card");
+            return ResponseEntity.ok(url);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
+        }
+    }
+
+    @PostMapping("/upload-performer-whasa-picture")
+    public ResponseEntity<String> uploadWhasa(
+            @RequestHeader("Authorization") String jwtToken,
+            @RequestParam("file") MultipartFile file) {
+
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing Authorization header.");
+        }
+
+        try {
+            String url = cloudinaryService.uploadPerformerImage(jwtToken.substring(7), file, "whasa");
+            return ResponseEntity.ok(url);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
+        }
+    }
+
 }

@@ -4,21 +4,9 @@
     margin-bottom: 5rem;
 }
 
-@media (min-width: 450px) {
-    .HeaderHub__header-hub {
-        padding-top: 7.5rem;
-    }
-}
-
 @media (min-width: 1024px) {
     .HeaderHub__header-hub {
-        padding-top: 160px;
-    }
-}
-
-@media (min-width: 1920px) {
-    .HeaderHub__header-hub {
-        padding-top: 193px;
+        padding-top: 0;
     }
 }
 

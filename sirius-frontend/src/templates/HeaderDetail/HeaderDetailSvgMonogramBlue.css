@@ -1,3 +1,9 @@
+#SiriusMonogram__blue {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 #SiriusMonogram__blue .cls-1, #SiriusMonogram__blue .cls-2 {
     stroke: #086bec;
     stroke-miterlimit: 10;

@@ -11,30 +11,17 @@ const navigationItemList: NavigationItem[] = [
         categories: [
             {
                 categoryTitle: "Actors",
-                description: "Information files and resources for Toronto background actors.",
+                description: "Information pages and resources for Toronto background actors.",
                 categoryItems: [
-                    { title: "Background Actor Resume Templates", href: "/actors/resume-templates" },
-                    { title: "Toronto Actor Union Guidelines", href: "/actors/union-guidelines" },
-                    { title: "Toronto Casting Calls", href: "/actors/casting-calls" },
-                    { title: "Actor Reels Submission Guide", href: "/actors/actor-reels-guide" },
-                    { title: "Talent Agency Contacts", href: "/actors/agency-contacts" },
-                    { title: "Toronto Film Set Etiquette", href: "/actors/film-set-etiquette" },
-                    { title: "Toronto Background Actor Rates", href: "/actors/background-rates" },
-                    { title: "How to Get Cast as a Background Actor", href: "/actors/getting-cast" },
-                    { title: "Workshops for Background Actors", href: "/actors/workshops" }
+                    { title: "Basic documents", href: "/information/actors/basic-documents" },
+                    { title: "Union status explanation", href: "/information/actors/non-union-aabp-actra-apprentice-actra-full-explanation" },
+                    { title: "Agency required and Rules before set", href: "/information/actors/agency-required-and-rules-before-set" },
+                    { title: "On set rules and tips", href: "/information/actors/on-set-rules-and-tips" },
+                    { title: "Voucher, commission and payment", href: "/information/actors/voucher-commission-and-payment" },
+                    { title: "Minors", href: "/information/actors/minors" },
                 ],
-                categoryButtonText: "View All Actor Resources",
-                categoryButtonHref: "/actors"
-            },
-            {
-                categoryTitle: "Casting",
-                description: "Discover casting opportunities and details for background actors.",
-                categoryItems: [
-                    { title: "Event Casting", href: "/casting/event" },
-                    { title: "Online Casting", href: "/casting/online" }
-                ],
-                categoryButtonText: "See All Castings",
-                categoryButtonHref: "/casting"
+                categoryButtonText: "View actors full guide",
+                categoryButtonHref: "/"
             }
         ]
     },
