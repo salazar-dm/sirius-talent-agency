@@ -1,5 +1,5 @@
 # Базовый образ Oracle JDK 22
-FROM ghcr.io/graalvm/jdk:22.0.1
+FROM eclipse-temurin:22.0.1_7-jdk
 
 # Рабочая директория
 WORKDIR /app
