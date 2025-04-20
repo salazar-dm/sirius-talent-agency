@@ -1,3 +1,4 @@
+# force rebuild
 # Базовый образ Oracle JDK 22
 FROM eclipse-temurin:21-jdk
 
