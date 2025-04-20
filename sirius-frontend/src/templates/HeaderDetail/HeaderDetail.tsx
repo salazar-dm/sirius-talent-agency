@@ -1,7 +1,6 @@
 import React from "react";
 import "./HeaderDetail.css";
-import "C:/Users/traxler/training/sirius/src/App.css";
-import "C:/Users/traxler/training/sirius/src/components/Button/Button.css"
+import "../../App.css";
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
 

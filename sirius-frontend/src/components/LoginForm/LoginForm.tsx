@@ -1,13 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import "C:/Users/traxler/training/sirius/src/App.css";
-import "C:/Users/traxler/training/sirius/src/components/Button/Button.css"
+import "../../App.css";
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
 import "./LoginForm.css"
 import Modal from "../Modal/Modal.tsx";
 import {CustomModal} from "../Modal/CustomModal.tsx";
 import ErrorModal from "../Modal/ErrorModal.tsx";
+import PrimaryButton from "../Button/PrimaryButton.tsx";
 
 const LoginForm: React.FC = () => {
 
@@ -136,22 +136,7 @@ const LoginForm: React.FC = () => {
                                         required
                                     />
                                 </div>
-                                <button className="PrimaryButton_button" type="submit" disabled={loading}>
-                                    <span className="PrimaryButton_text">Submit</span>
-                                    <span className="PrimaryButton_icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <g clipPath="url(#clip0_840_451)">
-                                                <path d="M20 10L15 15L15 5L20 10Z" fill="currentColor"></path>
-                                                <path d="M0 10L17 10" stroke="currentColor" strokeWidth="2"></path>
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_840_451">
-                                                    <rect width="20" height="20" fill="white"></rect>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </span>
-                                </button>
+                                <PrimaryButton text="Submit" type="submit"/>
                             </form>
                         </div>
                     </div>

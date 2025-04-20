@@ -1,5 +1,5 @@
 import React from 'react';
-import "C:/Users/traxler/training/sirius/src/App.css";
+import "../../App.css";
 import "./Signpost.css"
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
