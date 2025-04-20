@@ -6,6 +6,10 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    port: 3000
-  }
+    port: 3000,
+    host: true // нужно для Render
+  },
+
+  // для правильного генерации путей на проде
+  base: '/',
 })
