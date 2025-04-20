@@ -1,3 +1,9 @@
+@media (max-width: 1024px) {
+    .SignpostPromoAnimatedImage__grid-item {
+        grid-row: 1;
+    }
+}
+
 .SignpostPromoAnimatedImage__wrapper {
     position: relative;
     margin-bottom: 2rem;
@@ -47,6 +53,11 @@
     height: 4.25rem;
     transform: translateY(50%);
     color: #ff44c4;
+}
+
+.SignpostPromoAnimatedImage__monogram-wrapper svg {
+    width: 100%;
+    height: 100%;
 }
 
 @media (min-width: 1024px) {

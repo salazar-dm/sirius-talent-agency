@@ -41,7 +41,7 @@ public class AuthController {
         } catch (AuthenticationException e) {
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
-                    .body("Please verify your email first");
+                    .body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)

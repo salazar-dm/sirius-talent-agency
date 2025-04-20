@@ -9,7 +9,7 @@ export const SignpostPromoContainer: React.FC<SignpostPromoContainerProps> = ({c
     return (
         <>
             <div className="SignpostPromoContainer__container">
-                <div className="Grid_grid__container">
+                <div className="Grid_grid__container Grid_grid__container__margin">
                     {children}
                 </div>
             </div>

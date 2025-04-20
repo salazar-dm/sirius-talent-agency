@@ -8,6 +8,7 @@ import Modal from "../Modal/Modal.tsx";
 import {CustomModal} from "../Modal/CustomModal.tsx";
 import ErrorModal from "../Modal/ErrorModal.tsx";
 import PrimaryButton from "../Button/PrimaryButton.tsx";
+import FormPasswordInput from "../Form/FormPasswordInput.tsx";
 
 const LoginForm: React.FC = () => {
 
@@ -19,39 +20,35 @@ const LoginForm: React.FC = () => {
     const navigate = useNavigate();
 
     const formatPhoneNumber = (value: string): string => {
-        let input = value.replace(/\D/g, '');
+        const digits = value.replace(/\D/g, "");
 
-        switch (input.length) {
-            case 0:
-                return `${input}`;
-            case 1:
-                return `${input}`;
-            case 2:
-                return `${input[0]}-${input[1]}`;
-            case 3:
-                return `${input[0]}-${input.slice(1, 3)}`;
-            case 4:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}`;
-            case 5:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 5)}`;
-            case 6:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 6)}`;
-            case 7:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}`;
-            case 8:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 8)}`;
-            case 9:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 9)}`;
-            case 10:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 10)}`;
-            default:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 11)}`;
-        }
+        // Убираем лишнее
+        const sliced = digits.slice(0, 11);
+
+        // Разбиваем по формату
+        const part1 = sliced.slice(0, 1);   // 1
+        const part2 = sliced.slice(1, 4);   // XXX
+        const part3 = sliced.slice(4, 7);   // XXX
+        const part4 = sliced.slice(7, 11);  // XXXX
+
+        let result = part1;
+        if (part2) result += `-${part2}`;
+        if (part3) result += `-${part3}`;
+        if (part4) result += `-${part4}`;
+        return result;
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        setTel(formatPhoneNumber(value));
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+
+        const digits = value.replace(/\D/g, "").slice(0, 11);
+        setTel(formatPhoneNumber(digits));
+    };
+
+    const handleFocus = () => {
+        if (tel === "") {
+            setTel("1-");
+        }
     };
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -122,19 +119,14 @@ const LoginForm: React.FC = () => {
                                         type="tel"
                                         value={tel}
                                         onChange={handleChange}
-                                        placeholder="Phone Number"
+                                        onFocus={handleFocus}
+                                        placeholder="Phone number"
                                         pattern="\d{1}-\d{3}-\d{3}-\d{4}"
                                         required
                                     />
                                 </div>
                                 <div className="LoginForm__input-password">
-                                    <input
-                                        type="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Password"
-                                        required
-                                    />
+                                    <FormPasswordInput value={password} onChange={(value) => setPassword(value)}/>
                                 </div>
                                 <PrimaryButton text="Submit" type="submit"/>
                             </form>

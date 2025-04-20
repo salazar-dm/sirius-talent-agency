@@ -18,9 +18,16 @@ const ResultsList: React.FC<ResultsListProps> = ({eyebrow, title, children}) => 
     const [selectedItem, setSelectedItem] = React.useState<ResultsListProps["children"][any]>(children[0]);
 
     const onTabClick = (item: ResultsListProps["children"][any]) => {
-        console.log(item)
         setSelectedItem(item);
     }
+
+    useEffect(() => {
+        if (children.length > 0) {
+            setSelectedItem(children[0]);
+            console.log("selectedItem set:", children[0]);
+        }
+    }, [children, selectedItem]);
+
 
     return (
         <>

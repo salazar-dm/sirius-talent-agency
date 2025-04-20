@@ -54,7 +54,7 @@ const Footer:React.FC = () => {
                                  );
                              })}
                              <div className="Grid_grid__item"
-                                  style={columnsStyle(1, 5, 1, 5, 2, 14, 1, 14)}>
+                                  style={columnsStyle(1, 9, 1, 7, 1, 9, 1, 9)}>
                                  <ul className="Footer_footer__hygiene-list">
                                      <li><a href="/" className="Footer_footer__hygiene-link">Accessibility</a></li>
                                      <li><a href="/" className="Footer_footer__hygiene-link">Cookie policy</a></li>

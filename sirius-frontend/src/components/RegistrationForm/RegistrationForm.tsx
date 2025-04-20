@@ -7,6 +7,7 @@ import {FormSelect} from "../Form/FormSelect.tsx";
 import {CustomModal} from "../Modal/CustomModal.tsx";
 import LicenseAgreement from "../../pages/LicenseAgreement.tsx";
 import PrimaryButton from "../Button/PrimaryButton.tsx";
+import FormPasswordInput from "../Form/FormPasswordInput.tsx";
 
 //TODO: hide password and make it optionally visible
 
@@ -21,39 +22,34 @@ const RegistrationForm: React.FC = () => {
     const [isLicenseAgreementOpen, setIsLicenseAgreementOpen] = useState<boolean>(false);
 
     const formatPhoneNumber = (value: string): string => {
-        let input = value.replace(/\D/g, '');
+        const digits = value.replace(/\D/g, "");
 
-        switch (input.length) {
-            case 0:
-                return `${input}`;
-            case 1:
-                return `${input}`;
-            case 2:
-                return `${input[0]}-${input[1]}`;
-            case 3:
-                return `${input[0]}-${input.slice(1, 3)}`;
-            case 4:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}`;
-            case 5:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 5)}`;
-            case 6:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 6)}`;
-            case 7:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}`;
-            case 8:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 8)}`;
-            case 9:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 9)}`;
-            case 10:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 10)}`;
-            default:
-                return `${input.slice(0, 1)}-${input.slice(1, 4)}-${input.slice(4, 7)}-${input.slice(7, 11)}`;
-        }
+        const sliced = digits.slice(0, 11);
+
+        const part1 = sliced.slice(0, 1);   // 1
+        const part2 = sliced.slice(1, 4);   // XXX
+        const part3 = sliced.slice(4, 7);   // XXX
+        const part4 = sliced.slice(7, 11);  // XXXX
+
+        let result = part1;
+        if (part2) result += `-${part2}`;
+        if (part3) result += `-${part3}`;
+        if (part4) result += `-${part4}`;
+        return result;
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        setTel(formatPhoneNumber(value));
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+
+        // удаление не цифр + защита от лишнего
+        const digits = value.replace(/\D/g, "").slice(0, 11);
+        setTel(formatPhoneNumber(digits));
+    };
+
+    const handleFocus = () => {
+        if (tel === "") {
+            setTel("1-");
+        }
     };
 
     const navigate = useNavigate();
@@ -122,11 +118,11 @@ const RegistrationForm: React.FC = () => {
                                 <form onSubmit={handleSubmit}>
                                     <div className="RegistrationForm__input-tel">
                                         <input
-                                            id="phone-number"
                                             type="tel"
                                             value={tel}
                                             onChange={handleChange}
-                                            placeholder="Phone Number"
+                                            onFocus={handleFocus}
+                                            placeholder="Phone number"
                                             pattern="\d{1}-\d{3}-\d{3}-\d{4}"
                                             required
                                         />
@@ -142,13 +138,7 @@ const RegistrationForm: React.FC = () => {
                                         />
                                     </div>
                                     <div className="RegistrationForm__input-password">
-                                        <input
-                                            type="text"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            placeholder="Password"
-                                            required
-                                        />
+                                        <FormPasswordInput value={password} onChange={(value) => setPassword(value)}/>
                                     </div>
 
                                     <div className="RegistrationForm__input-role RegistrationForm__select-input">

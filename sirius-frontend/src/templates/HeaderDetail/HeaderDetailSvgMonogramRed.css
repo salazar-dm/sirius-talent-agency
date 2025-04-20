@@ -1,11 +1,12 @@
 #SiriusMonogram__red .filled {
     fill: none;
+    width: calc(100% - 20px);
 }
 
 #SiriusMonogram__red .cls-1, #SiriusMonogram__red .cls-2 {
     stroke: #e66055;
     stroke-miterlimit: 10;
-    stroke-width: .5px;
+    stroke-width: 1.5px;
 }
 
 #SiriusMonogram__red .cls-2 {

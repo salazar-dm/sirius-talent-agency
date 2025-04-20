@@ -36,6 +36,8 @@ import {Test} from "./templates/Test/Test.tsx";
 import {TestPage} from "./pages/TestPage.tsx";
 import {Terms101} from "./pages/Information/Actors/Terms101.tsx";
 import {QuickGuide} from "./pages/Information/Actors/QuickGuide.tsx";
+import { usePageTitle } from './hooks/usePageTitle.ts';
+import {PageTitleHandler} from "./utils/PageTitleHandler.tsx";
 
 const stripePromise = loadStripe("pk_test_51QIxe6IxjNMd7TsUlPkempTxyhiwUjYk87cSKNGs0QKjzEMzhhDYPLkfnyFhFIYE8HHBgmVrZaT0WGw22ptXApKa00u0XaCa1Z");
 
@@ -66,6 +68,7 @@ const App: React.FC = () => {
             <Header isDesktop={isDesktop} />
             <QueryClientProvider client={queryClient}>
                 <Router>
+                    <PageTitleHandler/>
                     <main>
                         <Elements stripe={stripePromise}>
                             <Routes>

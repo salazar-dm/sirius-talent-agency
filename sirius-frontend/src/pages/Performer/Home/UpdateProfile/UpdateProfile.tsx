@@ -73,6 +73,10 @@ const UpdateProfile: React.FC = () => {
     useEffect(() => {
         if (user) {
             setProfile(user.profile)
+
+            if (!user.userActivated && !user.testPassed && (user.profile.unionStatus === "Non-Union" || user.profile.unionStatus === "AABP")) {
+                window.location.href = '/performer/test';
+            }
         }
     }, [user]);
 

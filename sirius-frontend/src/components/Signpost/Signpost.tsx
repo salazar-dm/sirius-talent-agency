@@ -31,7 +31,7 @@ const Signpost : React.FC<SignpostProps> = ({title, eyebrow, text, children, upl
                         </div>
                     </div>
                     <div className="Grid_grid__item"
-                        style={columnsStyle(1, 9, 1, 9, 9, 16, 9, 16)}>
+                        style={columnsStyle(1, 9, 1, 9, 9, 16, 9, 15)}>
                         {children}
                     </div>
                 </div>

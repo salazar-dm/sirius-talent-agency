@@ -7,6 +7,7 @@ public class LocalUserBody {
     private String email;
     private String password;
     private boolean emailVerified;
+    private boolean testPassed;
     private boolean userActivated;
     private String role;
 
@@ -40,6 +41,12 @@ public class LocalUserBody {
     }
     public void setEmailVerified(boolean emailVerified) {
         this.emailVerified = emailVerified;
+    }
+    public boolean isTestPassed() {
+        return testPassed;
+    }
+    public void setTestPassed(boolean testPassed) {
+        this.testPassed = testPassed;
     }
     public boolean isUserActivated() {
         return userActivated;

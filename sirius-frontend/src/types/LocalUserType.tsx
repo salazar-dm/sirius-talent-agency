@@ -6,6 +6,7 @@ export type LocalUserType = {
     tel: string;
     email: string;
     emailVerified: boolean;
+    testPassed: boolean;
     userActivated: boolean;
     submissionPending: boolean;
     profile: PerformerProfileType;

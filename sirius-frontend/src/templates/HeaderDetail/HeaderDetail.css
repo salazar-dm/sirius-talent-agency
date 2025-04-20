@@ -5,8 +5,9 @@
 
 .HeaderDetail__header-detail {
     overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 54px;
     margin-top: 5rem;
-    margin-bottom: 50px;
 }
 
 @media (min-width: 1024px) {
@@ -58,17 +59,11 @@
 
 .HeaderDetail__svg-wrapper {
     position: relative;
-    display: none;
+    display: block;
     aspect-ratio: 4 / 5;
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
-}
-
-@media (min-width: 1024px) {
-    .HeaderDetail__svg-wrapper {
-        display: block;
-    }
 }
 
 .HeaderDetail__body {

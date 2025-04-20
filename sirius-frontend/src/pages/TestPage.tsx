@@ -11,7 +11,7 @@ export const TestPage: React.FC = () => {
         <>
             <div className="Test__content-wrapper fade-in">
                 <Signpost eyebrow="ACTIVATION" title="Take the Sirius Talent test" text="To activate your account, you must complete a short test based on our performer guidelines. You can review the required materials by clicking the button below. The quiz is quick, simple, and ensures you understand the key rules of working on set."
-                button={<PrimaryButton text="View required materials" href="https://sirius-talent-agency.onrender.com/information/actors/quick-guide"/>}>
+                button={<PrimaryButton text="View required materials" href="https://siriustalent.ca/information/actors/quick-guide"/>}>
                     <Test/>
                 </Signpost>
             </div>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./CustomModal.css";
 import "../../App.css";
 import {BackButton} from "../Button/BackButton.tsx";
+import {columnsStyle} from "../../shared/columnsStyle.tsx";
 
 interface CustomModalProps {
     isOpen: boolean
@@ -38,7 +39,11 @@ export const CustomModal: React.FC<CustomModalProps> = ({children, isOpen, onClo
                 <div className={`CustomModal__button-container`}>
                     <BackButton onClick={onModalClose}/>
                 </div>
-                {children}
+                <div className="Grid_grid__container">
+                    <div className="Grid_grid__item" style={columnsStyle(2, 9, 2, 9, 1, 17, 1, 17)}>
+                        {children}
+                    </div>
+                </div>
             </div>
         </div>
     )

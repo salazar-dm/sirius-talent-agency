@@ -53,7 +53,6 @@ ul {
 .Footer_footer__title, .Footer_footer__social-list-item {
     font-size: 13px;
     letter-spacing: .91px;
-    font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;
@@ -98,6 +97,7 @@ ul {
 
 .Footer_footer__title {
     margin-bottom: 1rem;
+    font-family: "NeueMontreal-Bold", sans-serif;
 }
 
 .Footer_footer__social-list-link {

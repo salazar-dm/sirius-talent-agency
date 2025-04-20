@@ -1,31 +1,34 @@
 .Signpost__container {
-    margin-top: 75px;
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 @media (min-width: 1024px) {
     .Signpost__container {
-        margin-top: 200px;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 }
 
 .Signpost__signpost {
-    position: sticky;
-    top: 3.5rem;
+    position: relative;
+    padding: 2rem 1.25rem;
     background-color: #00342b;
     color: #fff;
-    padding: 2rem 1.25rem;
 }
 
 @media (min-width: 1024px) {
     .Signpost__signpost {
-        height: 100vh;
-        padding: 3rem 3rem 7.5rem;
+        position: sticky;
+        top: 5rem;
+        padding: 2rem;
     }
 }
 
 @media (min-width: 1920px) {
     .Signpost__signpost {
-        padding: 4rem 7.125rem 7.125rem;
+        padding: 3rem;
     }
 }
 
@@ -33,7 +36,7 @@
     margin-bottom: 2rem;
     font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
     letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
-    font-family: Arial, sans-serif;
+    font-family: "NeueMontreal-Bold", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;

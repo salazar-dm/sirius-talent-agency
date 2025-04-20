@@ -91,7 +91,7 @@ public class UserService {
             }
             return jwtUtil.generateToken(id.toString(), user.getRole());
         }
-        throw new AuthenticationException("Authenticate: Invalid credentials");
+        throw new AuthenticationException("Your phone number or password is incorrect");
     }
 
     public LocalUser register(LocalUserBody localUserBody) {
@@ -138,14 +138,15 @@ public class UserService {
     public LocalUser activate(String token) {
         LocalUser user = getUser(jwtUtil.extractSubject(token));
 
-        if (user.isUserActivated()) {
-            return user;
-        }
-
         if (user == null) {
             throw new ResourceNotFoundException("Activate: User not found with id " + jwtUtil.extractSubject(token));
         }
 
+        if (user.isUserActivated() && user.isTestPassed()) {
+            return user;
+        }
+
+        user.setTestPassed(true);
         user.setUserActivated(true);
         emailUtil.sendActivationEmail(user.getEmail());
         return localUserRepository.save(user);

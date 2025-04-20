@@ -16,7 +16,7 @@ const HeaderHub: React.FC<HeaderHubProps> = ({title, text, children, uplink}) =>
 
     return (
         <div className="HeaderHub__header-hub">
-            <div className="Grid_grid__container">
+            <div className="Grid_grid__container Grid_grid__container__margin">
                 <div className="Grid_grid__item"
                      style={columnsStyle(1, 9, 1, 9, 3, 8, 3, 8)}>
                     {uplink ? uplink : null}

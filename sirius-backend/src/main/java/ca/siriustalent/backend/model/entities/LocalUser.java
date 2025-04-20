@@ -23,6 +23,8 @@ public class LocalUser {
 
     private boolean userActivated = false;
 
+    private boolean testPassed = false;
+
     private Boolean submissionPending = false;
 
     private String role;
@@ -72,6 +74,14 @@ public class LocalUser {
 
     public void setUserActivated(boolean userActivated) {
         this.userActivated = userActivated;
+    }
+
+    public boolean isTestPassed() {
+        return testPassed;
+    }
+
+    public void setTestPassed(boolean testPassed) {
+        this.testPassed = testPassed;
     }
 
     public String getTel() {

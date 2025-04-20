@@ -2,6 +2,7 @@
     display: flex;
     height: 100%;
     flex-direction: column;
+    justify-content: center;
     margin-bottom: 2rem;
 }
 
@@ -16,7 +17,7 @@
     margin-bottom: 1.5rem;
     font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
     letter-spacing: clamp(0.056875rem, 0.055535714285714285rem + 0.004761904761904758vw, 0.06125rem);
-    font-family: Arial, sans-serif;
+    font-family: "NeueMontreal-Bold", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     line-height: 120%;

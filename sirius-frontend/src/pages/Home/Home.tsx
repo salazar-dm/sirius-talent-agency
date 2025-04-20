@@ -11,6 +11,10 @@ import {SignpostPromoAnimatedImage} from "../../components/SignpostPromo/Signpos
 import {Directory} from "../../components/Directory/Directory.tsx";
 import Signpost from "../../components/Signpost/Signpost.tsx";
 import ElevatorText from "../../templates/ElevatorText/ElevatorText.tsx";
+import SignpostNavigation from "../../components/Signpost/SignpostNavigation.tsx";
+import {SignpostNavigationDummyData} from "../../dummy-data/SignpostNavigationDummyData.tsx";
+import SecondaryButton from "../../components/Button/SecondaryButton.tsx";
+import PrimaryButton from "../../components/Button/PrimaryButton.tsx";
 
 interface HomeProps extends CommonProps {
     isDesktop: boolean
@@ -61,13 +65,18 @@ const Home : React.FC<HomeProps> = ({isDesktop}) => {
                     }
                 ]}
             />
+            <Spacer/>
 
-            <ContentBlockWrapper>
+            <Signpost title="Navigate your work on set"
+                      text="From union status and agency rules to payments and paperwork — our information hub helps Toronto background actors stay prepared, compliant, and confident on every production."
+                      eyebrow="INFORMATION" button={<PrimaryButton text="Full guide" href="/"/>}>
+                <SignpostNavigation navigationList={SignpostNavigationDummyData}/>
+            </Signpost>
+
                 <SignpostPromo>
-                    <SignpostPromoText eyebrow="Join our roster" title="No ordinary gig" text="All the opportunities you’d expect from a leading background talent agency - and a few you wouldn’t. " button={{text: "Register", link: "https://sirius-talent-agency.onrender.com/registration"}}/>
+                    <SignpostPromoText eyebrow="Join us" title="No ordinary gig" text="All the opportunities you’d expect from a leading background talent agency - and a few you wouldn’t. " button={{text: "Register", link: "https://siriustalent.ca/registration"}}/>
                     <SignpostPromoAnimatedImage image="https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092088/website-pictures/kkaikyx6tio1hgmvcoim.webp"/>
                 </SignpostPromo>
-            </ContentBlockWrapper>
         </>
     );
 }

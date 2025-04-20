@@ -10,6 +10,8 @@ import PerformerAttributes from "../../../components/PerformerAttributes/Perform
 import CardElement from "../../../components/CardElement/CardElement.tsx";
 import LoadingOverlay from "../../../components/LoadingOverlay/LoadingOverlay.tsx";
 import LoadingContext from "../../../context/LoadingContext.tsx";
+import SignpostNavigation from "../../../components/Signpost/SignpostNavigation.tsx";
+import {PerformerProfileNavigationDummyData} from "../../../dummy-data/PerformerProfileNavigationDummyData.tsx";
 
 interface UserProfile {
     keyName: string;
@@ -156,11 +158,7 @@ const Performer : React.FC = () => {
                     </div>
                     <div className="Grid_grid__item"
                          style={columnsStyle(1, 9, 1, 9, 8, 16, 8, 16)}>
-                        <CategoryGrid children={[
-                            {href: "/performer/commissions", "title": "Commissions"},
-                            {href: "/performer/information", "title": "Information"},
-                            {href: "/information/actors/terms-101", "title": "Terms 101"}
-                        ]}/>
+                        <SignpostNavigation navigationList={PerformerProfileNavigationDummyData}/>
                         <CardElement title="Attributes" dividerTop={false} dividerBottom={false} children={[<PerformerAttributes data={profile}/>]}/>
                     </div>
                 </div>
