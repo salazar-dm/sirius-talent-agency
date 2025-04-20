@@ -1,4 +1,4 @@
-export const BASE_URL = "https://www.siriustalent.ca";
+export const BASE_URL = "https://sirius-talent-agency.onrender.com";
 
 //Auth
 export const AUTH_LOGIN = "/auth/login";

@@ -64,7 +64,7 @@ const LoginForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('https://www.siriustalent.ca/api/auth/login', {
+            const response = await fetch('https://sirius-talent-agency.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

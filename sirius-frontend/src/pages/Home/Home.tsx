@@ -64,7 +64,7 @@ const Home : React.FC<HomeProps> = ({isDesktop}) => {
 
             <ContentBlockWrapper>
                 <SignpostPromo>
-                    <SignpostPromoText eyebrow="Join our roster" title="No ordinary gig" text="All the opportunities you’d expect from a leading background talent agency - and a few you wouldn’t. " button={{text: "Register", link: "https://www.siriustalent.ca/registration"}}/>
+                    <SignpostPromoText eyebrow="Join our roster" title="No ordinary gig" text="All the opportunities you’d expect from a leading background talent agency - and a few you wouldn’t. " button={{text: "Register", link: "https://sirius-talent-agency.onrender.com/registration"}}/>
                     <SignpostPromoAnimatedImage image="https://res.cloudinary.com/da7bqrpqb/image/upload/v1745092088/website-pictures/kkaikyx6tio1hgmvcoim.webp"/>
                 </SignpostPromo>
             </ContentBlockWrapper>

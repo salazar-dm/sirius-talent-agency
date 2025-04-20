@@ -138,6 +138,10 @@ public class UserService {
     public LocalUser activate(String token) {
         LocalUser user = getUser(jwtUtil.extractSubject(token));
 
+        if (user.isUserActivated()) {
+            return user;
+        }
+
         if (user == null) {
             throw new ResourceNotFoundException("Activate: User not found with id " + jwtUtil.extractSubject(token));
         }

@@ -1,33 +1,35 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# ===================
+# SYSTEM FILES
+# ===================
+.DS_Store
+Thumbs.db
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# ===================
+# IDEs
+# ===================
+.idea/
 *.iml
-*.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# ===================
+# NODE / FRONTEND
+# ===================
+node_modules/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+dist/
+.env
 
-### VS Code ###
-.vscode/
+# ===================
+# JAVA / SPRING BOOT
+# ===================
+target/
+*.class
+*.log
+*.jar
+
+# ===================
+# OS-GENERATED
+# ===================
+*.swp
+*.bak
+*.tmp
+".env" 

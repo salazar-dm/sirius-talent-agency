@@ -70,7 +70,7 @@ const RegistrationForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('https://www.siriustalent.ca/api/auth/register', {
+            const response = await fetch('https://sirius-talent-agency.onrender.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

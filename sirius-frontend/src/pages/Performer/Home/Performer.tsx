@@ -72,7 +72,7 @@ const Performer : React.FC = () => {
             setLoading(true);
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('https://www.siriustalent.ca/api/performer/get-user', {
+                const response = await axios.get('https://sirius-talent-agency.onrender.com/api/performer/get-user', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
