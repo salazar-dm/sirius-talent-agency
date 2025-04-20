@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import "./Footer.css";
-import "C:/Users/traxler/training/sirius/src/App.css";
+import "../../App.css";
 import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {numberOfColumnsStyle} from "../../shared/numberOfColumnsStyle.tsx";
 import LoadingContext from "../../context/LoadingContext.tsx";
