@@ -31,7 +31,7 @@ const DesktopScrollNavigation: React.FC<DesktopScrollNavigationProps> = ({toggle
                     <div className="Grid_grid__container Grid_grid__container__margin"
                     style={numberOfColumnsStyle(16)}>
                         <div className="Grid_grid__item"
-                        style={columnsStyle(1, 6, 1, 4, 1, 4, 1, 2)}>
+                        style={columnsStyle(1, 6, 1, 4, 1, 2, 1, 2)}>
                             <div className="ScrollNavigation__link-wrapper">
                                 <a href="/" className="ScrollNavigation__logo-link">
                                     <SiriusTalentLogoVertical scale={scaleLogo} isScalable={window.location.pathname === "/"}/>

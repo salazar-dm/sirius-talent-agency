@@ -24,7 +24,9 @@ const RegistrationForm: React.FC = () => {
     const formatPhoneNumber = (value: string): string => {
         const digits = value.replace(/\D/g, "");
 
-        const sliced = digits.slice(0, 11);
+        const normalized = digits.startsWith("1") ? digits : `1${digits}`;
+
+        const sliced = normalized.slice(0, 11);
 
         const part1 = sliced.slice(0, 1);   // 1
         const part2 = sliced.slice(1, 4);   // XXX
@@ -35,20 +37,32 @@ const RegistrationForm: React.FC = () => {
         if (part2) result += `-${part2}`;
         if (part3) result += `-${part3}`;
         if (part4) result += `-${part4}`;
+
         return result;
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (!value.startsWith("1")) return;
 
-        // удаление не цифр + защита от лишнего
-        const digits = value.replace(/\D/g, "").slice(0, 11);
-        setTel(formatPhoneNumber(digits));
+        setTel(formatPhoneNumber(value));
     };
 
-    const handleFocus = () => {
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         if (tel === "") {
             setTel("1-");
+            setTimeout(() => {
+                e.target.setSelectionRange(2, 2);
+            }, 0);
+        } else if (e.target.selectionStart !== null && e.target.selectionStart < 2) {
+            e.target.setSelectionRange(2, 2);
+        }
+    };
+
+    const handleSelect = (e: React.SyntheticEvent<HTMLInputElement>) => {
+        const input = e.currentTarget;
+        if (input.selectionStart !== null && input.selectionStart < 2) {
+            input.setSelectionRange(2, 2);
         }
     };
 
@@ -118,10 +132,12 @@ const RegistrationForm: React.FC = () => {
                                 <form onSubmit={handleSubmit}>
                                     <div className="RegistrationForm__input-tel">
                                         <input
+                                            id="phone-number"
                                             type="tel"
                                             value={tel}
                                             onChange={handleChange}
                                             onFocus={handleFocus}
+                                            onSelect={handleSelect}
                                             placeholder="Phone number"
                                             pattern="\d{1}-\d{3}-\d{3}-\d{4}"
                                             required

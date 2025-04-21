@@ -242,7 +242,9 @@ const UpdateProfile: React.FC = () => {
                     headers: { Authorization: `Bearer ${token}` },
                 });
             } else {
-                window.location.href = '/performer/test';
+                if (!user?.userActivated) {
+                    window.location.href = '/performer/test';
+                }
             }
 
             setSuccessMessage('Profile updated successfully!');
