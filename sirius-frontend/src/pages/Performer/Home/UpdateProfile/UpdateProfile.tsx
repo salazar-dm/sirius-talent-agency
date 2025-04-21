@@ -89,7 +89,7 @@ const UpdateProfile: React.FC = () => {
             profile,
             headshotHandler.imageSelected &&
             fullBodyHandler.imageSelected &&
-            ((calculateAge(profile.dateOfBirth) < 17) || (!!documentFile || profile.documentKeyName !== '')) &&
+            ((calculateAge(profile.dateOfBirth) < 18) || (!!documentFile || profile.documentKeyName !== '')) &&
             ((profile.unionStatus === "Non-Union" || profile.unionStatus === "AABP") || (!!actraCardFile || profile.actraCardKeyName !== '')) &&
             (!!whasaFile || profile.whasaKeyName !== '')
         );
@@ -513,7 +513,7 @@ const UpdateProfile: React.FC = () => {
                                         )}
 
 
-                                        {!user?.userActivated && profile.dateOfBirth && calculateAge(profile.dateOfBirth) > 18 && (
+                                        {!user?.userActivated && profile.dateOfBirth && calculateAge(profile.dateOfBirth) > 17 && (
                                             <p>
                                                 <label>Picture of document (OHIP, Driver's License, etc.)</label>
                                                 <input type="file" accept="image/*" onChange={(e) => {
