@@ -1,0 +1,25 @@
+.BreadcrumbMenu__container {
+    color: #00342b;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: clamp(1.625rem, 1.4910714285714286rem + 0.47619047619047616vw, 2.0625rem);
+    line-height: clamp(1.75rem, 1.596938775510204rem + 0.5442176870748299vw, 2.25rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.BreadcrumbMenu__previous, .BreadcrumbMenu__current {
+    cursor: pointer;
+}
+
+.BreadcrumbMenu__separator {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin: 0 2rem;
+}
+
+.BreadcrumbMenu__current {
+    color: #009b55;
+}

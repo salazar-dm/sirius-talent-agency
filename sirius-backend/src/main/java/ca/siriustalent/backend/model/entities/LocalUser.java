@@ -14,7 +14,6 @@ public class LocalUser {
 
     private String tel;
 
-    @JsonIgnore
     private String password;
 
     private String email;

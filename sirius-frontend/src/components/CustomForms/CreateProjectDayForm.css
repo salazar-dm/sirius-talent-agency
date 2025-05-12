@@ -1,0 +1,56 @@
+.ProjectDayForm__container {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .ProjectDayForm__container {
+        margin-bottom: 7rem;
+    }
+}
+
+.ProjectDayForm__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem var(--form-grid-column-gap);
+    flex-wrap: wrap;
+}
+
+.ProjectDayForm__form .half-width {
+    width: 100%;
+}
+
+.ProjectDayForm__form .full-width {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .ProjectDayForm__form .half-width {
+        width: calc(50% - var(--form-grid-column-gap) / 2);
+    }
+}
+
+h3 {
+    color: #00342b;
+    font-size: clamp(1.625rem, 1.4910714285714286rem + 0.47619047619047616vw, 2.0625rem);
+    line-height: clamp(1.75rem, 1.596938775510204rem + 0.5442176870748299vw, 2.25rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+h3:not(:first-child) {
+    margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+    h3:not(:first-child) {
+        margin-top: 4rem;
+    }
+}
+
+.FormInput__input, .FormSelect__select, .rmdp-input {
+    background: #cce5e1;
+}
+

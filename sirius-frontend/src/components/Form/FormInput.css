@@ -1,6 +1,7 @@
 .FormInput__input-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .FormInput__input {
@@ -10,7 +11,7 @@
     line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
     font-weight: 500;
     color: #009b54;
-    padding: 14px 0;
+    padding: 14px;
     border: none;
     border-bottom: 3px solid #009B54;
 }

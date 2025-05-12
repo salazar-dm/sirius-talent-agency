@@ -2,57 +2,113 @@ package ca.siriustalent.backend.api.controller;
 
 import ca.siriustalent.backend.api.model.LocalUserBody;
 import ca.siriustalent.backend.model.entities.LocalUser;
+import ca.siriustalent.backend.service.ProfileService;
 import ca.siriustalent.backend.service.UserService;
+import ca.siriustalent.backend.utils.JwtUtil;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
 
-    private UserService userService;
+    private final UserService userService;
+    private final ProfileService profileService;
+    private final JwtUtil jwtUtil;
 
-    public AdminController(UserService userService) {
+    public AdminController(UserService userService, JwtUtil jwtUtil, ProfileService profileService) {
+        this.profileService = profileService;
         this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
-    @GetMapping("/get-user/{id}")
-    public ResponseEntity<LocalUser> adminGetUser(@PathVariable String id) {
-        LocalUser user = userService.getUser(id);
-        return ResponseEntity.ok(user);
+    @GetMapping("/users")
+    public ResponseEntity<?> getAllUsers(
+            @RequestHeader(value = "Authorization", required = false) String jwtToken,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(required = false) String query
+    ) {
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing Authorization header.");
+        }
+
+        String token = jwtToken.replace("Bearer ", "");
+        try {
+            jwtUtil.extractSubject(token);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token.");
+        }
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+
+        Page<LocalUser> userPage = (query != null && !query.trim().isEmpty())
+                ? userService.searchUsers(query, pageable)
+                : userService.getAllUsersByPageable(pageable);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("content", userPage.getContent());
+        response.put("currentPage", userPage.getNumber());
+        response.put("totalItems", userPage.getTotalElements());
+        response.put("totalPages", userPage.getTotalPages());
+        response.put("hasNext", userPage.hasNext());
+        response.put("hasPrevious", userPage.hasPrevious());
+
+        return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/get-all")
-    public ResponseEntity<List<LocalUser>> adminGetAllUsers() {
-        List<LocalUser> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+    @GetMapping("/users/{id}")
+    public ResponseEntity<LocalUser> getUserById(@PathVariable String id) {
+        Optional<LocalUser> user = userService.getUserById(id);
+        return user.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/create-user")
-    public ResponseEntity<LocalUser> adminCreateUser(@RequestBody LocalUserBody localUserBody, @RequestParam boolean isEmailVerified, @RequestParam String role) {
-        userService.createUser(localUserBody);
-        return ResponseEntity.ok().build();
+    @PutMapping("/users/{id}")
+    public ResponseEntity<String> updateUserByAdmin(
+            @PathVariable String id,
+            @RequestBody LocalUserBody localUserBody
+    ) {
+        userService.update(id, localUserBody);
+        profileService.updateProfileById(id, localUserBody.getProfile());
+
+        return ResponseEntity.ok(localUserBody.toString());
     }
 
-    @PutMapping("/update-user")
-    public ResponseEntity<LocalUser> adminUpdateUser(@RequestBody LocalUserBody localUserBody) {
-        LocalUser user = userService.updateUser(localUserBody);
-        return ResponseEntity.ok(user);
-    }
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<String> deleteUserByAdmin(@PathVariable String id) {
+        Optional<LocalUser> optionalUser = userService.getUserById(id);
 
-    @DeleteMapping("/delete-user/{id}")
-    public ResponseEntity<HttpStatus> adminDeleteUser(@PathVariable String id) {
+        if (optionalUser.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+
         userService.deleteUser(id);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok("User deleted successfully");
     }
 
-    @GetMapping("/get-all-by-role/{role}")
-    public ResponseEntity<List<LocalUser>> getAllByRole(@PathVariable String role) {
-        List<LocalUser> users = userService.getAllUsersByRole(role);
-        return ResponseEntity.ok(users);
-    }
+    @PostMapping("/users")
+    public ResponseEntity<?> createUserByAdmin(@RequestBody LocalUserBody localUserBody) {
+        try {
+            LocalUser newUser = userService.createUser(localUserBody, false);
 
+            if (localUserBody.getProfile() != null) {
+                profileService.updateProfileById(newUser.getId(), localUserBody.getProfile());
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to create user: " + e.getMessage());
+        }
+    }
 }

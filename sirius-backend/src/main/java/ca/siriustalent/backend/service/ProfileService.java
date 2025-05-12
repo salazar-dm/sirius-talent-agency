@@ -56,6 +56,13 @@ public class ProfileService {
         localUserRepository.save(user);
     }
 
+    @Transactional
+    public void updateProfileById(String id, ProfileBody profileBody) {
+        LocalUser user = localUserRepository.findById(id).get();
+        setProfile(user, profileBody);
+        localUserRepository.save(user);
+    }
+
     private void setProfile(LocalUser user, ProfileBody profileBody) {
         PerformerProfile performerProfile = new PerformerProfile();
         performerProfile.setKeyName(profileBody.getKeyName());

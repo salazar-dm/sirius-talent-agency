@@ -1,0 +1,29 @@
+.CreateProjectForm__container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.CreateProjectForm__title {
+    width: 60%;
+    margin-bottom: 2rem;
+    font-size: clamp(2.3125rem, 1.9107142857142858rem + 1.4285714285714286vw, 3.625rem);
+    line-height: clamp(2.4375rem, 1.9783163265306123rem + 1.6326530612244896vw, 3.9375rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+    .CreateProjectForm__title {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+}
+
+.CreateProjectForm__container form {
+    width: 100%;
+}
+

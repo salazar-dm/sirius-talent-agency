@@ -10,7 +10,7 @@
     gap: .5rem;
 }
 
-.FormDatePicker__dates-container .rmdp-input {
+.FormDatePicker__dates-container .rmdp-input, .rmdp-wrapper {
     width: 100% !important;
     font-family: Arial, sans-serif !important;
     font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem) !important;
@@ -19,5 +19,8 @@
     color: #009b54 !important;
     padding: 14px !important;
     border: none !important;
+}
+
+.FormDatePicker__dates-container .rmdp-input {
     border-bottom: 3px solid #009B54 !important;
 }

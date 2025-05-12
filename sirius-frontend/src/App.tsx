@@ -17,10 +17,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import UpdateProfile from "./pages/Performer/Home/UpdateProfile/UpdateProfile.tsx";
 import {jwtDecode} from "jwt-decode";
 import Header from "./components/Header/Header.tsx";
-import CastingHome from "./pages/CastingHome.tsx";
+import OldCastingHome from "./pages/OldCastingHome.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
-import CastingCreate from "./pages/CastingCreate.tsx";
-import CastingProductionDay from "./pages/CastingProductionDay.tsx";
+import OldCastingCreate from "./pages/OldCastingCreate.tsx";
+import OldCastingProductionDay from "./pages/OldCastingProductionDay.tsx";
 import {ContactUs} from "./pages/ContactUs.tsx";
 import {AboutUs} from "./pages/AboutUs.tsx";
 import { LoadingProvider } from "./context/LoadingContext";
@@ -38,6 +38,15 @@ import {Terms101} from "./pages/Information/Actors/Terms101.tsx";
 import {QuickGuide} from "./pages/Information/Actors/QuickGuide.tsx";
 import { usePageTitle } from './hooks/usePageTitle.ts';
 import {PageTitleHandler} from "./utils/PageTitleHandler.tsx";
+import {AdminHomepage} from "./pages/AdminHomepage.tsx";
+import AdminUser from "./pages/AdminUser.tsx";
+import AdminUpdateUser from "./pages/AdminUpdateUser.tsx";
+import AdminUserCreate from "./pages/AdminUserCreate.tsx";
+import {ProjectCreate} from "./pages/Project/ProjectCreate.tsx";
+import {Project} from "./pages/Project/Project.tsx";
+import ProjectAll from "./pages/Project/ProjectAll.tsx";
+import {ProjectNewDays} from "./pages/Project/ProjectNewDays.tsx";
+import ProjectDay from "./pages/Project/ProjectDay.tsx";
 
 const stripePromise = loadStripe("pk_test_51QIxe6IxjNMd7TsUlPkempTxyhiwUjYk87cSKNGs0QKjzEMzhhDYPLkfnyFhFIYE8HHBgmVrZaT0WGw22ptXApKa00u0XaCa1Z");
 
@@ -86,9 +95,9 @@ const App: React.FC = () => {
                                 <Route path="/performer/emergency" element={<Emergency />} />
                                 <Route path="/performer/support" element={<Support />} />
                                 <Route path="/performer/test" element={<TestPage/>} />
-                                <Route path="/casting" element={<CastingHome />} />
-                                <Route path="/casting/create" element={<CastingCreate />} />
-                                <Route path="/casting/production-days/:id" element={<CastingProductionDay />} />
+                                <Route path="/old-casting" element={<OldCastingHome />} />
+                                <Route path="/old-casting/create" element={<OldCastingCreate />} />
+                                <Route path="/old-casting/production-days/:id" element={<OldCastingProductionDay />} />
 
                                 <Route path="/information/actors/basic-documents" element={<BasicDocuments />} />
                                 <Route path="/information/actors/non-union-aabp-actra-apprentice-actra-full-explanation" element={<NonUnionAABPActraApprenticeActraFullExplanation />} />
@@ -101,6 +110,17 @@ const App: React.FC = () => {
 
 
                                 <Route path="/admin/performers" element={<AdminGetAllPerformers />} />
+                                <Route path="/admin" element={<AdminHomepage />} />
+                                <Route path="/admin/user/:id" element={<AdminUser />} />
+                                <Route path="/admin/user-update/:id" element={<AdminUpdateUser />} />
+                                <Route path="/admin/user-create" element={<AdminUserCreate />} />
+
+                                <Route path="/project/create/:castingId" element={<ProjectCreate />} />
+                                <Route path="/project/:id" element={<Project />} />
+                                <Route path="/project/all" element={<ProjectAll />} />
+                                <Route path="/project/:id/day/:dayId" element={<ProjectDay />} />
+
+                                <Route path="/project/:id/new-days" element={<ProjectNewDays />} />
                             </Routes>
                         </Elements>
                     </main>

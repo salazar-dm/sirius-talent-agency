@@ -17,7 +17,7 @@ import CastingCreateProductionDay from "../components/CastingCreateProductionDay
 import {useGetPerformerMinMax} from "../hooks/useGetPerformerMinMax.tsx";
 
 
-const CastingCreate: React.FC = () => {
+const OldCastingCreate: React.FC = () => {
     const [phase, setPhase] = React.useState(1);
     const [performerList, setPerformerList] = React.useState<PerformerType[] | null>(null);
     const [filteredPerformerList, setFilteredPerformerList] = React.useState<PerformerType[]>([]);
@@ -216,4 +216,4 @@ const CastingCreate: React.FC = () => {
     )
 }
 
-export default CastingCreate
+export default OldCastingCreate

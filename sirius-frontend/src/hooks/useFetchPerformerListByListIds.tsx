@@ -10,7 +10,7 @@ export const useFetchPerformerListByListIds = (listIds: string[]) => {
         });
     }
 
-    return axios.get<PerformerType[]>('https://sirius-talent-agency.onrender.com/api/casting/performers/all-by-ids', {
+    return axios.get<PerformerType[]>(`${import.meta.env.VITE_API_URL}/api/casting/performers/all-by-ids`, {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },

@@ -1,5 +1,9 @@
 package ca.siriustalent.backend.api.model;
 
+import ca.siriustalent.backend.model.entities.PerformerProfile;
+
+import java.util.List;
+
 public class LocalUserBody {
 
     private String id;
@@ -9,7 +13,11 @@ public class LocalUserBody {
     private boolean emailVerified;
     private boolean testPassed;
     private boolean userActivated;
+    private ProfileBody performerProfile;
+    private String submissionPending;
+    private String reason;
     private String role;
+    private List<ProductionDayBody> productionDays;
 
     public String getId() {
         return id;
@@ -54,10 +62,37 @@ public class LocalUserBody {
     public void setUserActivated(boolean userActivated) {
         this.userActivated = userActivated;
     }
+
+    public ProfileBody getProfile() {
+        return performerProfile;
+    }
+    public void setPerformerProfile(ProfileBody performerProfile) {
+        this.performerProfile = performerProfile;
+    }
     public String getRole() {
         return role;
     }
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getSubmissionPending() {
+        return submissionPending;
+    }
+    public void setSubmissionPending(String submissionPending) {
+        this.submissionPending = submissionPending;
+    }
+    public String getReason() {
+        return reason;
+    }
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public List<ProductionDayBody> getProductionDays() {
+        return productionDays;
+    }
+    public void setProductionDays(List<ProductionDayBody> productionDays) {
+        this.productionDays = productionDays;
     }
 }

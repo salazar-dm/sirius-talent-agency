@@ -1,0 +1,24 @@
+.ProjectMenu__container {
+    color: #00342b;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: clamp(1.625rem, 1.4910714285714286rem + 0.47619047619047616vw, 2.0625rem);
+    line-height: clamp(1.75rem, 1.596938775510204rem + 0.5442176870748299vw, 2.25rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.ProjectMenu__item {
+    border-bottom: #cce5e1 2px solid;
+    padding: 2rem 0;
+    cursor: pointer;
+}
+
+.ProjectMenu__item:hover .ProjectMenu__cta {
+    color: #009b55;
+    transform: scale(1.01);
+    font-style: italic;
+}

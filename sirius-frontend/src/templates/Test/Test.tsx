@@ -32,7 +32,7 @@ export const Test: React.FC = () => {
     const handleSuccess = async () => {
         try {
             await axios.post(
-                "https://sirius-talent-agency.onrender.com/api/auth/activate",
+                `${import.meta.env.VITE_API_URL}/api/auth/activate`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );

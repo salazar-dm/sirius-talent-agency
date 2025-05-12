@@ -58,7 +58,6 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         }
     }, [triggerSubmit, resetFormField, select.defaultValue, select.options]);
 
-    // ✅ Клик вне компонента
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (
@@ -73,12 +72,6 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // 🌀 При желании можно ещё добавить закрытие по скроллу:
-    // useEffect(() => {
-    //     const onScroll = () => setDropdownOpen(false);
-    //     window.addEventListener("scroll", onScroll, true);
-    //     return () => window.removeEventListener("scroll", onScroll, true);
-    // }, []);
 
     return (
         <div

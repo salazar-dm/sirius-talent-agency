@@ -9,7 +9,7 @@ export const PerformerProfileContainer: React.FC<PerformerProfileContainerProps>
     return (
         <>
             <div className="PerformerProfile__container">
-                <div className="Grid_grid__container">
+                <div className="Grid_grid__container Grid_grid__container__margin">
                     {children}
                 </div>
             </div>

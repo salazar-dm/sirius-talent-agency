@@ -12,13 +12,14 @@
     text-decoration: none;
     transition: color .3s linear;
     color: #ffffff;
-    font-family: MontrealRegular, sans-serif;
+    font-family: "NeueMontreal-Bold", sans-serif;
     font-size: .875rem;
     -webkit-font-smoothing: antialiased;
     font-weight: 700;
     letter-spacing: .06125rem;
     line-height: normal;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .SecondaryButton__icon {

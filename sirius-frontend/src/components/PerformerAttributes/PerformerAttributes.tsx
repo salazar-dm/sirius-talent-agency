@@ -36,7 +36,7 @@ const PerformerAttributes: React.FC<PerformerAttributesProps> = ({ data, childre
     );
 };
 
-const transformProfileData = (profile: any): PerformerAttributesProps["children"] => {
+export const transformProfileData = (profile: any): PerformerAttributesProps["children"] => {
     const profileAttributes: PerformerAttributesProps["children"] = [];
 
     const gender = profile.gender;
@@ -78,8 +78,19 @@ const transformProfileData = (profile: any): PerformerAttributesProps["children"
                 return "Non Binary";
             }
 
-            if (key === "socialInsuranceNumber" || key === "sizeDress") {
-                return value
+            if (key === "socialInsuranceNumber") {
+                const digits = value.replace(/\D/g, "").slice(0, 9);
+                return digits.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+            }
+
+            if (key === "emergencyTel" || key === "guardianTel") {
+                const digits = value.toString().replace(/\D/g, "");
+                const normalized = digits.length === 10 ? "1" + digits : digits; // если юзер ввёл без 1
+                return normalized.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/, "$1-$2-$3-$4");
+            }
+
+            if (key === "sizeDress") {
+                return value;
             }
 
             return value
@@ -90,6 +101,7 @@ const transformProfileData = (profile: any): PerformerAttributesProps["children"
 
         return String(value);
     };
+
 
     for (const key in profile) {
         if (!Object.prototype.hasOwnProperty.call(profile, key)) continue;

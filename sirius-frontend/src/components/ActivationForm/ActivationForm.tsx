@@ -242,7 +242,7 @@ const ActivationForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('https://sirius-talent-agency.onrender.com/profile/activate', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/profile/activate`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

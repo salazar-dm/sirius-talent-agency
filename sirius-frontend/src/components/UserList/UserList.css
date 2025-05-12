@@ -1,0 +1,119 @@
+.UserList__container {
+    color: #00342b;
+}
+
+.UserList__heading-container {
+    margin-top: 24px;
+    margin-bottom: 95px;
+}
+
+.UserList__heading {
+    font-size: clamp(2.0625rem, 1.7372448979591837rem + 1.1564625850340136vw, 3.125rem);
+    line-height: clamp(2.25rem, 1.8864795918367347rem + 1.292517006802721vw, 3.4375rem);
+    font-family: "HattonMedium", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+.UserList__list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.UserList__list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 1.5rem;
+    border-bottom: #cce5e1 2px solid;
+}
+
+.UserList__list-item__cta-container {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (min-width: 1024px) {
+    .UserList__list-item {
+        height: 2rem;
+    }
+}
+
+.UserList__list-item__cta-container:hover {
+    font-style: italic;
+    color: #00ad62 !important;
+}
+
+.UserList__list-item span {
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+    font-family: "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+}
+
+.UserList__list-item__first-name, .UserList__list-item__last-name {
+    opacity: .5;
+    width: 10%;
+    min-width: 100px;
+}
+
+.UserList__list-item__first-name--activated, .UserList__list-item__last-name--activated {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.UserList__list-item__email {
+    min-width: 300px;
+    width: 30%;
+}
+
+.UserList__list-item__activated, .UserList__list-item__tel {
+    width: 15%;
+    min-width: 100px;
+}
+
+@media (max-width: 450px) {
+    .UserList__list-item__activated, .UserList__list-item__email, .UserList__list-item__tel {
+        display: none;
+    }
+}
+
+.UserList__list-item__info-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.UserList__list-item__reason {
+    margin-left: 2rem;
+    min-width: 200px;
+}
+
+.UserList__list-item__delete {
+    max-width: 20px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+    align-items: center;
+}
+
+.UserList__list-item__delete:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.UserList__container .Search__container {
+    max-width: 200px;
+}
+
+.UserList__controls-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

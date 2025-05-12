@@ -99,7 +99,7 @@ form {
     --half-size-margin: 12px;
 }
 
-input {
+input, label {
     width: 100%;
     font-family: Arial, sans-serif;
     font-size: 18px;
@@ -115,6 +115,9 @@ input {
 }
 
 form label, form .FormGuide__container {
+    color: #00342b !important;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
     display: block;
     padding-bottom: 10px;
 }
@@ -150,6 +153,22 @@ select {
     width: 100%;
 }
 
+h3 {
+    margin-bottom: 2rem;
+    color: #00342b;
+    font-size: clamp(1.625rem, 1.4910714285714286rem + 0.47619047619047616vw, 2.0625rem);
+    line-height: clamp(1.75rem, 1.596938775510204rem + 0.5442176870748299vw, 2.25rem);
+    font-family: HattonMedium;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+    h3 {
+        margin-bottom: 3rem;
+    }
+}
+
 .highlight {
     color: #009B55 !important;
 }
@@ -183,7 +202,7 @@ select {
 
 @media (min-width: 1024px) {
     .Grid_grid__container {
-        grid-gap: 24px;
+        grid-gap: 0 24px;
         grid-template-columns: repeat(16, 1fr);
     }
 }

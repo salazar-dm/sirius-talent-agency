@@ -1,4 +1,4 @@
-export const BASE_URL = "https://sirius-talent-agency.onrender.com";
+export const BASE_URL = `${import.meta.env.VITE_API_URL}`;
 
 //Auth
 export const AUTH_LOGIN = "/auth/login";

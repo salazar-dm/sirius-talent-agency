@@ -4,6 +4,7 @@ import {PerformerProfileType} from "./PerformerProfileType.tsx";
 export type LocalUserType = {
     id: string;
     tel: string;
+    password: string;
     email: string;
     emailVerified: boolean;
     testPassed: boolean;
@@ -11,4 +12,6 @@ export type LocalUserType = {
     submissionPending: boolean;
     profile: PerformerProfileType;
     productionDays: ProductionDayType[];
+    reason: string;
+    role: string;
 };

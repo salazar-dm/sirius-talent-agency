@@ -4,7 +4,7 @@ import ContentBlockWrapper from "../components/ContentBlockWrapper/ContentBlockW
 import HeaderHub from "../components/HeaderHub/HeaderHub.tsx";
 import CategoryGrid from "../components/CategoryGrid/CategoryGrid.tsx";
 
-const CastingHome: React.FC = () => {
+const OldCastingHome: React.FC = () => {
     return (
         <div>
             <ContentBlockWrapper>
@@ -17,4 +17,4 @@ const CastingHome: React.FC = () => {
     )
 }
 
-export default CastingHome
+export default OldCastingHome

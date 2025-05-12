@@ -1,0 +1,8 @@
+.NextButton__button {
+    color: #00342b;
+    min-width: 62px;
+    min-height: 62px;
+    border: none;
+    background-color: #009b55;
+    cursor: pointer;
+}

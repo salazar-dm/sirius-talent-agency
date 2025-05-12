@@ -1,0 +1,24 @@
+.SearchPagination__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    gap: 2rem;
+}
+
+.SearchPagination__item {
+    color: #457c73;
+    cursor: pointer;
+    font-size: clamp(0.8125rem, 0.7933673469387755rem + 0.06802721088435373vw, 0.875rem);
+    letter-spacing: .91px;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.SearchPagination__item--active {
+    border-bottom: 2px solid #009b55;
+}

@@ -13,6 +13,7 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({searchKey, onSearch, input, searchAlgorithm, placeholder}) => {
 
+
     const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onSearch(searchAlgorithm(input, event));
     }

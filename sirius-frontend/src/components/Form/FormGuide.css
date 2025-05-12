@@ -12,7 +12,7 @@
 }
 
 .FormGuide__text {
-    position: fixed;
+    position: absolute;
     max-width: 150px;
     border: #009b54 1px solid;
     border-radius: 10px;

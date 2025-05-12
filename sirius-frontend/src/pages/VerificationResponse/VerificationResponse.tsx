@@ -13,7 +13,7 @@ const VerificationRequest:React.FC = () => {
         const token = urlParams.get('token');
 
         if (token) {
-            const requestUrl = `https://sirius-talent-agency.onrender.com/api/auth/verify?token=${token}`;
+            const requestUrl = `${import.meta.env.VITE_API_URL}/api/auth/verify?token=${token}`;
 
             fetch(requestUrl, {
                 method: 'GET',

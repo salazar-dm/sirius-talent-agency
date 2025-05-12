@@ -54,7 +54,7 @@ const UpdateProfile: React.FC = () => {
 
         const fetchUser = async () => {
             try {
-                const response = await axios.get('https://sirius-talent-agency.onrender.com/api/auth/get-user', {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/get-user`, {
                     headers: { Authorization: `Bearer ${token}` }
                 })
                 setUser(response.data)
@@ -117,7 +117,7 @@ const UpdateProfile: React.FC = () => {
                 const formData = new FormData();
                 formData.append('file', headshotHandler.croppedImageFile);
                 uploadTasks.push(
-                    axios.post('https://sirius-talent-agency.onrender.com/api/cdn/upload-performer-profile-picture', formData, {
+                    axios.post(`${import.meta.env.VITE_API_URL}/api/cdn/upload-performer-profile-picture`, formData, {
                         headers: { Authorization: `Bearer ${token}` },
                     }).then(res => {
                         uploadedHeadshotUrl = res.data;
@@ -129,7 +129,7 @@ const UpdateProfile: React.FC = () => {
                 const formData = new FormData();
                 formData.append('file', fullBodyHandler.croppedImageFile);
                 uploadTasks.push(
-                    axios.post('https://sirius-talent-agency.onrender.com/api/cdn/upload-performer-fullbody-picture', formData, {
+                    axios.post(`${import.meta.env.VITE_API_URL}/api/cdn/upload-performer-fullbody-picture`, formData, {
                         headers: { Authorization: `Bearer ${token}` },
                     }).then(res => {
                         uploadedFullBodyUrl = res.data;
@@ -141,7 +141,7 @@ const UpdateProfile: React.FC = () => {
                 const formData = new FormData();
                 formData.append('file', documentFile);
                 uploadTasks.push(
-                    axios.post('https://sirius-talent-agency.onrender.com/api/cdn/upload-performer-document-picture', formData, {
+                    axios.post(`${import.meta.env.VITE_API_URL}/api/cdn/upload-performer-document-picture`, formData, {
                         headers: { Authorization: `Bearer ${token}` },
                     }).then(res => {
                         uploadedDocumentUrl = res.data;
@@ -153,7 +153,7 @@ const UpdateProfile: React.FC = () => {
                 const formData = new FormData();
                 formData.append('file', actraCardFile);
                 uploadTasks.push(
-                    axios.post('https://sirius-talent-agency.onrender.com/api/cdn/upload-performer-actra-card-picture', formData, {
+                    axios.post(`${import.meta.env.VITE_API_URL}/api/cdn/upload-performer-actra-card-picture`, formData, {
                         headers: { Authorization: `Bearer ${token}` },
                     }).then(res => {
                         uploadedActraCardUrl = res.data;
@@ -165,7 +165,7 @@ const UpdateProfile: React.FC = () => {
                 const formData = new FormData();
                 formData.append('file', whasaFile);
                 uploadTasks.push(
-                    axios.post('https://sirius-talent-agency.onrender.com/api/cdn/upload-performer-whasa-picture', formData, {
+                    axios.post(`${import.meta.env.VITE_API_URL}/api/cdn/upload-performer-whasa-picture`, formData, {
                         headers: { Authorization: `Bearer ${token}` },
                     }).then(res => {
                         uploadedWhasaUrl = res.data;
@@ -230,7 +230,7 @@ const UpdateProfile: React.FC = () => {
                 whasaKeyName: updatedProfile.whasaKeyName,
             };
 
-            await axios.put('https://sirius-talent-agency.onrender.com/api/performer/update-profile', performerProfile, {
+            await axios.put(`${import.meta.env.VITE_API_URL}/api/performer/update-profile`, performerProfile, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ const UpdateProfile: React.FC = () => {
             });
 
             if (profile.unionStatus === "ACTRA Apprentice" || profile.unionStatus === "ACTRA Full") {
-                await axios.post('https://sirius-talent-agency.onrender.com/api/auth/activate', {}, {
+                await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/activate`, {}, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
             } else {
@@ -266,7 +266,6 @@ const UpdateProfile: React.FC = () => {
             {successModal && <ErrorModal title="Success" message="Profile updated successfully!" onClose={() => window.location.href = '/performer'}/>}
             {loadingSubmit && <LoadingOverlay />}
             <div className="UpdateProfile__content-wrapper fade-in">
-                {errorMessage && <div style={{color: 'red'}}>{errorMessage}</div>}
 
                 <div className="UpdateProfile__signpost">
                     <div className="Grid_grid__container Grid_grid__container__margin"

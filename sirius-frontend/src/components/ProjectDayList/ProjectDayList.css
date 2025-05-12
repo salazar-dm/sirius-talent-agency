@@ -1,0 +1,87 @@
+.ProjectDayList__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #00342b;
+    border: #00342b 1px solid;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.ProjectDayList__item:hover {
+    border: #00ad62 1px solid;
+}
+
+.ProjectDayList__item:hover .ProjectDayList__item-title {
+    color: #00ad62;
+    font-style: italic;
+    scale: 1.01;
+
+}
+
+.ProjectDayList__item-title {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+}
+
+.ProjectDayList__item-icon {
+    margin-right: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .ProjectDayList__item-icon {
+        margin-right: 3.5rem;
+    }
+}
+
+.MenuButton__body-link a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: unset;
+    text-decoration: none;
+}
+
+.ProjectDayList__item:hover {
+    color: #009b55;
+    cursor: pointer;
+    font-style: italic;
+
+}
+
+.MenuButton__body-link-text {
+    max-width: 75%;
+    word-break: break-word;
+}
+
+.MenuButton__body-link-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 1rem;
+}
+
+.MenuButton__body-link-icon-slide {
+    position: absolute;
+    left: 35px;
+    display: flex;
+    transform: translateX(-50%);
+    transition: left .5s ease-out;
+}
+
+.ProjectDayList__item:hover .MenuButton__body-link-icon-slide {
+    left: 0;
+    transform: translateX(0);
+    transition: transform .5s ease-out;
+}
+
+.MenuButton__body-link-icon-slide svg {
+    margin-right: .9375rem;
+    width: 20px;
+    height: 20px;
+}

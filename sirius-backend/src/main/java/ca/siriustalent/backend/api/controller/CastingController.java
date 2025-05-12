@@ -1,5 +1,8 @@
 package ca.siriustalent.backend.api.controller;
 
+import ca.siriustalent.backend.api.model.ProjectBody;
+import ca.siriustalent.backend.model.entities.Project;
+import ca.siriustalent.backend.service.CastingService;
 import jakarta.validation.Valid;
 import ca.siriustalent.backend.api.model.ProductionDayBody;
 import ca.siriustalent.backend.model.entities.LocalUser;
@@ -21,11 +24,13 @@ public class CastingController {
     private final ProductionDayService productionDayService;
     private final UserService userService;
     private final JwtUtil jwtUtil;
+    private final CastingService castingService;
 
-    public CastingController(ProductionDayService productionDayService, JwtUtil jwtUtil, UserService userService) {
+    public CastingController(ProductionDayService productionDayService, JwtUtil jwtUtil, UserService userService, CastingService castingService) {
         this.userService = userService;
         this.productionDayService = productionDayService;
         this.jwtUtil = jwtUtil;
+        this.castingService = castingService;
     }
 
     @GetMapping("/production-days/all")
@@ -56,4 +61,9 @@ public class CastingController {
         List<LocalUser> performers = userService.getAllUsersByListIds(ids);
         return new ResponseEntity<>(performers, HttpStatus.OK);
     }
+
+
+    //TODO: remove legacy above
+
+
 }

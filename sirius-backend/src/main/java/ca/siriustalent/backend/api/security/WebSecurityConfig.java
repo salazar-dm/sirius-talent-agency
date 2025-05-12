@@ -38,6 +38,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/api/performer/**").hasAnyRole("Performer", "Admin")
                 .requestMatchers("/api/admin/**").hasRole("Admin")
                 .requestMatchers("/api/casting/**").hasAnyRole("Casting", "Admin")
+                .requestMatchers("/api/project/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(new JwtRequestFilter(jwtUtil, userService), UsernamePasswordAuthenticationFilter.class);

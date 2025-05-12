@@ -12,7 +12,7 @@ import {columnsStyle} from "../shared/columnsStyle.tsx";
 import HeaderDetailWrapper from "../components/HeaderDetailWrapper/HeaderDetailWrapper.tsx";
 import HeaderHub from "../components/HeaderHub/HeaderHub.tsx";
 
-const CastingProductionDay: React.FC = () => {
+const OldCastingProductionDay: React.FC = () => {
     const [productionDay, setProductionDay] = React.useState<ProductionDayType | null>(null);
     const [performerList, setPerformerList] = React.useState<PerformerType[] | null>(null);
     const { id } = useParams<{ id: string }>();
@@ -67,4 +67,4 @@ const CastingProductionDay: React.FC = () => {
     )
 }
 
-export default CastingProductionDay
+export default OldCastingProductionDay

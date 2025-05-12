@@ -13,11 +13,15 @@ import ca.siriustalent.backend.utils.JwtUtil;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.cglib.core.Local;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -41,9 +45,17 @@ public class UserService {
         return localUserRepository.findById(id).orElse(null);
     }
 
+    public Optional<LocalUser> getUserById(String id) {
+        return localUserRepository.findById(id);
+    }
+
     public LocalUser getUserByTel(String tel) { return localUserRepository.findByTel(tel); }
 
     public List<LocalUser> getAllUsers() { return localUserRepository.findAll(); }
+
+    public Page<LocalUser> getAllUsersByPageable(Pageable pageable) {
+        return localUserRepository.findAll(pageable);
+    }
 
     public List<LocalUser> getAllUsersByRole(String role) { return localUserRepository.findAllByRole(role); }
 
@@ -51,27 +63,22 @@ public class UserService {
 
     public List<LocalUser> getAllUsersByListIds(List<String> ids) { return localUserRepository.findAllById(ids); }
 
-    public void deleteUser(String id) { localUserRepository.deleteById(id);}
-
-    public LocalUser createUser(LocalUserBody localUserBody) {
-        LocalUser user = new LocalUser();
-        setLocalUser(user, localUserBody);
-
-        if (!localUserBody.isEmailVerified()) {
-            sendVerificationEmail(user);
-        }
-
-        return localUserRepository.save(user);
+    public Page<LocalUser> searchUsers(String query, Pageable pageable) {
+        return localUserRepository.searchUsers(query, pageable);
     }
 
-    public LocalUser updateUser(LocalUserBody localUserBody) {
-        LocalUser user = localUserRepository.findById(localUserBody.getId()).orElse(null);
+    public void deleteUser(String id) { localUserRepository.deleteById(id);}
 
-        if (user == null) {
-            throw new ResourceNotFoundException("UpdateUser: User not found with id: " + localUserBody.getId());
+    public LocalUser createUser(LocalUserBody localUserBody, boolean sendVerificationEmail) {
+        LocalUser user = new LocalUser();
+        setLocalUser(user, localUserBody, true);
+
+        if (sendVerificationEmail) {
+            sendVerificationEmail(user);
+        } else {
+            user.setEmailVerified(true);
         }
 
-        setLocalUser(user, localUserBody);
         return localUserRepository.save(user);
     }
 
@@ -106,7 +113,7 @@ public class UserService {
             }
         }
 
-        setLocalUser(user, localUserBody);
+        setLocalUser(user, localUserBody, true);
         sendVerificationEmail(user);
 
         return localUserRepository.save(user);
@@ -163,6 +170,20 @@ public class UserService {
         return user;
     }
 
+    @Transactional
+    public LocalUser update(String id, LocalUserBody localUserBody) {
+        LocalUser user = localUserRepository.findById(id).orElse(null);
+
+        if (user == null) {
+            throw new ResourceNotFoundException("UpdateUser: User not found with id: " + localUserBody.getId());
+        }
+
+        boolean encodePassword = !user.getPassword().equals(localUserBody.getPassword());
+
+        setLocalUser(user, localUserBody, encodePassword);
+        return localUserRepository.save(user);
+    }
+
     public String getCurrentUserRole(String token) {
         System.out.println(jwtUtil.extractRole(token));
         return jwtUtil.extractRole(token);
@@ -174,10 +195,14 @@ public class UserService {
         //todo: controller
     }
 
-    private void setLocalUser(LocalUser localUser, LocalUserBody localUserBody) {
+    private void setLocalUser(LocalUser localUser, LocalUserBody localUserBody, boolean encodePassword) {
         localUser.setTel(localUserBody.getTel());
         localUser.setEmail(localUserBody.getEmail());
-        localUser.setPassword(encryptionUtil.encodePassword(localUserBody.getPassword()));
+        if (encodePassword) {
+            localUser.setPassword(encryptionUtil.encodePassword(localUserBody.getPassword()));
+        } else {
+            localUser.setPassword(localUserBody.getPassword());
+        }
         localUser.setEmailVerified(localUserBody.isEmailVerified());
         localUser.setUserActivated(localUserBody.isUserActivated());
         localUser.setRole(localUserBody.getRole());

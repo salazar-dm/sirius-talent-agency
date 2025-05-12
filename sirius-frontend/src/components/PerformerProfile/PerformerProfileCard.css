@@ -19,6 +19,7 @@
 }
 
 .PerformerProfileCard__image-container {
+    position: relative;
     width: 100%;
 }
 
@@ -43,4 +44,18 @@
     .PerformerProfileCard__image-container img {
         height: 428px;
     }
+}
+
+.PerformerProfileCard__image-container .PrevButton__button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    left: 0;
+}
+
+.PerformerProfileCard__image-container .NextButton__button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
 }

@@ -4,7 +4,7 @@ import {PerformerType} from "../types/PerformerType.tsx";
 
 const useFetchPerformerList = () => {
     return useQuery<PerformerType[], Error>('performerList', async () => {
-        const response = await axios.get<PerformerType[]>('https://sirius-talent-agency.onrender.com/api/casting/performers/all', {
+        const response = await axios.get<PerformerType[]>(`${import.meta.env.VITE_API_URL}/api/casting/performers/all`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
