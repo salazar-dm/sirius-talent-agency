@@ -16,7 +16,11 @@ import SearchUpdated from "../Search/SearchUpdated.tsx";
 const UserList: React.FC = () => {
     const [users, setUsers] = useState<LocalUserType[]>([]);
     const [totalPages, setTotalPages] = useState(0);
-    const [page, setPage] = useState(0);
+
+    const [page, setPage] = useState(() => {
+        const saved = localStorage.getItem("page_admin_users");
+        return saved ? parseInt(saved) : 0;
+    });
 
     const [deleteModal, setDeleteModal] = useState(false);
     const [idToDelete, setIdToDelete] = useState("");
@@ -33,7 +37,7 @@ const UserList: React.FC = () => {
                 params: {
                     page: pageToFetch,
                     size: 10,
-                    query: query
+                    query: query,
                 },
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -43,6 +47,7 @@ const UserList: React.FC = () => {
             setUsers(result.data.content);
             setTotalPages(result.data.totalPages);
             setPage(pageToFetch);
+            localStorage.setItem("page_admin_users", String(pageToFetch)); // 💾 сохраняем
         } catch (err) {
             console.error("Error fetching users", err);
         }
@@ -54,7 +59,7 @@ const UserList: React.FC = () => {
 
         if (searchRef.current) clearTimeout(searchRef.current);
         searchRef.current = setTimeout(() => {
-            fetchUsers(0, value);
+            fetchUsers(0, value); // сбрасываем страницу при поиске
         }, 300);
     };
 
@@ -62,7 +67,7 @@ const UserList: React.FC = () => {
         const token = localStorage.getItem("token");
 
         try {
-            const result = await axios.delete(`${import.meta.env.VITE_API_URL}/api/admin/users/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/admin/users/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

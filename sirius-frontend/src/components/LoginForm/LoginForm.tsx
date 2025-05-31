@@ -9,6 +9,14 @@ import {CustomModal} from "../Modal/CustomModal.tsx";
 import ErrorModal from "../Modal/ErrorModal.tsx";
 import PrimaryButton from "../Button/PrimaryButton.tsx";
 import FormPasswordInput from "../Form/FormPasswordInput.tsx";
+import {jwtDecode} from "jwt-decode";
+
+export interface TokenJwtPayload {
+    sub: string;
+    role: string;
+    exp: number;
+    iat: number;
+}
 
 const LoginForm: React.FC = () => {
 
@@ -38,6 +46,19 @@ const LoginForm: React.FC = () => {
 
         return result;
     };
+
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        try {
+            const decoded: any = jwtDecode(token);
+            console.log("Decoded JWT:", decoded);
+            console.log("User email:", decoded.sub);
+        } catch (err) {
+            console.error("Invalid token", err);
+        }
+    }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
@@ -94,10 +115,11 @@ const LoginForm: React.FC = () => {
                     console.error('Error saving token to localStorage:', error);
                 }
 
-                const redirectUrl = localStorage.getItem('redirectUrl');
-                if (redirectUrl) {
-                    localStorage.removeItem('redirectUrl');
-                    navigate(redirectUrl, {replace: true});
+                const decoded: TokenJwtPayload = jwtDecode(result);
+                const role = decoded.role
+
+                if (role && role === 'Admin') {
+                    navigate('/admin', {replace: true});
                 } else {
                     navigate('/performer', {replace: true});
                 }

@@ -69,7 +69,12 @@ public class ProjectController {
             String token = jwtToken.replace("Bearer ", "");
             String castingId = jwtUtil.extractSubject(token);
 
-            List<Project> projects = castingService.getProjectsByCastingId(castingId);
+            List<Project> projects;
+            if (jwtUtil.extractRole(token).equals("Admin")) {
+                projects = castingService.getAllProjects();
+            } else {
+                projects = castingService.getProjectsByCastingId(castingId);
+            }
             return ResponseEntity.ok(projects);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing token");

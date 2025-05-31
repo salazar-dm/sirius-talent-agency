@@ -42,4 +42,8 @@ public class CastingService {
     public List<Project> getProjectsByCastingId(String castingId) {
         return projectRepository.findByCastingId(castingId).get();
     }
+
+    public List<Project> getAllProjects() {
+        return projectRepository.findAll();
+    }
 }

@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
@@ -47,6 +47,10 @@ import {Project} from "./pages/Project/Project.tsx";
 import ProjectAll from "./pages/Project/ProjectAll.tsx";
 import {ProjectNewDays} from "./pages/Project/ProjectNewDays.tsx";
 import ProjectDay from "./pages/Project/ProjectDay.tsx";
+import {AdminProjects} from "./pages/AdminProjects.tsx";
+import {TokenJwtPayload} from "./components/LoginForm/LoginForm.tsx";
+import {adminNavigation} from "./templates/adminNavigation.ts";
+import {AdminNavigation} from "./components/AdminNavigation/AdminNavigation.tsx";
 
 const stripePromise = loadStripe("pk_test_51QIxe6IxjNMd7TsUlPkempTxyhiwUjYk87cSKNGs0QKjzEMzhhDYPLkfnyFhFIYE8HHBgmVrZaT0WGw22ptXApKa00u0XaCa1Z");
 
@@ -54,6 +58,8 @@ const queryClient = new QueryClient();
 
 const App: React.FC = () => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+    const [decodedToken, setDecodedToken] = useState<TokenJwtPayload | null>(null);
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         if (window.location.pathname.toLowerCase().startsWith("/performer") && !checkAuthentication()) {
@@ -72,14 +78,22 @@ const App: React.FC = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        if (token) {
+            setDecodedToken(jwtDecode(token));
+        }
+    }, [token]);
+
     return (
         <LoadingProvider>
             <Header isDesktop={isDesktop} />
             <QueryClientProvider client={queryClient}>
                 <Router>
                     <PageTitleHandler/>
+
                     <main>
                         <Elements stripe={stripePromise}>
+                            {decodedToken && decodedToken.role === "Admin" && <AdminNavigation navigation={adminNavigation} />}
                             <Routes>
                                 <Route path="/" element={<Home isDesktop={isDesktop} />} />
                                 <Route path="/verification" element={<VerificationRequest />} />
@@ -114,6 +128,7 @@ const App: React.FC = () => {
                                 <Route path="/admin/user/:id" element={<AdminUser />} />
                                 <Route path="/admin/user-update/:id" element={<AdminUpdateUser />} />
                                 <Route path="/admin/user-create" element={<AdminUserCreate />} />
+                                <Route path="/admin/projects" element={<AdminProjects />} />
 
                                 <Route path="/project/create/:castingId" element={<ProjectCreate />} />
                                 <Route path="/project/:id" element={<Project />} />
