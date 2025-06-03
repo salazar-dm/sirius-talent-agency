@@ -9,6 +9,7 @@ import ErrorModal from "../components/Modal/ErrorModal.tsx";
 import {columnsStyle} from "../shared/columnsStyle.tsx";
 import SecondaryButton from "../components/Button/SecondaryButton.tsx";
 import PrimaryButton from "../components/Button/PrimaryButton.tsx";
+import {AdminProfileMenu} from "../components/PerformerProfile/AdminProfileMenu.tsx";
 
 const AdminUser: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -50,6 +51,7 @@ const AdminUser: React.FC = () => {
 
     return (
         <>
+            <AdminProfileMenu/>
             <PerformerProfile performer={user} onUpdateClick={() => navigate(`/admin/user-update/${user.id}`)}/>
         </>
 

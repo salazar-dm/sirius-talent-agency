@@ -8,6 +8,7 @@ import {CustomModal} from "../Modal/CustomModal.tsx";
 import LicenseAgreement from "../../pages/LicenseAgreement.tsx";
 import PrimaryButton from "../Button/PrimaryButton.tsx";
 import FormPasswordInput from "../Form/FormPasswordInput.tsx";
+import "../../App.css"
 
 //TODO: hide password and make it optionally visible
 

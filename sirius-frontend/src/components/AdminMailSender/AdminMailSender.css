@@ -1,0 +1,37 @@
+.AdminMailSender__list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.AdminMailSender__list-item__label, .AdminMailSender__list-item__text {
+    font-size: 20px !important;
+}
+
+.AdminMailSender__list-item textarea {
+    width: 100%;
+    height: 400px;
+    font-family: Arial, sans-serif;
+    font-size: clamp(1rem, 0.9617346938775511rem + 0.13605442176870747vw, 1.125rem);
+    line-height: clamp(1.33rem, 1.2550000000000001rem + 0.26666666666666655vw, 1.575rem);
+    font-weight: 500;
+    color: #009b54;
+    padding: 14px;
+    border: none;
+    border-bottom: 3px solid #009B54;
+    background: #cce5e1;
+}
+
+#input-field {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.AdminMailSender__list-item__select {
+    width: 100%;
+}

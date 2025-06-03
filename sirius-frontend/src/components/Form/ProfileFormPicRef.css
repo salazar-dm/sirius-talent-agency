@@ -1,0 +1,36 @@
+.ProfileFormPicRef__container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.ProfileFormPicRef__body-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.ProfileFormPicRef__info {
+    width: 50%;
+}
+
+.ProfileFormPicRef__text {
+    margin: 1rem 0;
+}
+
+.ProfileFormPicRef__image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+
+.ProfileFormPicRef__info img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

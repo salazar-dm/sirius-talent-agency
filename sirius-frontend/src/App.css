@@ -109,6 +109,11 @@ input, label {
     border-bottom: 3px solid #009B55;
 }
 
+input {
+    background: #cce5e1;
+    padding: 14px;
+}
+
 .invalid {
     border: 1px solid #b23427 !important;
     color: #b23427 !important;

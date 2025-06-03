@@ -51,6 +51,7 @@ import {AdminProjects} from "./pages/AdminProjects.tsx";
 import {TokenJwtPayload} from "./components/LoginForm/LoginForm.tsx";
 import {adminNavigation} from "./templates/adminNavigation.ts";
 import {AdminNavigation} from "./components/AdminNavigation/AdminNavigation.tsx";
+import {AdminSendEmailToUser} from "./pages/AdminSendEmailToUser.tsx";
 
 const stripePromise = loadStripe("pk_test_51QIxe6IxjNMd7TsUlPkempTxyhiwUjYk87cSKNGs0QKjzEMzhhDYPLkfnyFhFIYE8HHBgmVrZaT0WGw22ptXApKa00u0XaCa1Z");
 
@@ -86,9 +87,10 @@ const App: React.FC = () => {
 
     return (
         <LoadingProvider>
-            <Header isDesktop={isDesktop} />
+
             <QueryClientProvider client={queryClient}>
                 <Router>
+                    <Header isDesktop={isDesktop} />
                     <PageTitleHandler/>
 
                     <main>
@@ -129,6 +131,7 @@ const App: React.FC = () => {
                                 <Route path="/admin/user-update/:id" element={<AdminUpdateUser />} />
                                 <Route path="/admin/user-create" element={<AdminUserCreate />} />
                                 <Route path="/admin/projects" element={<AdminProjects />} />
+                                <Route path="/admin/user/email-to/:id" element={<AdminSendEmailToUser />} />
 
                                 <Route path="/project/create/:castingId" element={<ProjectCreate />} />
                                 <Route path="/project/:id" element={<Project />} />

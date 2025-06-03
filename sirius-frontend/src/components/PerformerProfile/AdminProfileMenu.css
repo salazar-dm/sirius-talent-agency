@@ -1,0 +1,13 @@
+.AdminProfileMenu__container {
+    padding: 2rem;
+    background: #00342b;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.AdminProfileMenu__heading {
+    color: #fff;
+    margin-right: 4rem;
+}

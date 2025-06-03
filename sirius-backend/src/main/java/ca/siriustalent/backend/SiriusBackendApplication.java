@@ -23,6 +23,7 @@ public class SiriusBackendApplication {
         setEnv("CLOUDINARY_CLOUD_NAME");
         setEnv("CLOUDINARY_API_KEY");
         setEnv("CLOUDINARY_API_SECRET");
+        setEnv("EMAIL_PASSWORD");
 
         SpringApplication.run(SiriusBackendApplication.class, args);
     }

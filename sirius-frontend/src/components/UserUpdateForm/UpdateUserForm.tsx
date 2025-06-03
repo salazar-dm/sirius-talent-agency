@@ -40,9 +40,9 @@ const UpdateUserForm: React.FC = () => {
     const [actraCardFile, setActraCardFile] = useState<File | null>(null);
     const [whasaFile, setWhasaFile] = useState<File | null>(null);
 
-    const headshotHandler = useImageHandler(1);
+    const headshotHandler = useImageHandler(3/4);
     const [headshotSelected, setHeadshotSelected] = useState<boolean>(false);
-    const fullBodyHandler = useImageHandler(1);
+    const fullBodyHandler = useImageHandler(3/4);
     const [fullBodySelected, setFullBodySelected] = useState<boolean>(false);
 
     const [formSubmitted, setFormSubmitted] = useState<boolean>(false);

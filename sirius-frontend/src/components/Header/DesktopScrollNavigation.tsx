@@ -4,6 +4,7 @@ import {columnsStyle} from "../../shared/columnsStyle.tsx";
 import {SiriusTalentLogoVertical} from "../../assets/SiriusTalentLogoVertical.tsx";
 import "./DesktopScrollNavigation.css"
 import DesktopNavigationHiddenSandwichButton from "./DesktopNavigationHiddenSandwichButton.tsx";
+import {useNavigate, useNavigation} from "react-router-dom";
 
 interface DesktopScrollNavigationProps {
     toggleScrollOn: number;
@@ -11,6 +12,7 @@ interface DesktopScrollNavigationProps {
 
 const DesktopScrollNavigation: React.FC<DesktopScrollNavigationProps> = ({toggleScrollOn}) => {
     const [scaleLogo, setScaleLogo] = React.useState(2);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -33,9 +35,9 @@ const DesktopScrollNavigation: React.FC<DesktopScrollNavigationProps> = ({toggle
                         <div className="Grid_grid__item"
                         style={columnsStyle(1, 6, 1, 4, 1, 2, 1, 2)}>
                             <div className="ScrollNavigation__link-wrapper">
-                                <a href="/" className="ScrollNavigation__logo-link">
+                                <span className="ScrollNavigation__logo-link" onClick={() => navigate("/")}>
                                     <SiriusTalentLogoVertical scale={scaleLogo} isScalable={window.location.pathname === "/"}/>
-                                </a>
+                                </span>
                             </div>
                         </div>
                         <div className="Grid_grid__item"

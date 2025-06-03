@@ -93,7 +93,7 @@ const UserList: React.FC = () => {
                 <SecondaryButton text="No" onClick={() => {setDeleteModal(false); setIdToDelete("")}}/>
             </UpdatedModal>)}
             <div className="Grid_grid__container Grid_grid__container__margin">
-                <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 3, 15, 3, 15)}>
+                <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 2, 16, 2, 16)}>
                     <div className="UserList__container">
                         <div className="Grid_grid__container UserList__heading-container">
                             <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 1, 6, 1, 6)}>

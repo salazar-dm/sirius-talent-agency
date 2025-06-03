@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { Area } from 'react-easy-crop';
 
-export const useImageHandler = (defaultAspectRatio: number = 1) => {
+export const useImageHandler = (defaultAspectRatio: number = 3/4) => {
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [croppedImageFile, setCroppedImageFile] = useState<File | null>(null);
     const [imageUrl, setImageUrl] = useState<string>('');
@@ -28,7 +28,6 @@ export const useImageHandler = (defaultAspectRatio: number = 1) => {
 
     const onCropComplete = (croppedAreaPixels: Area) => {
         setCroppedArea(croppedAreaPixels);
-        console.log(croppedArea);
     };
 
     const onCropDone = async (profileName: string) => {

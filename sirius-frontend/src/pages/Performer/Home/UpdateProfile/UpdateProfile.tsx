@@ -23,6 +23,8 @@ import {calculateAge} from "../../../../shared/calculateAge.tsx";
 import {LocalUserType} from "../../../../types/LocalUserType.tsx";
 import {PerformerProfileType} from "../../../../types/PerformerProfileType.tsx";
 import {createPortal} from "react-dom";
+import {ProfileFormPicRef} from "../../../../components/Form/ProfileFormPicRef.tsx";
+import {profileFormFullbodyInfo, profileFormHeadshotInfo} from "../../../../templates/profileFormPicRefInfo.ts";
 
 const UpdateProfile: React.FC = () => {
     const [profile, setProfile] = useState<PerformerProfileType | null>(null);
@@ -39,9 +41,9 @@ const UpdateProfile: React.FC = () => {
     const [actraCardFile, setActraCardFile] = useState<File | null>(null);
     const [whasaFile, setWhasaFile] = useState<File | null>(null);
 
-    const headshotHandler = useImageHandler(1);
+    const headshotHandler = useImageHandler(3/4);
     const [headshotSelected, setHeadshotSelected] = useState<boolean>(false);
-    const fullBodyHandler = useImageHandler(1);
+    const fullBodyHandler = useImageHandler(3/4);
     const [fullBodySelected, setFullBodySelected] = useState<boolean>(false);
 
     const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
@@ -340,21 +342,7 @@ const UpdateProfile: React.FC = () => {
                                             )
                                         }
 
-
-                                        {headshotHandler.croppedImage && (
-                                            <p>
-                                                <img className="UpdateProfile__cropped-image-preview"
-                                                     src={headshotHandler.croppedImage} alt="Headshot"/>
-                                            </p>
-                                        )}
-
-                                        {profile.keyName != '' && !headshotHandler.croppedImage && (
-                                            <p>
-                                                <img className="UpdateProfile__cropped-image-preview"
-                                                     src={profile.keyName}
-                                                     alt="Headshot"/>
-                                            </p>
-                                        )}
+                                        <ProfileFormPicRef heading={"How should your headshot look like?"} info={profileFormHeadshotInfo}/>
 
                                         <p>
                                             <label>Full Body Picture</label>
@@ -384,19 +372,7 @@ const UpdateProfile: React.FC = () => {
                                         )}
 
 
-                                        {fullBodyHandler.croppedImage && (
-                                            <p>
-                                                <img className="UpdateProfile__cropped-image-preview"
-                                                     src={fullBodyHandler.croppedImage} alt="Full Body"/>
-                                            </p>
-                                        )}
-
-                                        {profile.fullBodyKeyName != '' && !fullBodyHandler.croppedImage && (
-                                            <p>
-                                                <img className="UpdateProfile__cropped-image-preview"
-                                                     src={profile.fullBodyKeyName} alt="Full Body"/>
-                                            </p>
-                                        )}
+                                        <ProfileFormPicRef heading={"How should your full body picture look like?"} info={profileFormFullbodyInfo}/>
 
                                         {!user?.userActivated && (
                                             <p>
@@ -791,7 +767,7 @@ const UpdateProfile: React.FC = () => {
                                         </p>
 
                                         <p>
-                                            <label>Height</label>
+                                            <label>Height (feet ' inches)</label>
                                             <input
                                                 type="text"
                                                 value={heightInput}
@@ -810,7 +786,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Weight"
+                                                label="Weight (lbs)"
                                                 input={{
                                                     id: "size-weight",
                                                     required: true,
@@ -823,7 +799,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Chest Size"
+                                                label="Chest Size (inches)"
                                                 input={{
                                                     id: "chest",
                                                     required: true,
@@ -856,7 +832,7 @@ const UpdateProfile: React.FC = () => {
                                                 </p>
                                                 <p>
                                                     <FormNumericInput
-                                                        label="Sleeve"
+                                                        label="Sleeve (inches)"
                                                         input={{
                                                             id: "size-sleeve",
                                                             required: true,
@@ -870,7 +846,7 @@ const UpdateProfile: React.FC = () => {
 
                                                 <p>
                                                     <FormNumericInput
-                                                        label="Neck"
+                                                        label="Neck (inches)"
                                                         input={{
                                                             id: "size-neck",
                                                             required: true,
@@ -884,7 +860,7 @@ const UpdateProfile: React.FC = () => {
 
                                                 <p>
                                                     <FormNumericInput
-                                                        label="Hat"
+                                                        label="Hat (inches)"
                                                         input={{
                                                             id: "size-hat",
                                                             required: true,
@@ -946,7 +922,7 @@ const UpdateProfile: React.FC = () => {
 
                                                 <p>
                                                     <FormNumericInput
-                                                        label="Bra Size"
+                                                        label="Bra Size (inches)"
                                                         input={{
                                                             id: "size-bust-band",
                                                             required: true,
@@ -963,7 +939,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Waist"
+                                                label="Waist (inches)"
                                                 input={{
                                                     id: "size-waist",
                                                     required: true,
@@ -977,7 +953,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Hips"
+                                                label="Hips (inches)"
                                                 input={{
                                                     id: "size-hips",
                                                     required: true,
@@ -991,7 +967,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Shoe Size"
+                                                label="Shoe Size (US system)"
                                                 input={{
                                                     id: "size-shoe",
                                                     required: true,
@@ -1006,7 +982,7 @@ const UpdateProfile: React.FC = () => {
 
                                         <p>
                                             <FormNumericInput
-                                                label="Inseam"
+                                                label="Inseam (inches)"
                                                 input={{
                                                     id: "size-inseam",
                                                     required: true,

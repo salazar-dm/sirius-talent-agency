@@ -20,7 +20,7 @@ export const AdminNavigation: React.FC<Props> = ({navigation}) => {
                 <>
                     <div className="AdminNavigation__container">
                         <div className="Grid_grid__container Grid_grid__container__margin">
-                            <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 3, 15, 3, 15)}>
+                            <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 2, 16, 2, 16)}>
                                 <div className="AdminNavigation__body">
                                     {navigation.map((item, index) => (
                                         <div

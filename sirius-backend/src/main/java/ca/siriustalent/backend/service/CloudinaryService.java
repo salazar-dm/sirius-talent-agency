@@ -46,7 +46,6 @@ public class CloudinaryService {
                         "folder", folder,
                         "public_id", suffix,
                         "resource_type", "image",
-                        "transformation", "w_546,h_546,c_fill,g_center",
                         "overwrite", true
                 )
         );

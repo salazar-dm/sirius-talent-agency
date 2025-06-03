@@ -25,6 +25,7 @@
 .ScrollNavigation__logo-link {
     color: #00342b;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .ScrollNavigation__link-wrapper svg {

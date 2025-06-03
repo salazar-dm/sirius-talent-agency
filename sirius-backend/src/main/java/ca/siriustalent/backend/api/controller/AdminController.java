@@ -1,9 +1,12 @@
 package ca.siriustalent.backend.api.controller;
 
+import ca.siriustalent.backend.api.model.AdminEmailBody;
 import ca.siriustalent.backend.api.model.LocalUserBody;
+import ca.siriustalent.backend.exception.EmailFailureException;
 import ca.siriustalent.backend.model.entities.LocalUser;
 import ca.siriustalent.backend.service.ProfileService;
 import ca.siriustalent.backend.service.UserService;
+import ca.siriustalent.backend.utils.EmailUtil;
 import ca.siriustalent.backend.utils.JwtUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,11 +28,13 @@ public class AdminController {
     private final UserService userService;
     private final ProfileService profileService;
     private final JwtUtil jwtUtil;
+    private final EmailUtil emailUtil;
 
-    public AdminController(UserService userService, JwtUtil jwtUtil, ProfileService profileService) {
+    public AdminController(UserService userService, JwtUtil jwtUtil, ProfileService profileService, EmailUtil emailUtil) {
         this.profileService = profileService;
         this.userService = userService;
         this.jwtUtil = jwtUtil;
+        this.emailUtil = emailUtil;
     }
 
     @GetMapping("/users")
@@ -109,6 +114,20 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to create user: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/users/email-to")
+    public ResponseEntity<?> sendCustomEmailToUser(@RequestBody AdminEmailBody adminEmailBody) {
+        try {
+            emailUtil.sendCustomEmail(
+                    adminEmailBody.getEmail(),
+                    adminEmailBody.getSubject(),
+                    adminEmailBody.getBody()
+            );
+            return ResponseEntity.status(HttpStatus.CREATED).body("Email sent successfully");
+        } catch (EmailFailureException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to send email: " + e.getMessage());
         }
     }
 }

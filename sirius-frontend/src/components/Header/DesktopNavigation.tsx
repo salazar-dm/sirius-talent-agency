@@ -7,6 +7,7 @@ import {SiriusTalentAccount} from "../../assets/SiriusTalentAccount.tsx";
 import {getUserRole} from "../../shared/getUserRole.tsx";
 import {NavigationItem} from "../../types/NavigationItem.tsx";
 import {SiriusTalentLogo} from "../../assets/SiriusTalentLogo.tsx";
+import {useNavigate} from "react-router-dom";
 
 interface DesktopNavigationProps {
     navigationMenu: NavigationItem[],
@@ -41,6 +42,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     });
     const [isAccordionOpen, setIsAccordionOpen] = React.useState(false);
     const [activeItemIndex, setActiveItemIndex] = React.useState<number | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setNavigationLink(getUserRole("/login"));
@@ -116,6 +118,8 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
         }));
     }
 
+
+
     return (
         <>
             <div className="DesktopNavigation__content-wrapper">
@@ -167,13 +171,14 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
                                 <div className="DesktopNavigation__list-item">
                                     <button
                                         className={`DesktopNavigation__account-button ${isAccordionOpen ? "DesktopNavigation__account-button--open" : ""}`}
-                                        onClick={() => window.location.href = navigationLink}>
+                                        onClick={() => navigate(navigationLink)}>
                                         <span className="DesktopNavigation__account-button-icon">
                                             <SiriusTalentAccount/>
                                         </span>
                                     </button>
                                 </div>
                             </li>
+
                         </ul>
                         <span className="DesktopNavigation__link-tracker"
                               style={{

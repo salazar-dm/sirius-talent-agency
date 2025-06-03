@@ -1,26 +1,25 @@
 package ca.siriustalent.backend.utils;
 
-import com.sendgrid.*;
-import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.Content;
-import com.sendgrid.helpers.mail.objects.Email;
 import ca.siriustalent.backend.exception.EmailFailureException;
 import ca.siriustalent.backend.model.entities.LocalUser;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
-import java.io.IOException;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 
 @Service
 public class EmailUtil {
 
-    @Value("${sendgrid.api.key}")
-    private String sendgridApiKey;
-
-    @Value("${sendgrid.sender.email}")
+    @Value("${spring.mail.username}")
     private String fromAddress;
 
     @Value("${app.frontend.url}")
@@ -30,29 +29,25 @@ public class EmailUtil {
     private String adminEmail;
 
     private final SpringTemplateEngine templateEngine;
+    private final JavaMailSender mailSender;
 
-    public EmailUtil(SpringTemplateEngine templateEngine) {
+    public EmailUtil(SpringTemplateEngine templateEngine, JavaMailSender mailSender) {
         this.templateEngine = templateEngine;
+        this.mailSender = mailSender;
     }
 
     private void sendEmail(String to, String subject, String htmlBody) throws EmailFailureException {
-        Email from = new Email(fromAddress, "Sirius Talent Agency");
-        Email toEmail = new Email(to);
-        Content content = new Content("text/html", htmlBody);
-        Mail mail = new Mail(from, subject, toEmail, content);
-
-        SendGrid sg = new SendGrid(sendgridApiKey);
-        Request request = new Request();
         try {
-            request.setMethod(Method.POST);
-            request.setEndpoint("mail/send");
-            request.setBody(mail.build());
-            Response response = sg.api(request);
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
-            if (response.getStatusCode() >= 400) {
-                throw new EmailFailureException("SendGrid error: " + response.getBody());
-            }
-        } catch (IOException e) {
+            helper.setFrom(fromAddress, "Sirius Talent Agency");
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(htmlBody, true);
+
+            mailSender.send(message);
+        } catch (MessagingException | UnsupportedEncodingException e) {
             throw new EmailFailureException("Could not send email to " + to);
         }
     }
@@ -78,6 +73,15 @@ public class EmailUtil {
                 "<a href=\"" + url + "/public/availability?token=" + token + "\">Check Availability</a>";
         sendEmail(email, "Availability Check: " + production + " on " + date, body);
     }
+
+    public void sendCustomEmail(String emailTo, String subject, String body) throws EmailFailureException {
+        String html = "<div style=\"font-family:Arial,sans-serif; font-size:16px; line-height:1.5;\">" +
+                "<p>" + body.replace("\n", "<br>") + "</p>" +
+                "<br><hr><p style=\"font-size:12px; color:#888;\">Sent via Sirius Admin Panel</p>" +
+                "</div>";
+        sendEmail(emailTo, subject, html);
+    }
+
 
     public void sendNotificationEmail(String email, String production, String date) throws EmailFailureException {
         String body = "Production <strong>" + production + "</strong> on <strong>" + date +
