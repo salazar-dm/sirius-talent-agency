@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "serve dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -39,6 +40,7 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^7.5.0",
     "react-slider": "^2.0.6",
+    "serve": "^14.2.4",
     "slate": "^0.112.0",
     "slate-react": "^0.112.0",
     "splitting": "^1.1.0",

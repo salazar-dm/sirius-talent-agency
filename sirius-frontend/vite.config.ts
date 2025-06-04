@@ -7,9 +7,8 @@ export default defineConfig({
 
   server: {
     port: 3000,
-    host: true // нужно для Render
+    host: true
   },
 
-  // для правильного генерации путей на проде
   base: '/',
 })
