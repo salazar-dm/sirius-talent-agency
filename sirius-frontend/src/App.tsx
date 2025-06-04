@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
+import {BrowserRouter, BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import Home from './pages/Home/Home.tsx';
 import Login from './pages/Login/Login.tsx';
@@ -89,7 +89,7 @@ const App: React.FC = () => {
         <LoadingProvider>
 
             <QueryClientProvider client={queryClient}>
-                <Router>
+                <BrowserRouter>
                     <Header isDesktop={isDesktop} />
                     <PageTitleHandler/>
 
@@ -143,7 +143,7 @@ const App: React.FC = () => {
                         </Elements>
                     </main>
                     <Footer />
-                </Router>
+                </BrowserRouter>
             </QueryClientProvider>
         </LoadingProvider>
     );
