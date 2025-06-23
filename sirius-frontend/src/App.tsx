@@ -48,6 +48,7 @@ import ProjectAll from "./pages/Project/ProjectAll.tsx";
 import {ProjectNewDays} from "./pages/Project/ProjectNewDays.tsx";
 import ProjectDay from "./pages/Project/ProjectDay.tsx";
 import {AdminProjects} from "./pages/AdminProjects.tsx";
+import {AdminCastingDirectors} from "./pages/AdminCastingDirectors.tsx";
 import {TokenJwtPayload} from "./components/LoginForm/LoginForm.tsx";
 import {adminNavigation} from "./templates/adminNavigation.ts";
 import {AdminNavigation} from "./components/AdminNavigation/AdminNavigation.tsx";
@@ -131,6 +132,7 @@ const App: React.FC = () => {
                                 <Route path="/admin/user-update/:id" element={<AdminUpdateUser />} />
                                 <Route path="/admin/user-create" element={<AdminUserCreate />} />
                                 <Route path="/admin/projects" element={<AdminProjects />} />
+                                <Route path="/admin/casting-directors" element={<AdminCastingDirectors />} />
                                 <Route path="/admin/user/email-to/:id" element={<AdminSendEmailToUser />} />
 
                                 <Route path="/project/create/:castingId" element={<ProjectCreate />} />
