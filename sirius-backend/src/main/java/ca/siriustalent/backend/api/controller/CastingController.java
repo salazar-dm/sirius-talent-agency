@@ -3,6 +3,7 @@ package ca.siriustalent.backend.api.controller;
 import ca.siriustalent.backend.api.model.ProjectBody;
 import ca.siriustalent.backend.model.entities.Project;
 import ca.siriustalent.backend.service.CastingService;
+import ca.siriustalent.backend.model.entities.Casting;
 import jakarta.validation.Valid;
 import ca.siriustalent.backend.api.model.ProductionDayBody;
 import ca.siriustalent.backend.model.entities.LocalUser;
@@ -60,6 +61,21 @@ public class CastingController {
     public ResponseEntity<List<LocalUser>> getAllPerformersByIds(@RequestParam List<String> ids) {
         List<LocalUser> performers = userService.getAllUsersByListIds(ids);
         return new ResponseEntity<>(performers, HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllCastingDirectors(@RequestHeader("Authorization") String jwtToken) {
+        try {
+            String token = jwtToken.replace("Bearer ", "");
+            if (!jwtUtil.extractRole(token).equals("Admin")) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Access denied");
+            }
+
+            List<Casting> castings = castingService.getAllCastingDirectors();
+            return ResponseEntity.ok(castings);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing token");
+        }
     }
 
 

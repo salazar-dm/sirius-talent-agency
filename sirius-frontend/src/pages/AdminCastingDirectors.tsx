@@ -1,3 +1,7 @@
-export const AdminCastingDirectors = () => {
+import CastingDirectorsAll from "./CastingDirectorsAll";
 
-}
+export const AdminCastingDirectors = () => {
+    return (
+        <CastingDirectorsAll/>
+    );
+};

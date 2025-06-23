@@ -46,4 +46,8 @@ public class CastingService {
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
+
+    public List<Casting> getAllCastingDirectors() {
+        return castingRepository.findAll();
+    }
 }
