@@ -8,6 +8,7 @@ import ca.siriustalent.backend.model.entities.Project;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -41,6 +42,33 @@ public class CastingService {
 
     public List<Project> getProjectsByCastingId(String castingId) {
         return projectRepository.findByCastingId(castingId).get();
+    }
+
+
+    public List<Casting> getAll() {
+        return castingRepository.findAll();
+    }
+
+    public Casting getById(String id) {
+        return castingRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Casting not found"));
+    }
+
+    public Casting create(Casting casting) {
+        return castingRepository.save(casting);
+    }
+
+    public Casting update(String id, Casting updatedCasting) {
+        Casting existing = getById(id);
+
+        existing.setEmail(updatedCasting.getEmail());
+        existing.setTel(updatedCasting.getTel());
+
+        return castingRepository.save(existing);
+    }
+
+    public void delete(String id) {
+        castingRepository.deleteById(id);
     }
 
     public List<Project> getAllProjects() {

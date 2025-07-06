@@ -1,6 +1,8 @@
 package ca.siriustalent.backend.api.controller;
 
+import ca.siriustalent.backend.api.model.CastingBody;
 import ca.siriustalent.backend.api.model.ProjectBody;
+import ca.siriustalent.backend.model.entities.Casting;
 import ca.siriustalent.backend.model.entities.Project;
 import ca.siriustalent.backend.service.CastingService;
 import jakarta.validation.Valid;
@@ -61,6 +63,22 @@ public class CastingController {
         List<LocalUser> performers = userService.getAllUsersByListIds(ids);
         return new ResponseEntity<>(performers, HttpStatus.OK);
     }
+
+    @GetMapping()
+    public ResponseEntity<List<Casting>> getAllCasting(@RequestHeader("Authorization") String token) {
+        String id = jwtUtil.extractSubject(token.substring(7));
+        List<Casting> castings = castingService.getAll();
+        return new ResponseEntity<>(castings, HttpStatus.OK);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Casting> createCasting(@RequestBody @Valid Casting body, @RequestHeader("Authorization") String token) {
+        Casting casting = castingService.create(body);
+        return new ResponseEntity<Casting>(casting, HttpStatus.CREATED);
+    }
+
+
+
 
 
     //TODO: remove legacy above

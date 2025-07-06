@@ -1,18 +1,19 @@
 import React, {useEffect, useRef, useState} from "react";
 import "./ProjectDayMenu.css";
 import "../../App.css";
-import {actionTemplates} from "../../templates/actionTemplates.ts";
-import {ProjectDayActionModal} from "../ProjectDayAction/ProjectDayActionModal.tsx";
 import {ProjectDayAction} from "../../types/ProjectDayActions.ts";
+import {columnsStyle} from "../../shared/columnsStyle.tsx";
 
 
-export const ProjectDayMenu: React.FC = () => {
+interface ProjectDayMenuProps {
+    setOpenAction: (action: ProjectDayAction | null) => void;
+}
+
+export const ProjectDayMenu: React.FC<ProjectDayMenuProps> = ({ setOpenAction }) => {
     const [projectDayNavigation, setProjectDayNavigation] = useState(projectDayNavigationDefault);
-    const [openAction, setOpenAction] = useState<ProjectDayAction | null>(null);
+    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const handleItemClick = (action: ProjectDayAction) => {
-        setOpenAction(action);
-    };
+    const handleItemClick = (action: ProjectDayAction) => setOpenAction(action);
 
     const toggleSection = (index: number) => {
         setProjectDayNavigation(prev =>
@@ -22,73 +23,47 @@ export const ProjectDayMenu: React.FC = () => {
         );
     };
 
-    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
     useEffect(() => {
         projectDayNavigation.forEach((section, index) => {
             const ref = sectionRefs.current[index];
-            if (ref) {
-                if (section.isOpen) {
-                    ref.style.height = `${ref.scrollHeight}px`;
-                } else {
-                    ref.style.height = "0px";
-                }
-            }
+            if (ref) ref.style.height = section.isOpen ? `${ref.scrollHeight}px` : "0px";
         });
     }, [projectDayNavigation]);
 
-
-
     return (
-        <>
-            {/* Menu */}
-            <div className="ProjectDayMenu__container">
-                {projectDayNavigation.map((section, index) => (
-                    <div key={index} className="ProjectDayMenu__section">
-                        <div
-                            className="ProjectDayMenu__item-title"
-                            onClick={() => toggleSection(index)}
-                        >
-                            {section.title}
+
+            <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 2, 6, 2, 6)}>
+                <div className="ProjectDayMenu__container">
+                    {projectDayNavigation.map((section, index) => (
+                        <div key={index} className="ProjectDayMenu__section">
+                            <div
+                                className="ProjectDayMenu__item-title"
+                                onClick={() => toggleSection(index)}
+                            >
+                                {section.title}
+                            </div>
+                            <div
+                                ref={el => sectionRefs.current[index] = el}
+                                className={`ProjectDayMenu__item-list ${section.isOpen ? "ProjectDayMenu__item-list--open" : ""}`}
+                                style={{ overflow: "hidden", transition: "height 0.4s ease", background: "white" }}
+                            >
+                                {section.items.map((item, itemIndex) => (
+                                    <div
+                                        key={itemIndex}
+                                        className="ProjectDayMenu__item"
+                                        onClick={() => handleItemClick(item.action)}
+                                    >
+                                        {item.label}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div
-                            ref={el => sectionRefs.current[index] = el}
-                            className={`ProjectDayMenu__item-list ${section.isOpen ? "ProjectDayMenu__item-list--open" : ""}`}
-                            style={{
-                                overflow: "hidden",
-                                transition: "height 0.4s ease",
-                                height: section.isOpen ? undefined : "0px",
-                                background: "white",
-                            }}
-                        >
-                            {section.items.map((item, itemIndex) => (
-                                <div
-                                    key={itemIndex}
-                                    className="ProjectDayMenu__item"
-                                    onClick={() => handleItemClick(item.action)}
-                                >
-                                    {item.label}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-
-            {/* Modal */}
-            {openAction && (
-                <ProjectDayActionModal
-                    title={actionTemplates[openAction].title}
-                    onClose={() => setOpenAction(null)}
-                >
-                    {React.createElement(actionTemplates[openAction].render)}
-                </ProjectDayActionModal>
-            )}
-
-        </>
     );
+};
 
-}
 
 interface ProjectDayMenuItem {
     label: string;

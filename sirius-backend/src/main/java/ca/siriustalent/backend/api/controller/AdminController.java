@@ -3,6 +3,7 @@ package ca.siriustalent.backend.api.controller;
 import ca.siriustalent.backend.api.model.AdminEmailBody;
 import ca.siriustalent.backend.api.model.LocalUserBody;
 import ca.siriustalent.backend.exception.EmailFailureException;
+import ca.siriustalent.backend.model.dao.filter.PerformerProfileFilter;
 import ca.siriustalent.backend.model.entities.LocalUser;
 import ca.siriustalent.backend.service.ProfileService;
 import ca.siriustalent.backend.service.UserService;
@@ -130,4 +131,24 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to send email: " + e.getMessage());
         }
     }
+
+    @GetMapping("/performers/filter")
+    public ResponseEntity<?> filterPerformers(
+            @RequestHeader("Authorization") String jwtToken,
+            @ModelAttribute PerformerProfileFilter filter
+    ) {
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or missing Authorization header.");
+        }
+
+        try {
+            jwtUtil.extractSubject(jwtToken.replace("Bearer ", ""));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token.");
+        }
+
+        List<LocalUser> matched = userService.filterPerformers(filter);
+        return ResponseEntity.ok(matched);
+    }
+
 }

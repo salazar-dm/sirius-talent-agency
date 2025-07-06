@@ -53,5 +53,16 @@ public class ProjectDayService {
         return projectDayRepository.findByProjectId(projectId);
     }
 
+    public ProjectDay getDayById(String id) {
+        return projectDayRepository.findById(id).orElse(null);
+    }
+
+    public ProjectDay updateDay(String projectId, String dayId, ProjectDay updatedDay) {
+        ProjectDay existing = getDayById(dayId);
+        updatedDay.setId(existing.getId());
+        updatedDay.setProjectId(projectId);
+        return projectDayRepository.save(updatedDay);
+    }
+
 }
 

@@ -1,0 +1,32 @@
+.SendAvailabilityCheckPerformerList__container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.SendAvailabilityCheckPerformerList__item {
+    background: #00342b;
+}
+
+.SendAvailabilityCheckPerformerList__button-container {
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.SendAvailabilityCheckPerformerList__container .Performer__row-details-container, .SendAvailabilityCheckPerformerList__container .Performer__button {
+    display: none;
+}
+
+.SendAvailabilityCheckPerformerList__container .PerformerProfileCard__container {
+    margin: 0;
+}
+
+.SendAvailabilityCheckPerformerList__remove-button .SecondaryButton__secondary-button {
+    width: 100%;
+    background: red;
+
+}

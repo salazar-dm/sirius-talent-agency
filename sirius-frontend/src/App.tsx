@@ -52,6 +52,11 @@ import {TokenJwtPayload} from "./components/LoginForm/LoginForm.tsx";
 import {adminNavigation} from "./templates/adminNavigation.ts";
 import {AdminNavigation} from "./components/AdminNavigation/AdminNavigation.tsx";
 import {AdminSendEmailToUser} from "./pages/AdminSendEmailToUser.tsx";
+import CastingDirectorsAll from "./pages/CastingDirectors/CastingDirectorsAll.tsx";
+import {CastingDirectorsCreate} from "./pages/CastingDirectors/CastingDirectorsCreate.tsx";
+import {RegistrationPaid} from "./pages/Registration/RegistrationPaid.tsx";
+import {RegistrationCancel} from "./pages/Registration/RegistrationCancel.tsx";
+import {ConfirmAvailabilityCheck} from "./pages/AvailabilityCheck/ConfirmAvailabilityCheck.tsx";
 
 const stripePromise = loadStripe("pk_test_51QIxe6IxjNMd7TsUlPkempTxyhiwUjYk87cSKNGs0QKjzEMzhhDYPLkfnyFhFIYE8HHBgmVrZaT0WGw22ptXApKa00u0XaCa1Z");
 
@@ -104,6 +109,8 @@ const App: React.FC = () => {
                                 <Route path="/registration" element={<Registration />} />
                                 <Route path="/contact" element={<ContactUs />} />
                                 <Route path="/about-us" element={<AboutUs />} />
+                                <Route path="/register/paid" element={<RegistrationPaid />} />
+                                <Route path="/register/cancel" element={<RegistrationCancel />} />
 
                                 <Route path="/performer" element={<Performer />} />
                                 <Route path="/performer/update-profile" element={<UpdateProfile />} />
@@ -132,11 +139,17 @@ const App: React.FC = () => {
                                 <Route path="/admin/user-create" element={<AdminUserCreate />} />
                                 <Route path="/admin/projects" element={<AdminProjects />} />
                                 <Route path="/admin/user/email-to/:id" element={<AdminSendEmailToUser />} />
+                                <Route path="/admin/casting-directors" element={<CastingDirectorsAll />} />
+                                <Route path="/admin/casting-directors/create" element={<CastingDirectorsCreate />} />
+                                <Route path="/admin/project/create/:castingId" element={<ProjectCreate />} />
 
                                 <Route path="/project/create/:castingId" element={<ProjectCreate />} />
                                 <Route path="/project/:id" element={<Project />} />
                                 <Route path="/project/all" element={<ProjectAll />} />
                                 <Route path="/project/:id/day/:dayId" element={<ProjectDay />} />
+                                <Route path="/project/:id/day/:dayId/send-availability-check" element={<Project />} />
+
+                                <Route path="/availability/confirm/:projectDayId/:roleName/:performerId" element={<ConfirmAvailabilityCheck/>}/>
 
                                 <Route path="/project/:id/new-days" element={<ProjectNewDays />} />
                             </Routes>

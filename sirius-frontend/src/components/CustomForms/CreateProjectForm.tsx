@@ -29,7 +29,9 @@ const CreateProjectForm: React.FC = () => {
                 }
             });
 
-            localStorage.setItem("token", response.data.token);
+            if (!localStorage.getItem("token")) {
+                localStorage.setItem("token", response.data.token);
+            }
 
             const createdProjectId = response.data.id;
             navigate(`/project/${createdProjectId}`);

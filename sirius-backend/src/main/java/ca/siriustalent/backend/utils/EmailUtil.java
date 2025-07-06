@@ -101,4 +101,14 @@ public class EmailUtil {
         String body = "Your submission has been approved. Thank you!";
         sendEmail(user.getEmail(), "Your submission has been approved", body);
     }
+
+    public void sendAvailabilityCheckEmail(String email, String subject, String text, String buttonLink) throws EmailFailureException {
+        Context context = new Context();
+        context.setVariable("text", text);
+        context.setVariable("buttonLink", buttonLink);
+        context.setVariable("buttonText", "Check Availability");
+
+        String html = templateEngine.process("availabilityCheckEmail", context);
+        sendEmail(email, subject, html);
+    }
 }

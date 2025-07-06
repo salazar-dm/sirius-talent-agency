@@ -44,5 +44,31 @@ public class ProjectDayController {
         }
     }
 
+    @GetMapping("/{projectId}/day/{dayId}")
+    public ResponseEntity<ProjectDay> getProjectDayById(
+            @PathVariable String projectId,
+            @PathVariable String dayId
+    ) {
+            ProjectDay day = projectDayService.getDayById(dayId);
+            return ResponseEntity.ok(day);
+    }
+
+    @PutMapping("/{projectId}/day/{dayId}")
+    public ResponseEntity<?> updateProjectDay(
+            @PathVariable String projectId,
+            @PathVariable String dayId,
+            @RequestBody ProjectDay updatedDay
+    ) {
+        try {
+            ProjectDay saved = projectDayService.updateDay(projectId, dayId, updatedDay);
+            return ResponseEntity.ok(saved);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Failed to update project day: " + e.getMessage());
+        }
+    }
+
+
+
 }
 

@@ -1,0 +1,16 @@
+.ProjectListNavigation__selector-container {
+    margin: 1rem 0;
+
+}
+
+.ProjectListNavigation__button-container {
+    margin: 1rem 0;
+    display: flex;
+    width: 100%;
+}
+
+.ProjectListNavigation__button-container .SecondaryButton__secondary-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

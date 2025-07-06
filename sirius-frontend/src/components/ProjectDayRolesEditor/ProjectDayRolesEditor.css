@@ -1,0 +1,14 @@
+.ProjectDayRolesEditor__container {
+    margin-bottom: 2rem;
+}
+
+.ProjectDayRolesEditor__role-list {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    margin: 1rem 0;
+}
+
+.ProjectDayRolesEditor__added-role-list {
+    margin: 1rem 0;
+}

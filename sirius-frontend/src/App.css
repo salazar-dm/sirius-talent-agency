@@ -36,6 +36,10 @@ main {
     }
 }
 
+.no-display {
+    display: none;
+}
+
 body.no-scroll {
     overflow: hidden;
 }

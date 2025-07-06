@@ -41,3 +41,7 @@
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
 }
+
+.Modal__button-container {
+    margin: 1rem 0;
+}

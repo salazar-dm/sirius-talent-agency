@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SiriusBackendApplication {
     public static void main(String[] args) {
-        // Загружаем переменные в System (Spring тянет оттуда)
         setEnv("MONGODB_URI");
         setEnv("ENCRYPTION_SALT_ROUNDS");
         setEnv("SESSION_COOKIE_NAME");
@@ -24,6 +23,7 @@ public class SiriusBackendApplication {
         setEnv("CLOUDINARY_API_KEY");
         setEnv("CLOUDINARY_API_SECRET");
         setEnv("EMAIL_PASSWORD");
+        setEnv("STRIPE_WEBHOOK_SECRET");
 
         SpringApplication.run(SiriusBackendApplication.class, args);
     }

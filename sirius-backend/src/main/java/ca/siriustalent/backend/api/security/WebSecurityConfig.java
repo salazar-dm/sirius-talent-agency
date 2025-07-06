@@ -35,10 +35,12 @@ public class WebSecurityConfig {
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
         http.authorizeRequests()
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/public/**").permitAll()
                 .requestMatchers("/api/performer/**").hasAnyRole("Performer", "Admin")
                 .requestMatchers("/api/admin/**").hasRole("Admin")
                 .requestMatchers("/api/casting/**").hasAnyRole("Casting", "Admin")
                 .requestMatchers("/api/project/**").permitAll()
+                .requestMatchers("/action/**").hasAnyRole("Casting", "Admin")
                 .anyRequest().authenticated();
 
         http.addFilterBefore(new JwtRequestFilter(jwtUtil, userService), UsernamePasswordAuthenticationFilter.class);
@@ -48,7 +50,8 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://www.siriustalent.ca", "http://localhost:3000", "https://sirius-talent-agency-frontend.onrender.com"));
+        configuration.setAllowedOriginPatterns(List.of("*"));
+        configuration.setAllowedOrigins(List.of("https://www.siriustalent.ca", "http://localhost:5173", "https://sirius-talent-agency-frontend.onrender.com"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

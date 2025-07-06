@@ -3,6 +3,7 @@ package ca.siriustalent.backend.service;
 import ca.siriustalent.backend.api.model.LocalUserBody;
 import ca.siriustalent.backend.api.model.LocalUserFilterBody;
 import ca.siriustalent.backend.exception.*;
+import ca.siriustalent.backend.model.dao.filter.PerformerProfileFilter;
 import ca.siriustalent.backend.model.dao.specification.LocalUserSpecifications;
 import ca.siriustalent.backend.model.entities.LocalUser;
 import ca.siriustalent.backend.model.dao.LocalUserRepository;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -222,4 +224,73 @@ public class UserService {
         }
     }
 
+    public List<LocalUser> filterPerformers(PerformerProfileFilter filter) {
+        List<LocalUser> all = localUserRepository.findAllByRoleAndUserActivated("Performer", true);
+
+        return all.stream()
+                .filter(user -> {
+                    PerformerProfile p = user.getProfile();
+                    if (p == null) return false;
+
+                    if (!matchIgnoreCase(p.getGender(), filter.getGender())) return false;
+                    if (!matchIgnoreCase(p.getUnionStatus(), filter.getUnionStatus())) return false;
+                    if (!matchIgnoreCase(p.getHairColor(), filter.getHairColor())) return false;
+                    if (!matchIgnoreCase(p.getEyeColor(), filter.getEyeColor())) return false;
+                    if (!matchIgnoreCase(p.getEthnicity(), filter.getEthnicity())) return false;
+                    if (!matchIgnoreCase(p.getSizeJacket(), filter.getSizeJacket())) return false;
+                    if (!matchIgnoreCase(p.getSizeDress(), filter.getSizeDress())) return false;
+                    if (!matchIgnoreCase(p.getSizeBustCup(), filter.getSizeBustCup())) return false;
+
+                    if (!matchBoolean(p.getLgbt(), filter.getLgbt())) return false;
+                    if (!matchBoolean(p.getBipoc(), filter.getBipoc())) return false;
+                    if (!matchBoolean(p.getTrans(), filter.getTrans())) return false;
+                    if (!matchBoolean(p.getVisibleTattoos(), filter.getVisibleTattoos())) return false;
+                    if (!matchBoolean(p.getSelfDrive(), filter.getSelfDrive())) return false;
+
+                    if (!matchRange(p.getSizeHeight(), filter.getSizeHeightMin(), filter.getSizeHeightMax()))
+                        return false;
+                    if (!matchRange(p.getSizeWeight(), filter.getSizeWeightMin(), filter.getSizeWeightMax()))
+                        return false;
+                    if (!matchRange(p.getSizeChest(), filter.getSizeChestMin(), filter.getSizeChestMax())) return false;
+                    if (!matchRange(p.getSizeWaist(), filter.getSizeWaistMin(), filter.getSizeWaistMax())) return false;
+                    if (!matchRange(p.getSizeHips(), filter.getSizeHipsMin(), filter.getSizeHipsMax())) return false;
+                    if (!matchRange(p.getSizeInseam(), filter.getSizeInseamMin(), filter.getSizeInseamMax()))
+                        return false;
+                    if (!matchRange(p.getSizeNeck(), filter.getSizeNeckMin(), filter.getSizeNeckMax())) return false;
+                    if (!matchRange(p.getSizeSleeve(), filter.getSizeSleeveMin(), filter.getSizeSleeveMax()))
+                        return false;
+                    if (!matchRange(p.getSizeHat(), filter.getSizeHatMin(), filter.getSizeHatMax())) return false;
+                    if (!matchRange(p.getSizeBustBand(), filter.getSizeBustBandMin(), filter.getSizeBustBandMax()))
+                        return false;
+                    if (!matchRange(p.getSizeShoe(), filter.getSizeShoeMin(), filter.getSizeShoeMax())) return false;
+
+                    return true;
+                })
+                .collect(Collectors.toList());
+    }
+
+    private boolean matchIgnoreCase(String value, String filterValue) {
+        return filterValue == null || (value != null && value.equalsIgnoreCase(filterValue));
+    }
+
+    private boolean matchBoolean(boolean actual, Boolean filter) {
+        return filter == null || actual == filter;
+    }
+
+    private boolean matchRange(int actual, Integer min, Integer max) {
+        if (min != null && actual < min) return false;
+        if (max != null && actual > max) return false;
+        return true;
+    }
+
+    private boolean matchRange(float actual, Float min, Float max) {
+        if (min != null && actual < min) return false;
+        if (max != null && actual > max) return false;
+        return true;
+    }
+
+
+
+
 }
+

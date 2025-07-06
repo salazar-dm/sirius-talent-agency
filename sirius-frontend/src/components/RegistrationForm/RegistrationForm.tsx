@@ -69,7 +69,7 @@ const RegistrationForm: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = async (event: React.FormEvent) => {
+    /*const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         setLoading(true);
 
@@ -110,9 +110,45 @@ const RegistrationForm: React.FC = () => {
         } finally {
             setLoading(false);
         }
+    };*/
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        setLoading(true);
+
+        try {
+            const body = {
+                email,
+                tel,
+                password,
+                role,
+            };
+
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/stripe/create-checkout-session`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            });
+
+            const data = await res.json();
+
+            if (data?.url) {
+                window.location.href = data.url;
+            } else {
+                throw new Error("No session URL returned");
+            }
+        } catch (error) {
+            console.error(error);
+            setError("Failed to create checkout session");
+        } finally {
+            setLoading(false);
+        }
     };
 
-        return (
+
+    return (
             <>
                 {isLicenseAgreementOpen && (
                     <CustomModal

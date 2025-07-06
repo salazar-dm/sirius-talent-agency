@@ -1,7 +1,13 @@
 package ca.siriustalent.backend.model.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class ProjectRole {
 
     private String name;
@@ -10,50 +16,10 @@ public class ProjectRole {
 
     private RoleFilters filters;
 
-    private List<String> availablePerformers;
+    private List<String> availablePerformers = new ArrayList<>();
 
-    private List<String> confirmedPerformers;
+    private List<String> confirmedPerformers = new ArrayList<>();
 
-    // --- Getters and Setters ---
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getQuota() {
-        return quota;
-    }
-
-    public void setQuota(int quota) {
-        this.quota = quota;
-    }
-
-    public RoleFilters getFilters() {
-        return filters;
-    }
-
-    public void setFilters(RoleFilters filters) {
-        this.filters = filters;
-    }
-
-    public List<String> getAvailablePerformers() {
-        return availablePerformers;
-    }
-
-    public void setAvailablePerformers(List<String> availablePerformers) {
-        this.availablePerformers = availablePerformers;
-    }
-
-    public List<String> getConfirmedPerformers() {
-        return confirmedPerformers;
-    }
-
-    public void setConfirmedPerformers(List<String> confirmedPerformers) {
-        this.confirmedPerformers = confirmedPerformers;
-    }
+    private List<String> forAvailabilityCheck = new ArrayList<>();
 }
 
