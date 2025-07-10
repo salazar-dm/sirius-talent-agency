@@ -25,9 +25,9 @@ export const AboutUs: React.FC = () => {
                         <div className="Grid_grid__item" style={columnsStyle(1, 9, 1, 9, 5, 13, 5, 13)}>
                             <RichText>
                                 <RichTextHeading2 text="A story shaped by real on-set experience" />
-                                <RichTextParagraph text="Sirius Talent Agency was founded by two people who never planned to start a talent agency - and that’s exactly why it turned out the way it should be." />
+                                <RichTextParagraph text="Sirius Talent Agency was founded by someone who never planned to start a talent agency - and that’s exactly why it turned out the way it should be." />
                                 <RichTextParagraph text="Alison is a chemist-geneticist by education who unexpectedly became a customs inspector and later spent three years working as a background actor. She earned her ACTRA status the hard way - through early call times, long shooting days, and learning everything on set." />
-                                <RichTextParagraph text="Igor is a former nuclear physicist who traded atoms for algorithms and now successfully works in IT. Also an ACTRA member, he experienced icy arenas, 17-hour shoot days, unpredictable weather, and just 2 hours of sleep per night. When Igor first stepped onto a set, he stayed there for a long time. His dream was to build a smart and easy-to-use booking system where everything runs smoothly and without paperwork." />
+
 
                                 <RichTextHeading2 text="A talent agency built for actors, by actors" />
                                 <RichTextParagraph text="That’s how Sirius Talent Agency was born - a mix of real-life experience and digital solutions. We decided to create the agency we ourselves needed at the beginning of our journey - smart, user-friendly, and genuinely caring about its actors." />
